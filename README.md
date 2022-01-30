@@ -6,5 +6,6 @@
 
 Check out my website [Every Guitar Chord](https://everyguitarchord.com/ 'Every Guitar Chord website') for quality blog posts and PDF files for download.
 
-
 Replace lower case `b` used with flats with the proper flat symbol `♭`; replace `#` with the proper sharp symbol `♯`.
+
+More notes on the project will be posted as I bild more of the functionality.
