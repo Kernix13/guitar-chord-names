@@ -5,3 +5,6 @@
 1. SVG chord shpe for the chord you entered is coming soon. With an account, you will be able to save your chords to your profile.
 
 Check out my website [Every Guitar Chord](https://everyguitarchord.com/ 'Every Guitar Chord website') for quality blog posts and PDF files for download.
+
+
+Replace lower case `b` used with flats with the proper flat symbol `♭`; replace `#` with the proper sharp symbol `♯`.
