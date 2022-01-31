@@ -8,4 +8,4 @@ Check out my website [Every Guitar Chord](https://everyguitarchord.com/ 'Every G
 
 Replace lower case `b` used with flats with the proper flat symbol `♭`; replace `#` with the proper sharp symbol `♯`.
 
-More notes on the project will be posted as I bild more of the functionality.
+More notes on the project will be posted as I build more of the functionality.

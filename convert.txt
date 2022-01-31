@@ -1,0 +1,139 @@
+Group 1:
+C maj	C	E	G			
+C add9	C	E	G	D		
+C add#11	C	E	G	F#		
+C add9/11	C	E	G	D	F	
+C add9/#11	C	E	G	D	F#	
+
+Group 2:
+Cm-maj7	C	Eb	G	B		
+Cm-maj7 (N5)	C	Eb		B		
+Cm9-maj7	C	Eb	G	B	D	
+Cm-maj7b5	C	Eb	Gb	B		
+C6	C	E	G	A		
+Cmaj7	C	E	G	B		
+Cmaj9	C	E	G	B	D	
+Cmaj13	C	E	G	B	A	
+Cmaj9/13	C	E	G	B	D	A
+Cmaj7#11	C	E	G	B	F#	
+Cmaj9#11	C	E	G	B	D	F#
+Cmaj13#11	C	E	G	B	A	F#
+C7	C	E	G	Bb		
+C9	C	E	G	Bb	D	
+C11	C	E	G	Bb	F	
+C13	C	E	G	Bb	A	
+C9/11	C	E	G	Bb	D	F
+C9/13	C	E	G	Bb	D	A
+C11/13	C	E	G	Bb	F	A
+C7b9	C	E	G	Bb	Db	
+C7b9#11	C	E	G	Bb	Db	F#
+C7b9b13	C	E	G	Bb	Db	Ab
+C11b9	C	E	G	Bb	F	Db
+C13b9	C	E	G	Bb	A	Db
+C7b13	C	E	G	Bb	Ab	
+C7#9	C	E	G	Bb	D#	
+C7b9/#9	C	E	G	Bb	Db	D#
+C7#9#11	C	E	G	Bb	D#	F#
+C7#9b13	C	E	G	Bb	D#	Ab
+C13#9	C	E	G	Bb	A	D#
+C7#11	C	E	G	Bb	F#	
+C9#11	C	E	G	Bb	F#	D
+C13#11	C	E	G	Bb	F#	A
+Cm	C	Eb	G			
+Cm6	C	Eb	G	A		
+Cm7	C	Eb	G	Bb		
+Cm9	C	Eb	G	Bb	D	
+Cm11	C	Eb	G	Bb	F	
+Cm13	C	Eb	G	Bb	A	
+Csus	C	F	G			
+Csus2	C	D	G			
+C6sus	C	F	G	A		
+C7sus2	C	D	G	Bb		
+C7sus	C	F	G	Bb		
+C9sus	C	F	G	Bb	D	
+C13sus	C	F	G	Bb	A	
+Cdim	C	Eb	Gb			
+Cdim7	C	Eb	Gb	A		
+Cm7b5	C	Eb	Gb	Bb		
+Cm9b5	C	Eb	Gb	Bb	D	
+Cm11b5	C	Eb	Gb	Bb	F	
+C+	C	E	G#			
+C7#5	C	E	G#	Bb		
+C7#5b9	C	E	G#	Bb	Db	
+C9#5	C	E	G#	Bb	D	
+C7#5#9	C	E	G#	Bb	D#	
+C7#5b9/#9	C	E	G#	Bb	Db	D#
+Cmaj7#5	C	E	G#	B		
+C7b5	C	E	Gb	Bb		
+C7b5b9	C	E	Gb	Bb	Db	
+C7b5#9	C	E	Gb	Bb	D#	
+C7b5b9/#9	C	E	Gb	Bb	Db	D#
+C7b5b13	C	E	Gb	Bb	Ab	
+C9b5	C	E	Gb	Bb	D	
+C9b5b13	C	E	Gb	Bb	D	Ab
+C13b5	C	E	Gb	Bb	A	
+C13b5b9	C	E	Gb	Bb	A	Db
+C13b5#9	C	E	Gb	Bb	A	D#
+Cmaj7b5	C	E	Gb	B		
+
+Group 3:
+C6 add9	C	E	G	A	D	
+C6add9 (N5)	C	E		A	D	
+C6 add9/11	C	E	G	A	D	F
+C6 add9/#11	C	E	G	A	D	F#
+Cmaj7 (N5)	C	E		B		
+Cmaj9 (N5)	C	E		B	D	
+Cmaj13 (NR)		E	G	B	A	
+Cmaj9/13 (N5)	C	E		B	D	A
+Cmaj13#11 (NR)		E	G	B	A	F#
+C7 (N5)	C	E		Bb		
+C9 (N5)	C	E		Bb	D	
+C11 (NR)		E	G	Bb	F	
+C11 (N5)	C	E		Bb	F	
+C13 (NR)		E	G	Bb	A	
+C13 (N3)	C		G	Bb	A	
+C13 (N5)	C	E		Bb	A	
+C9/11 (N5)	C	E		Bb	D	F
+C9/13 (N5)	C	E		Bb	D	A
+C11/13 (NR)		E	G	Bb	F	A
+C11/13 (N5)	C	E		Bb	F	A
+C7b9 (N5)	C	E		Bb	Db	
+C7b9b13 (NR)		E	G	Bb	Db	Ab
+C7b9b13 (N3)	C		G	Bb	Db	Ab
+C11b9 (NR)		E	G	Bb	F	Db
+C11b9 (N5)	C	E		Bb	F	Db
+C13b9 (N5)	C	E		Bb	A	Db
+C13b9 (NR/N5)		E		Bb	A	Db
+C7#9 (NR)		E	G	Bb	D#	
+C7#9 (N5)	C	E		Bb	D#	
+C7#9#11 (NR)		E	G	Bb	D#	F#
+C7#9b13 (NR)		E	G	Bb	D#	Ab
+C13#9 (NR)		E	G	Bb	A	D#
+C13#9 (N5)	C	E		Bb	A	D#
+C13#9 (NR/N5)		E		Bb	A	D#
+C9#11 (NR)		E	G	Bb	F#	D
+C9#11 (N3)	C		G	Bb	F#	D
+C13#11 (NR)		E	G	Bb	F#	A
+C13#11 (N3)	C		G	Bb	F#	A
+Cm add9	C	Eb	G	D		
+Cm add11	C	Eb	G	F		
+Cm6 add9	C	Eb	G	A	D	
+Cm6 add9 (NR)		Eb	G	A	D	
+Cm9 (N5)	C	Eb		Bb	D	
+Cmi13 (N5)	C	Eb		Bb	A	
+Csus add9	C	F	G	D		
+C6sus add9	C	F	G	A	D	
+C7sus b9	C	F	G	Bb	Db	
+C13sus b9	C	F	G	Bb	A	Db
+Cmaj7 sus	C	F	G	B		
+Cmaj13 sus	C	F	G	B	A	
+C7#5b9 (N3)	C		G#	Bb	Db	
+C7#5#9 (NR)		E	G#	Bb	D#	
+Cmaj b5	C	E	Gb			
+C7b5b9 (N3)	C		Gb	Bb	Db	
+C7b5#9 (NR)		E	Gb	Bb	D#	
+C7b5b13 (NR)		E	Gb	Bb	Ab	
+C13b5 (NR)		E	Gb	Bb	A	
+C13b5 N3	C		Gb	Bb	A	
+C13b5b9 (N3)	C		Gb	Bb	A	Db
+C13b5#9 (NR)		E	Gb	Bb	A	D#
