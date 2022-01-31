@@ -17,7 +17,7 @@ const stringHiE = ["E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "C", "C♯",
 // THE FORM
 const notesForm = document.getElementById('notes-form');
 
-/* NOT USING THE NEXT 5 VARIABLES AT THIS TIME   (Other than sevenths as a console.log) */
+/* NOT USING THE NEXT 5 VARIABLES AT THIS TIME */
 // Standard tuning open string note values (need to incorporate alternate tunings later)
 const standardTuning = ["E", "A", "D", "G", "B", "E"];
 
@@ -69,18 +69,15 @@ function getNotes() {
 // Why can't I get the return values from getNotes()?
 function testingReturn() {
 
-  // console.log(getNotes());
+  console.log(getNotes());
+
+  // The log below gives me an error:
   // console.log(uniqueNotes[0]);
 
   let someNote = getNotes();
   // Only getting the note values for the values in the HTML
   console.log(someNote[1]);
-
-  console.log(sevenths.diminished7);
 }
 testingReturn();
-
-    // search: javascript how to empty an array before pushing to it
-    // userFrets = [];
 
 // If I want to use the notes to build a chord shape, then I will need to return chordTones but I can't do that here - another function inside the event listener?
