@@ -13,9 +13,9 @@ Check out my website [Every Guitar Chord](https://everyguitarchord.com/ 'Every G
 - [x] 3. Add chord tones onto the page
 - [x] 4. Create a 12-note array for each chord tone
 - [ ] 5. Determine intervals for each note compared to the other notes
-- [ ] 6. Calculate chord name and add to page (Dependent on #5)
-- [ ] 7. Output names of other chord names with the same notes (Dependent on #6)
-- [ ] 8. Output scale()s & scale degrees that build that chord (Dependent on #6)
+- [ ] 6. Calculate chord name and add to page (dependent on #5)
+- [ ] 7. Output names of other chord names with the same notes (dependent on #6)
+- [ ] 8. Output scale(s) & scale degrees that build that chord (dependent on #6)
 
 ## Miscellaneous Notes
 
