@@ -46,3 +46,31 @@ input[type='number'] {
   padding: 1em 0.5em;
 }
 
+// .chord-info {
+//   margin: 0 auto;
+//   text-align: center;
+// }
+
+.chord-details {
+  // margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  padding: 0;
+  margin: 0.5em 0;
+}
+
+ul {
+  // list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul > ul {
+  margin-left: 1.5em;
+}
