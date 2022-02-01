@@ -34,15 +34,16 @@ notesForm.addEventListener("submit", function(e) {
 // Need the JSON starting on step #4
 
 /* 
-1. Get the fret #'s entered by the user and convert into chromatic notes (DONE)
-2. Add chord tones onto the page, (DONE)
-3. create a 12-note array for each chord tone, (DONE)
-4. determine intervals for each note compared to the other notes, 
+1. Get the fret #'s entered by the user (DONE)
+2. Convert the fret #'s into chromatic notes (DONE)
+3. Add chord tones onto the page, (DONE)
+4. Create a 12-note array for each chord tone (DONE)
+5. Determine intervals for each note compared to the other notes, 
   - I think this can only be done with a forEach loop, because for all array items after the 1st one I need to look at the previous notes to get that as an interval for the current item, e.g.: note 1 has to be converted into an interval in relation to note 2, notes 1 & 2 need to be converted into intervals in relation to note 3, repeat up to note 6
   - I may need the JSON files starting here or for the last 3 steps
-5. Calculate chord name and add to page, (Dependent on #4)
-6. Output names of other chord names with the same notes, and (Dependent on #5)
-7. Output scales, & scale degrees,  that build that chord (Dependent on #5)
+6. Calculate chord name and add to page (Dependent on #5)
+7. Output names of other chord names with the same notes, and (Dependent on #6)
+8. Output scale()s & scale degrees that build that chord (Dependent on #6)
 */
 
 function getNotes() {
@@ -52,7 +53,7 @@ function getNotes() {
   // Is the conditional here correct?
   if ([...userFrets]) {
     
-    // 1. ...convert fret #'s into chromatic notes. This will have to move down the list because I need to get the chord name 1st in the event there are #'s or b's
+    // 2. ...convert fret #'s into chromatic notes. This will have to move down the list because I need to get the chord name 1st in the event there are #'s or b's
     chordTones.push(stringLoE[userFrets[0]], stringA[userFrets[1]], stringD[userFrets[2]], stringG[userFrets[3]], stringB[userFrets[4]], stringHiE[userFrets[5]]);
 
     let uniqueNotes = [];
@@ -62,17 +63,17 @@ function getNotes() {
       if (!uniqueNotes.includes(chordTones[i]) && chordTones[i] !== undefined) {
       uniqueNotes.push(chordTones[i]);
       
-      // 2. Add chord tones onto the page
+      // 3. Add chord tones onto the page
       let noteOutput = `<span class="notes">${uniqueNotes[i]}</span>`;
       const chordOutput = document.getElementById('chord-output').innerHTML += noteOutput;
 
-      // 3. Create a 12-note array for each chord tone
+      // 4. Create a 12-note array for each chord tone
       let justNotes = uniqueNotes[i];
       let position = chromaticSharps.indexOf(uniqueNotes[i]);
       let noteAsRoot = chromaticSharps.slice(position, position + 12)
       console.log(`Notes starting at ${justNotes}: ` + noteAsRoot);
       
-      // 4. determine intervals for each note compared to the other notes using noteAsRoot
+      // 5. determine intervals for each note compared to the other notes using noteAsRoot
       // noteAsRoot.forEach()
 
       // 5. Calculate chord name

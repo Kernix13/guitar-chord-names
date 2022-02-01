@@ -6,6 +6,18 @@
 
 Check out my website [Every Guitar Chord](https://everyguitarchord.com/ 'Every Guitar Chord website') for quality blog posts and PDF files for download.
 
+## To Do Items
+
+Primary:
+[x] 1. Get the fret #'s entered by the user
+[x] 2. Convert the fret #'s into chromatic notes
+[x] 3. Add chord tones onto the page
+[x] 4. Create a 12-note array for each chord tone
+[] 5. Determine intervals for each note compared to the other notes
+[] 6. Calculate chord name and add to page (Dependent on #5)
+[] 7. Output names of other chord names with the same notes (Dependent on #6)
+[] 8. Output scale()s & scale degrees that build that chord (Dependent on #6)
+
 ## Miscellaneous Notes
 
 I have a spreadsheet the creates the chord names and includes the notes for 136 chord names. I am using `convert.txt` as a worksheet to convert the values from my spreadsheet to JSON. 
