@@ -74,6 +74,12 @@ To wrap the note values in double quotes followed by a comma, use:
 
 However, trying that added an extra space between the notes: (`"A",  `). IT'S THE SPREADSHEET CELLS.
 
+## Contributions
+
+**Contribution #1**: I have 3 different **Regular Expressions** to convert the chord names into JSON key-value pairs. I should only have 1 RegEx for that. I haven't figured out the RegEx for converting the Chord note values in the value pairs WITHOUT matching parts of the chord name.
+
+**Contribution #2**: ...
+
 - - - 
 
 ## Proper JSON Format
@@ -100,7 +106,3 @@ Notes on data types:
 1. **Null** values are represented by the null literal in lower case
 1. **Dates**, and similar object types, aren't adequately supported and should be converted to strings
 1. **Special characters** in a string need to be escaped using the backslash character `\`
-
-## Contributions
-
-**Contribution #1**: I have 3 different **Regular Expressions** to convert the chord names into JSON key-value pairs. I should only have 1 RegEx for that. I haven't figured out the RegEx for converting the Chord note values in the value pairs WITHOUT matching parts of the chord name.
