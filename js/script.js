@@ -76,11 +76,11 @@ function getNotes() {
       // 5. determine intervals for each note compared to the other notes using noteAsRoot
       // noteAsRoot.forEach()
 
-      // 5. Calculate chord name
+      // 6. Calculate chord name
 
-      // 6. Output name(s) of "equal" chords
+      // 7. Output name(s) of "equal" chords
 
-      // 7. Output scale(s) that build the chord
+      // 8. Output scale(s) that build the chord
 
       }
     }
