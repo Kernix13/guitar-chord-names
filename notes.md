@@ -1,18 +1,26 @@
 # Miscellaneous RegEx and JSON notes
 
-Using `convert.txt` as a worksheet to convert the values from my spreadsheet to JSON. Right now that I have 3 different **Regular Expressions** to convert the chord names into JSON keys. Haven't figured out the RegEx for converting the Chord note values in the value pairs.
+I have a spreadsheet the creates the chord names and includes the notes for 136 chord names. I am using `convert.txt` as a worksheet to convert the values from my spreadsheet to JSON. 
 
-I shouldn't be using the actual values.. I should be able to caluclate the chord name from the notes entered. Will I be able to use my GitHub repo as an API source? Can the https address for the JSON file(s) be used to fetch the data?
+**Contribution 1**: I have 3 different **Regular Expressions** to convert the chord names into JSON key-value pairs. I should hobly have 1 RegEx for that. I haven't figured out the RegEx for converting the Chord note values in the value pairs WITHOUT matching parts of the chord name.
 
-Do I add related scales and/or equal chords in `chord-intervals.json`? Probably.
+I shouldn't be using the actual chord names and notes. I should be able to caluclate the chord name from the notes entered: 
 
-I need to replace the flat symbol from the spreadsheet `b` to `♭` and the sharp `#` to `♯`
+**Question 1**: Will I be able to use my GitHub repo as an API source? Can the https address for the JSON file(s) be used to fetch the data?
+
+**Question 2**: Do I add related scales and/or "equal" chords in `chord-intervals.json`? Yes, eventually.
+
+## RegEx
+
+I need to replace the flat symbol from the spreadsheet `b` to `♭` and the sharp `#` to `♯`.
 
 To remove tabs from pasting from spreadsheet:
 ```
 \t
 ```
-(Is `re` the abbreviation for RegEx?) To replace the chords with the chords wrapped in double quotes and followed by a colon use:
+**Question**: Is `re` the abbreviation for RegEx? 
+
+To replace the chord names with the names wrapped in double quotes and followed by a colon use:
 
 Group 1:
 ```re
@@ -32,7 +40,7 @@ Group 3:
 "$1":
 ```
 
-To wrap the row of notes wrapped in quotes in an array and closing `},`:
+To wrap the row of notes in square brackets and an ending `},` AND the notes wrapped in quotes:
 ```js 
 // not working
 ```
@@ -45,9 +53,10 @@ To wrap the note values in double quotes followed by a comma, use:
 // or: 
 ([a-g#]{1,2})
 "$1", 
+// these don't work either
 ```
 
-**WRONG, 1st one SPLIT F# into F AND #** Check out:
+**1st one SPLIT F# into F AND #**. Check out:
 - https://www.regular-expressions.info/lookaround.html
 - https://stackoverflow.com/questions/31201690/find-word-not-followed-by-a-certain-character 
 - **https://javascript.info/regexp-lookahead-lookbehind**
@@ -57,7 +66,7 @@ To wrap the note values in double quotes followed by a comma, use:
 1. Need to first use RegEx to remove TABs
 2. Then maybe remove any chord with an augmented 9th, 11th or 5th in the name.
 
-However, trying that added an extra space between the notes: (`"A",  `). IT'S THE SPREADSHEET CELLS
+However, trying that added an extra space between the notes: (`"A",  `). IT'S THE SPREADSHEET CELLS.
 
 ## Proper JSON Format
 
@@ -85,7 +94,7 @@ Notes on data types:
 1. **Special characters** in a string need to be escaped using the backslash character `\`
 
 - - - 
-s
+
 *Change github user name (personal notes, ignore)*: 
 - https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username
 - https://www.freecodecamp.org/news/a-quick-guide-to-changing-your-github-username/ or https://www.studytonight.com/post/how-to-change-your-github-username

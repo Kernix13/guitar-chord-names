@@ -1,12 +1,17 @@
 [{
+	"root": {
+		"symbol1": "1",
+		"symbol2": "R",
+		"distance": 0
+	},
 	"minor 2nd": {
 		"symbol1": "♭9",
-		"symbol2": "",
+		"symbol2": "♭2",
 		"distance": 1
 	},
 	"major 2nd": {
-		"symbol1": "2",
-		"symbol2": "9",
+		"symbol1": "9",
+		"symbol2": "2",
 		"distance": 2
 	},
 	"augmented 2nd": {
@@ -25,8 +30,8 @@
 		"distance": 4
 	},
 	"perfect 4th": {
-		"symbol1": "4",
-		"symbol2": "11",
+		"symbol1": "11",
+		"symbol2": "4",
 		"distance": 5
 	},
 	"augmented 4th": {
@@ -50,8 +55,8 @@
 		"distance": 8
 	},
 	"minor 6th": {
-		"symbol1": "♭6",
-		"symbol2": "♭13",
+		"symbol1": "♭13",
+		"symbol2": "♭6",
 		"distance": 8
 	},
 	"major 6th": {
@@ -60,17 +65,17 @@
 		"distance": 9
 	},
 	"diminished 7th": {
-		"symbol1": "♭♭7",
-		"symbol2": "",
+		"symbol1": "dim7",
+		"symbol2": "♭♭7",
 		"distance": 9
 	},
 	"minor 7th": {
-		"symbol1": "♭7",
-		"symbol2": "",
+		"symbol1": "7",
+		"symbol2": "♭7",
 		"distance": 10
 	},
 	"major 7th": {
-		"symbol1": "7",
+		"symbol1": "maj7",
 		"symbol2": "M7",
 		"distance": 11
 	},
