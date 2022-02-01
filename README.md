@@ -30,17 +30,15 @@ Replace lower case `b` used with flats with the proper flat symbol `♭`; replac
 
 I shouldn't be using the actual chord names and notes. I should be able to caluclate the chord name from the notes entered: 
 
-**Question 1**: Will I be able to use my GitHub repo as an API source? Can the https address for the JSON file(s) be used to fetch the data?
+**Question #1**: Will I be able to use my GitHub repo as an API source? Can the https address for the JSON file(s) be used to fetch the data?
 
-**Question 2**: Do I add related scales and/or "equal" chords in `chord-intervals.json`? Yes, eventually.
-
-## Miscellaneous RegEx notes
+## RegEx notes
 
 To remove tabs from pasting from spreadsheet:
 ```
 \t
 ```
-**Question**: Is `re` the abbreviation for RegEx? 
+**Question #2**: Is `re` the abbreviation for RegEx used in markdown code blocks? 
 
 To replace the chord names with the names wrapped in double quotes and followed by a colon use:
 
@@ -85,14 +83,11 @@ To wrap the note values in double quotes followed by a comma, use:
 - https://forum.freecodecamp.org/t/trouble-with-positive-and-negative-lookahead-regex-challenge/458686 
 - https://www.stefanjudis.com/today-i-learned/the-complicated-syntax-of-lookaheads-in-javascript-regular-expressions/ 
 
-1. Need to first use RegEx to remove TABs
-2. Then maybe remove any chord with an augmented 9th, 11th or 5th in the name.
-
-However, trying that added an extra space between the notes: (`"A",  `). IT'S THE SPREADSHEET CELLS.
-
 ## Contributions
 
-**Contribution #1**: I have 3 different **Regular Expressions** to convert the chord names into JSON key-value pairs. I should only have 1 RegEx for that. I haven't figured out the RegEx for converting the Chord note values in the value pairs WITHOUT matching parts of the chord name.
+**Contribution #1**: I have 3 different **Regular Expressions** to convert the chord names into JSON key-value pairs. I should only have 1 RegEx for that.
+
+**Contribution #2**: I haven't figured out the RegEx for converting the Chord note values in the value pairs WITHOUT matching parts of the chord name.
 
 **Contribution #2**: ...
 
@@ -105,20 +100,20 @@ JSON Basics:
 1. Data is separated by commas
 1. Objects are encapsulated within the opening and closing curly brackets
 1. Arrays are encapsulated within opening and closing square brackets
-1. An empty object can be represented by {}
-1. An empty array can be represented by []
+1. An empty object can be represented by {...}
+1. An empty array can be represented by [...]
 
 Specifics:
 1. Entries are represented by key-value pairs, contained in double quotes
 1. **Each entry should have a unique key within an object structure**
-1. The value of a entry must be contained in double quotes, if it's a string
+1. The value of a entry must be contained in double quotes if it's a string
 1. Each entry of an object or array value must be followed by a comma, except for the last one
 1. The standard extension for the JSON file is '.json'
 1. The mime type for JSON files is 'application/json'
 
 Notes on data types:
-1. **Boolean** values are represented using the true or false literals in lower case
+1. **Boolean** values are represented using the `true` or `false` literals in lower case
 1. **Number** values are represented using double-precision floating-point format and shouldn't have leading zeroes
-1. **Null** values are represented by the null literal in lower case
+1. **Null** values are represented by the `null` literal in lower case
 1. **Dates**, and similar object types, aren't adequately supported and should be converted to strings
 1. **Special characters** in a string need to be escaped using the backslash character `\`
