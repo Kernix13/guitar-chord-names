@@ -15,11 +15,13 @@ App related:
 - [x] 4. Create a 12-note array for each chord tone
 - [ ] 5. Determine intervals for each note compared to the other notes
 - [ ] 6. Calculate chord name and add to page (dependent on #5)
-- [ ] 7. Output name(s) of other chord names with the same notes (dependent on #6)
-- [ ] 8. Output scale(s) & scale degrees that build that chord (dependent on #6)
+- [ ] 7. Add the chord notes in "proper" order
+- [ ] 8. Add the chord intervals in "proper" order
+- [ ] 9. Output name(s) of other chord names with the same notes (dependent on #6)
+- [ ] 10. Output scale(s) & scale degrees that build that chord (dependent on #6)
 
 Problems:
-- [ ] When clicking `Submit` more than once, the notes from a previous submit remain on the page. How do I clear out those notes? The `innerHTML` for that is currently on line 68 of `script.js`, search for `chordOutput`.
+- [ ] When clicking `Submit` more than once, the notes from a previous submit remain on the page. How do I clear out those notes? The `innerHTML` for that is currently on line 71 of `script.js`, search for `chordOutput`.
 - [ ] I need a more effiecient RegEx (see `Regex` section below)
 
 ## Miscellaneous Notes
