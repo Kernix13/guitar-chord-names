@@ -26,6 +26,7 @@ let chordTones = [];
 
 notesForm.addEventListener("submit", function(e) {
   getNotes();
+  getJson();
   e.preventDefault();
   // Repeated clicks of the Submit button duplicates the page output. How do I clear the previous chord notes for successive clicks?
 });
@@ -63,18 +64,23 @@ function getNotes() {
       if (!uniqueNotes.includes(chordTones[i]) && chordTones[i] !== undefined) {
       uniqueNotes.push(chordTones[i]);
       
+      // console.log("Unique Notes: " + uniqueNotes);
+
       // 3. Add chord tones onto the page
       let noteOutput = `<span class="notes">${uniqueNotes[i]}</span>`;
       const chordOutput = document.getElementById('chord-output').innerHTML += noteOutput;
-
+        
       // 4. Create a 12-note array for each chord tone
       let justNotes = uniqueNotes[i];
+
       let position = chromaticSharps.indexOf(uniqueNotes[i]);
       let noteAsRoot = chromaticSharps.slice(position, position + 12)
-      console.log(`Notes starting at ${justNotes}: ` + noteAsRoot);
+      // console.log(noteAsRoot);
+      // console.log(`Notes starting at ${justNotes}: ` + noteAsRoot.indexOf(justNotes));
       
-      // 5. determine intervals for each note compared to the other notes using noteAsRoot
-      // noteAsRoot.forEach()
+      // 5. For each note, find the interval for the other notes using noteAsRoot
+      // This only returns 1 interval for the first iteration, 2 for the 2nd, etc. Let me try a nested for loop.
+      uniqueNotes.forEach(note => console.log(`Notes starting at ${justNotes}: ` + noteAsRoot.indexOf(note)));
 
       // 6. Calculate chord name
 
@@ -89,7 +95,20 @@ function getNotes() {
   }
 }
 
-
+// get local json file
+function getJson() {
+  fetch('./js/interval-distance.json')
+    .then(res => res.json())
+    .then(data =>  {
+      let output = '';
+      data.forEach(function(interval) {
+        output += `<li>${interval.distance}</li>`;
+        // output += `<li>${interval.symbol[0]}</li>`;
+      });
+      document.getElementById('output').innerHTML = output;
+    })
+    .catch(err => console.log(err));
+}
 
 /* NOT USING THE NEXT 3 VARIABLES AT THIS TIME */
 // Only Standard tuning open string note values for now

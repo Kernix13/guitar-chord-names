@@ -13,22 +13,12 @@
       <form id="notes-form">
         <fieldset>
           <legend>Enter fret numbers for your chord</legend>
-          <!-- 
-          <label>6: <input id="note1" type="number" min="0" step="1" max="15" /></label>
-          <label>5: <input id="note2" type="number" min="0" step="1" max="15" /></label>
-          <label>4: <input id="note3" type="number" min="0" step="1" max="15" /></label>
-          <label>3: <input id="note4" type="number" min="0" step="1" max="15" /></label>
-          <label>2: <input id="note5" type="number" min="0" step="1" max="15" /></label>
-          <label>1: <input id="note6" type="number" min="0" step="1" max="15" /></label>
-          -->
-
           <label>6: <input id="note1" type="number" min="0" step="1" max="15" value="0" /></label>
           <label>5: <input id="note2" type="number" min="0" step="1" max="15" value="0" /></label>
           <label>4: <input id="note3" type="number" min="0" step="1" max="15" value="0" /></label>
           <label>3: <input id="note4" type="number" min="0" step="1" max="15" value="0" /></label>
           <label>2: <input id="note5" type="number" min="0" step="1" max="15" value="0" /></label>
           <label>1: <input id="note6" type="number" min="0" step="1" max="15" value="0" /></label> 
-
         </fieldset>
         <div>
           <input id="user-chord" type="submit" value="Submit" />
@@ -41,42 +31,52 @@
     <section class="chord-info">
       <!-- HARD-CODING THESE VALUES FOR NOW -->
       <div class="chord-details">
-        <p class="chord-name">Chord Name: <span class="user-chord-name">Em11</span></p>
+        <p class="chord-name">Chord Name: <span class="user-chord-name">Em11 (E-G-B-D-A)</span></p>
         <p>Chords with the same notes:</p>
         <ul class="equal-chords">
           
           <li>A9sus</li>
           <li>G6 add9</li>
         </ul>
-        <p>Scales that built that chord:</p>
+        <p>Scales that built a <span class="chord-root">m11</span> chord:</p>
         <ul class="chord-scales">
-          <li>Major scale, degree(s):</li>
-          <ul class="scale-degrees">
-            <li>2nd, 3rd, 6th</li>
-          </ul>
-          <li>Minor pentatonic and Blues scale, degree(s):</li>
-          <ul class="scale-degrees">
-            <li>1st</li>
-          </ul>
-          <li>Major pentatonic and Country Blues scale, degree(s):</li>
-          <ul class="scale-degrees">
-            <li>5th for pentatonic, 6th for Country Blues</li>
-          </ul>
+          <li>Major scale, degree(s): <span class="deg">2nd</span>, <span class="deg">3rd</span>, <span class="deg">6th</span></li>
+            <ul class="scale-degrees">
+              <li>2nd, 3rd, 6th</li>
+            </ul>
+          <li>Minor pentatonic, degree(s):</li>
+            <ul class="scale-degrees">
+              <li>1st</li>
+            </ul>
+          <li> Blues scale, degree(s):</li>
+            <ul class="scale-degrees">
+              <li>1st</li>
+            </ul>
+          <li>Major pentatonic scale, degree(s):</li>
+            <ul class="scale-degrees">
+              <li>5th for pentatonic, 6th for Country Blues</li>
+            </ul>
+          <li>Country Blues scale, degree(s):</li>
+            <ul class="scale-degrees">
+              <li>5th for pentatonic, 6th for Country Blues</li>
+            </ul>
           <li>Dorian Blues scale, degree(s):</li>
-          <ul class="scale-degrees">
-            <li>4th, 5th</li>
-          </ul>
+            <ul class="scale-degrees">
+              <li>4th, 5th</li>
+            </ul>
           <li>Major Bebop scale, degree(s):</li>
-          <ul class="scale-degrees">
-            <li>2nd, 3rd & 6th</li>
-          </ul>
+            <ul class="scale-degrees">
+              <li>2nd, 3rd & 6th</li>
+            </ul>
           <li>Melodic Minor scale, degrees:</li>
-          <ul class="scale-degrees">
-            <li>2nd</li>
-          </ul>
+            <ul class="scale-degrees">
+              <li>2nd</li>
+            </ul>
         </ul>
-        <p>Add a note about the only scales that I use!</p>
+        <p>Add a note about the only scales that I use! Lose the bullet points, consider making the scale degrees span tags, ...</p>
       </div>
+      <p>Below is output from a fetch call for interval-distance.json</p>
+      <div id="output"></div>
     </section>
 
     <script src="./js/script.js"></script>

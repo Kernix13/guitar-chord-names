@@ -1,5 +1,3 @@
-// Guitar styles
-
 *,
 *::before,
 *::after {
@@ -73,4 +71,11 @@ ul {
 
 ul > ul {
   margin-left: 1.5em;
+}
+
+.chord-root, .deg {
+  background-color: #ccc;
+  display: inline-block;
+  padding: 0 0.25em;
+  // margin: 0 -0.25em;
 }
