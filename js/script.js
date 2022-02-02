@@ -27,6 +27,7 @@ let chordTones = [];
 notesForm.addEventListener("submit", function(e) {
   getNotes();
   getJson();
+
   e.preventDefault();
   // Repeated clicks of the Submit button duplicates the page output. How do I clear the previous chord notes for successive clicks?
 });
@@ -63,9 +64,8 @@ function getNotes() {
 
       if (!uniqueNotes.includes(chordTones[i]) && chordTones[i] !== undefined) {
       uniqueNotes.push(chordTones[i]);
+      // console.log(uniqueNotes);
       
-      // console.log("Unique Notes: " + uniqueNotes);
-
       // 3. Add chord tones onto the page
       let noteOutput = `<span class="notes">${uniqueNotes[i]}</span>`;
       const chordOutput = document.getElementById('chord-output').innerHTML += noteOutput;
@@ -74,13 +74,27 @@ function getNotes() {
       let justNotes = uniqueNotes[i];
 
       let position = chromaticSharps.indexOf(uniqueNotes[i]);
-      let noteAsRoot = chromaticSharps.slice(position, position + 12)
+      let noteAsRoot = chromaticSharps.slice(position, position + 12);
+      
+      // if(i + 1 == uniqueNotes.length) {
+      //   console.log(uniqueNotes);
+      //   uniqueNotes.forEach(note => console.log(`Notes starting at ${justNotes}: ` + noteAsRoot.indexOf(note)));
+      //   // HOW DO I GET THE LAST ITERATION? THAT IS THE ONE i WANT TO PASS TO THE FOREACH METHOD
+      // }
+      
+      // console.log("Unique Notes: " + typeof justNotes);
+      // console.log("Unique Notes: " + uniqueNotes[i]);
+      
       // console.log(noteAsRoot);
-      // console.log(`Notes starting at ${justNotes}: ` + noteAsRoot.indexOf(justNotes));
       
       // 5. For each note, find the interval for the other notes using noteAsRoot
-      // This only returns 1 interval for the first iteration, 2 for the 2nd, etc. Let me try a nested for loop.
-      uniqueNotes.forEach(note => console.log(`Notes starting at ${justNotes}: ` + noteAsRoot.indexOf(note)));
+      // This only returns 1 interval for the first iteration, 2 for the 2nd, etc. Nested for loop doesn't work, neighter does "for in" or "for of", neighter does forEach inside of a for loop.
+
+      // for (let j = 0; j < justNotes.length; j++) {
+      //   uniqueNotes.forEach(note => console.log(`Notes starting at ${justNotes}: ` + noteAsRoot.indexOf(note)));
+      // }
+
+      // uniqueNotes.forEach(note => console.log(`Notes starting at ${justNotes}: ` + noteAsRoot.indexOf(note)));
 
       // 6. Calculate chord name
 
@@ -90,10 +104,24 @@ function getNotes() {
 
       }
     }
+    console.log(uniqueNotes);
 
+    for (let i = 0; i < uniqueNotes.length; i++) {
+      let position = chromaticSharps.indexOf(uniqueNotes[i]);
+      let noteAsRoot = chromaticSharps.slice(position, position + 12);
+
+      let noteIndices = [];
+      
+      uniqueNotes.forEach(note => noteIndices.push(noteAsRoot.indexOf(note)));
+      console.log(noteIndices);
+      
+      // BINGO BABY!!!!!
+    }
+    
     // return uniqueNotes;
   }
 }
+
 
 // get local json file
 function getJson() {
