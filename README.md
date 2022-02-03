@@ -11,9 +11,9 @@ Check out my website [Every Guitar Chord](https://everyguitarchord.com/ 'Every G
 App related:
 - [x] 1. Get the fret #'s entered by the user
 - [x] 2. Convert the fret #'s into chromatic notes
-- [x] 3. Add chord tones onto the page
-- [x] 4. Create a 12-note array for each chord tone
-- [ ] 5. Determine intervals for each note compared to the other notes
+- [x] 3. Create a 12-note array for each chromatic note 
+- [x] 4. Add chord tones onto the page (ISSUES!)
+- [x] 5. Determine intervals for each note compared to the other notes
 - [ ] 6. Calculate chord name and add to page (dependent on #5)
 - [ ] 7. Add the chord notes in "proper" order
 - [ ] 8. Add the chord intervals in "proper" order (dependent on #5)

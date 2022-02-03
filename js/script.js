@@ -5,6 +5,8 @@ const thirdNote = document.getElementById('note3');
 const fourthNote = document.getElementById('note4');
 const fifthNote = document.getElementById('note5');
 const sixthNote = document.getElementById('note6');
+// THE FORM
+const notesForm = document.getElementById('notes-form');
 
 // The chromatic scale by string, 15 frets (Sharps only)
 const stringLoE = ["E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "C", "C♯", "D", "D♯","E", "F", "F♯", "G"];
@@ -13,9 +15,6 @@ const stringD = ["D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "
 const stringG = ["G", "G♯", "A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯"];
 const stringB = ["B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "C", "C♯", "D"];
 const stringHiE = ["E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G"];
-
-// THE FORM
-const notesForm = document.getElementById('notes-form');
 
 // The chromatic scale using sharps then flats (just using sharps right now)
 const chromaticSharps = ["A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G"];
@@ -29,23 +28,23 @@ notesForm.addEventListener("submit", function(e) {
   getJson();
 
   e.preventDefault();
-  // Repeated clicks of the Submit button duplicates the page output. How do I clear the previous chord notes for successive clicks?
 });
 
-// +++++ NEED TO PULL IN JSON HERE, I THINK USING FETCH +++++
-// Need the JSON starting on step #4
+// +++++ NEED TO FETCH THE JSON HERE (see below getNotes) +++++
+// Need the JSON starting on step #6
 
 /* 
 1. Get the fret #'s entered by the user (DONE)
 2. Convert the fret #'s into chromatic notes (DONE)
-3. Add chord tones onto the page, (DONE)
-4. Create a 12-note array for each chord tone (DONE)
-5. Determine intervals for each note compared to the other notes, 
-  - I think this can only be done with a forEach loop, because for all array items after the 1st one I need to look at the previous notes to get that as an interval for the current item, e.g.: note 1 has to be converted into an interval in relation to note 2, notes 1 & 2 need to be converted into intervals in relation to note 3, repeat up to note 6
-  - I may need the JSON files starting here or for the last 3 steps
-6. Calculate chord name and add to page (Dependent on #5)
-7. Output names of other chord names with the same notes, and (Dependent on #6)
-8. Output scale()s & scale degrees that build that chord (Dependent on #6)
+3. Create a 12-note array for each chord tone (DONE)
+4. Add chord tones onto the page, (DONE but with issues)
+5. Determine intervals for each note compared to the other notes
+6. Calculate chord name and add to page
+7. Add the chord notes to the page in "proper" order
+8. Add the chord intervals to the page in "proper" order (undo #3)
+9. Output name(s) of "equal" chords
+10. Output scale(s) & scale degrees that build the chord
+11. HOW DO I CLEAR THE OUTPUT 
 */
 
 function getNotes() {
@@ -64,64 +63,60 @@ function getNotes() {
 
       if (!uniqueNotes.includes(chordTones[i]) && chordTones[i] !== undefined) {
       uniqueNotes.push(chordTones[i]);
-      // console.log(uniqueNotes);
       
-      // 3. Add chord tones onto the page
-      let noteOutput = `<span class="notes">${uniqueNotes[i]}</span>`;
-      const chordOutput = document.getElementById('chord-output').innerHTML += noteOutput;
-        
-      // 4. Create a 12-note array for each chord tone
+      // 3. Create a 12-note array for each chord tone
       let justNotes = uniqueNotes[i];
 
       let position = chromaticSharps.indexOf(uniqueNotes[i]);
       let noteAsRoot = chromaticSharps.slice(position, position + 12);
-      
-      // if(i + 1 == uniqueNotes.length) {
-      //   console.log(uniqueNotes);
-      //   uniqueNotes.forEach(note => console.log(`Notes starting at ${justNotes}: ` + noteAsRoot.indexOf(note)));
-      //   // HOW DO I GET THE LAST ITERATION? THAT IS THE ONE i WANT TO PASS TO THE FOREACH METHOD
-      // }
-      
-      // console.log("Unique Notes: " + typeof justNotes);
-      // console.log("Unique Notes: " + uniqueNotes[i]);
-      
-      // console.log(noteAsRoot);
-      
-      // 5. For each note, find the interval for the other notes using noteAsRoot
-      // This only returns 1 interval for the first iteration, 2 for the 2nd, etc. Nested for loop doesn't work, neighter does "for in" or "for of", neighter does forEach inside of a for loop.
-
-      // for (let j = 0; j < justNotes.length; j++) {
-      //   uniqueNotes.forEach(note => console.log(`Notes starting at ${justNotes}: ` + noteAsRoot.indexOf(note)));
-      // }
-
-      // uniqueNotes.forEach(note => console.log(`Notes starting at ${justNotes}: ` + noteAsRoot.indexOf(note)));
-
-      // 6. Calculate chord name
-
-      // 7. Output name(s) of "equal" chords
-
-      // 8. Output scale(s) that build the chord
-
       }
+
+      // 4. Add chord tones onto the page. Something is wrong with the Output. Moved it to the next for loop because of undefined when a string did not have a fret entered
+
+      /*
+      let noteOutput = `<span class="notes">${uniqueNotes[i]}</span>`;
+      if (noteOutput !== '' && chordTones[i] !== undefined) {
+        let chordOutput = document.getElementById('chord-output').innerHTML += noteOutput;
+      } else {
+        let chordOutput = document.getElementById('chord-output').innerHTML = '';
+      }
+      */
+  
     }
     console.log(uniqueNotes);
 
+    // 5. Determine intervals for each note compared to the other notes
     for (let i = 0; i < uniqueNotes.length; i++) {
+
+      // 4. Add chord tones onto the page
+      let noteOutput = `<span class="notes">${uniqueNotes[i]}</span>`;
+      let chordOutput = document.getElementById('chord-output').innerHTML += noteOutput;
+
       let position = chromaticSharps.indexOf(uniqueNotes[i]);
       let noteAsRoot = chromaticSharps.slice(position, position + 12);
-
       let noteIndices = [];
       
+      // console.log(noteAsRoot);
       uniqueNotes.forEach(note => noteIndices.push(noteAsRoot.indexOf(note)));
       console.log(noteIndices);
       
-      // BINGO BABY!!!!!
-    }
-    
-    // return uniqueNotes;
-  }
-}
+      // 6. Calculate chord name and add to page
 
+      // 7. Add the chord notes to the page in "proper" order
+
+      // 8. Add the chord intervals to the page in "proper" order
+
+      // 9. Output name(s) of "equal" chords
+
+      // 10. Output scale(s) & scale degrees that build the chord
+
+    }
+  }
+
+  notesForm.addEventListener('click', function() {
+    let chordOutput = document.getElementById('chord-output').innerHTML = '';
+  })
+}
 
 // get local json file
 function getJson() {
