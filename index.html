@@ -13,12 +13,12 @@
       <form id="notes-form">
         <fieldset>
           <legend>Enter fret numbers for your chord</legend>
-          <label>6: <input id="note1" type="number" min="0" step="1" max="15" value="0" /></label>
-          <label>5: <input id="note2" type="number" min="0" step="1" max="15" value="0" /></label>
-          <label>4: <input id="note3" type="number" min="0" step="1" max="15" value="0" /></label>
-          <label>3: <input id="note4" type="number" min="0" step="1" max="15" value="0" /></label>
-          <label>2: <input id="note5" type="number" min="0" step="1" max="15" value="0" /></label>
-          <label>1: <input id="note6" type="number" min="0" step="1" max="15" value="0" /></label> 
+          <label>6: <input class="note" id="note1" type="number" min="0" step="1" max="15" value="0" /></label>
+          <label>5: <input class="note" id="note2" type="number" min="0" step="1" max="15" value="0" /></label>
+          <label>4: <input class="note" id="note3" type="number" min="0" step="1" max="15" value="0" /></label>
+          <label>3: <input class="note" id="note4" type="number" min="0" step="1" max="15" value="0" /></label>
+          <label>2: <input class="note" id="note5" type="number" min="0" step="1" max="15" value="0" /></label>
+          <label>1: <input class="note" id="note6" type="number" min="0" step="1" max="15" value="0" /></label> 
         </fieldset>
         <div>
           <input id="user-chord" type="submit" value="Submit" />
@@ -67,8 +67,8 @@
         <li>explain that the Dorian Blues scale is the 2nd degree of the Major Bebop</li>
         <li>explain that the Dominant Bebop is the 6th degree of the Minor Bebop</li>
       </div>
-      <!-- <p>Below is output from a fetch call for interval-distance.json as a test</p>
-      <div id="output"></div> -->
+      <p>Below is output from a fetch call for interval-distance.json as a test</p>
+      <div id="output"></div>
     </section>
 
     <script src="./js/script.js"></script>

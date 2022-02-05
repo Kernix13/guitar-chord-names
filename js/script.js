@@ -5,6 +5,8 @@ const thirdNote = document.getElementById('note3');
 const fourthNote = document.getElementById('note4');
 const fifthNote = document.getElementById('note5');
 const sixthNote = document.getElementById('note6');
+
+const userChord = document.getElementById('user-chord');
 // THE FORM
 const notesForm = document.getElementById('notes-form');
 
@@ -25,6 +27,7 @@ let chordTones = [];
 
 notesForm.addEventListener("submit", function(e) {
   getNotes();
+  // clearNotes();
   getJson();
 
   e.preventDefault();
@@ -37,8 +40,8 @@ notesForm.addEventListener("submit", function(e) {
 1. Get the fret #'s entered by the user (DONE)
 2. Convert the fret #'s into chromatic notes (DONE)
 3. Create a 12-note array for each chord tone (DONE)
-4. Add chord tones onto the page, (DONE but with issues)
-5. Determine intervals for each note compared to the other notes
+4. Determine intervals for each note compared to the other notes (DONE)
+5. Add chord tones onto the page, (DONE but with issues)
 6. Calculate chord name and add to page
 7. Add the chord notes to the page in "proper" order
 8. Add the chord intervals to the page in "proper" order (undo #3)
@@ -62,13 +65,14 @@ function getNotes() {
     for (let i = 0; i < chordTones.length; i++) {
 
       if (!uniqueNotes.includes(chordTones[i]) && chordTones[i] !== undefined) {
+        
       uniqueNotes.push(chordTones[i]);
       
       // 3. Create a 12-note array for each chord tone
-      let justNotes = uniqueNotes[i];
+      // let justNotes = uniqueNotes[i];
 
-      let position = chromaticSharps.indexOf(uniqueNotes[i]);
-      let noteAsRoot = chromaticSharps.slice(position, position + 12);
+      // let position = chromaticSharps.indexOf(uniqueNotes[i]);
+      // let noteAsRoot = chromaticSharps.slice(position, position + 12);
       }
 
       // 4. Add chord tones onto the page. Something is wrong with the Output. Moved it to the next for loop because of undefined when a string did not have a fret entered
@@ -85,12 +89,9 @@ function getNotes() {
     }
     console.log(uniqueNotes);
 
-    // 5. Determine intervals for each note compared to the other notes
+    // 3. Create a 12-note array for each chord tone
+    // 4. Determine intervals for each note compared to the other notes
     for (let i = 0; i < uniqueNotes.length; i++) {
-
-      // 4. Add chord tones onto the page
-      let noteOutput = `<span class="notes">${uniqueNotes[i]}</span>`;
-      let chordOutput = document.getElementById('chord-output').innerHTML += noteOutput;
 
       let position = chromaticSharps.indexOf(uniqueNotes[i]);
       let noteAsRoot = chromaticSharps.slice(position, position + 12);
@@ -99,7 +100,11 @@ function getNotes() {
       // console.log(noteAsRoot);
       uniqueNotes.forEach(note => noteIndices.push(noteAsRoot.indexOf(note)));
       console.log(noteIndices);
-      
+
+      // 5. Add chord tones onto the page
+      let noteOutput = `<span class="notes">${uniqueNotes[i]}</span>`;
+      let chordOutput = document.getElementById('chord-output').innerHTML += noteOutput;
+
       // 6. Calculate chord name and add to page
 
       // 7. Add the chord notes to the page in "proper" order
@@ -114,10 +119,34 @@ function getNotes() {
   }
 
   notesForm.addEventListener('click', function() {
-    let chordOutput = document.getElementById('chord-output').innerHTML = '';
+    chordOutput = document.getElementById('chord-output').innerHTML = '';
   })
 }
 
+// function clearNotes() {
+//   notesForm.addEventListener('click', function() {
+//     let noteOutput = '';
+//     let chordOutput = document.getElementById('chord-output').innerHTML = '';
+//   })
+// }
+
+
+// get local json file
+function getJson() {
+  fetch('./js/chord-intervals.json')
+    .then(res => res.json())
+    .then(data =>  {
+      let output = '';
+      data.forEach(function(chord) {
+        output += `<li>Chord name: ${chord.chord}, Chord intervals: ${chord.steps}</li>`;
+        // output += `<li>${interval.distance}</li>`;
+        // output += `<li>${interval.symbol[0]}</li>`;
+      });
+      document.getElementById('output').innerHTML = output;
+    })
+    .catch(err => console.log(err));
+}
+/*
 // get local json file
 function getJson() {
   fetch('./js/interval-distance.json')
@@ -126,12 +155,14 @@ function getJson() {
       let output = '';
       data.forEach(function(interval) {
         output += `<li>${interval.distance}</li>`;
+        // output += `<li>${interval.distance}</li>`;
         // output += `<li>${interval.symbol[0]}</li>`;
       });
       document.getElementById('output').innerHTML = output;
     })
     .catch(err => console.log(err));
 }
+*/
 
 /* NOT USING THE NEXT 3 VARIABLES AT THIS TIME */
 // Only Standard tuning open string note values for now
