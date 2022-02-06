@@ -6,22 +6,31 @@
 
 Check out my website [Every Guitar Chord](https://everyguitarchord.com/ 'Every Guitar Chord website') for quality blog posts and PDF files for download.
 
+## Check the console
+
+I am logging out the following:
+1. The chromatic note for the frets entered, 
+1. The steps/intervals for each note in relation to all the notes, 
+1. #1 and #2 combined into an object though I would rather have #2 as an array that is the value for the chromtic note as a key, and all of that inside an array 
+1. And finally, the entire chord-intervals.json file 
+
 ## To Do Items
 
 App related:
 - [x] 1. Get the fret #'s entered by the user
 - [x] 2. Convert the fret #'s into chromatic notes
-- [x] 3. Create a 12-note array for each chromatic note 
-- [x] 4. Add chord tones onto the page (ISSUES!)
+- [x] 3. In case of duplicate notes, get only unique notes
+- [x] 4. Create a 12-note array for each chromatic note 
 - [x] 5. Determine intervals for each note compared to the other notes
-- [ ] 6. Calculate chord name and add to page (dependent on #5)
-- [ ] 7. Add the chord notes in "proper" order
-- [ ] 8. Add the chord intervals in "proper" order (dependent on #5)
-- [ ] 9. Output name(s) of other chord names with the same notes (dependent on #6)
-- [ ] 10. Output scale(s) & scale degrees that build the chord (dependent on #6)
+- [ ] 6. Calculate chord name and add to page (dependent on #5 & JSON)
+- [ ] 7. Output the chord notes in "proper" order
+- [ ] 8. Output the chord intervals in "proper" order (dependent on #5)
+- [ ] 9. Output name(s) of other chord names with the same notes (dependent on #6 or #5) & Chord Substitutes (later)
+- [ ] 10. Output scale(s) & scale degrees that build the chord (dependent on #6 or #5)
+- [ ] 11. Clear everything on next Submit (On keydddown?, Different event listener?) 
 
 Problems:
-- [ ] When clicking `Submit` more than once, the notes from a previous submit remain on the page. How do I clear out those notes? The `innerHTML` for that is currently on line 71 of `script.js` - search for `chordOutput`.
+- [ ] When clicking `Submit` more than once, the notes from a previous submit remain on the page. How do I clear out those notes? The `innerHTML` for that is currently on line 114 of `script.js` - search for `noteOutput`.
 - [ ] I need a more effiecient RegEx (see `Regex` section below) if I end up using a JSON file for every chord name in all keys.
 
 ## Miscellaneous Notes

@@ -1,9 +1,10 @@
+css/fetch.css
+fetch.html
 js/classes.js
 js/fetch.js
-css/fetch.css
-js/posts.json
-fetch.html
-notes.txt
-notes.md
-.htaccess
+js/script_bkup.js
+js/chord-notes.json.txt
+js/intervals.json.txt
 A2-hosting.txt
+notes.txt
+.htaccess

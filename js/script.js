@@ -6,6 +6,9 @@ const fourthNote = document.getElementById('note4');
 const fifthNote = document.getElementById('note5');
 const sixthNote = document.getElementById('note6');
 
+// All number input fields
+const fretInputs = document.querySelectorAll('.note');
+// Submit button
 const userChord = document.getElementById('user-chord');
 // THE FORM
 const notesForm = document.getElementById('notes-form');
@@ -27,6 +30,7 @@ let chordTones = [];
 
 notesForm.addEventListener("submit", function(e) {
   getNotes();
+  // chordCalcs();
   // clearNotes();
   getJson();
 
@@ -37,17 +41,20 @@ notesForm.addEventListener("submit", function(e) {
 // Need the JSON starting on step #6
 
 /* 
+getNotes: 
 1. Get the fret #'s entered by the user (DONE)
 2. Convert the fret #'s into chromatic notes (DONE)
-3. Create a 12-note array for each chord tone (DONE)
-4. Determine intervals for each note compared to the other notes (DONE)
-5. Add chord tones onto the page, (DONE but with issues)
-6. Calculate chord name and add to page
-7. Add the chord notes to the page in "proper" order
-8. Add the chord intervals to the page in "proper" order (undo #3)
-9. Output name(s) of "equal" chords
+3. In case of duplicate notes, get only unique notes (DONE)
+4. Create a 12-note array for each chord tone (DONE)
+5. Determine intervals for each note compared to the other notes (DONE)
+
+chordCalcs:
+6. Calculate chord name and add to page (need JSON files here)
+7. Output the chord notes in "proper" order
+8. Output the chord intervals in "proper" order
+9. Output name(s) of "equal" chords & Chord Substitutes (later)
 10. Output scale(s) & scale degrees that build the chord
-11. HOW DO I CLEAR THE OUTPUT 
+11. Clear everything on next Submit (keyddown?) 
 */
 
 function getNotes() {
@@ -59,118 +66,86 @@ function getNotes() {
     
     // 2. ...convert fret #'s into chromatic notes. This will have to move down the list because I need to get the chord name 1st in the event there are #'s or b's
     chordTones.push(stringLoE[userFrets[0]], stringA[userFrets[1]], stringD[userFrets[2]], stringG[userFrets[3]], stringB[userFrets[4]], stringHiE[userFrets[5]]);
-
-    let uniqueNotes = [];
-
-    for (let i = 0; i < chordTones.length; i++) {
-
-      if (!uniqueNotes.includes(chordTones[i]) && chordTones[i] !== undefined) {
-        
-      uniqueNotes.push(chordTones[i]);
-      
-      // 3. Create a 12-note array for each chord tone
-      // let justNotes = uniqueNotes[i];
-
-      // let position = chromaticSharps.indexOf(uniqueNotes[i]);
-      // let noteAsRoot = chromaticSharps.slice(position, position + 12);
-      }
-
-      // 4. Add chord tones onto the page. Something is wrong with the Output. Moved it to the next for loop because of undefined when a string did not have a fret entered
-
-      /*
-      let noteOutput = `<span class="notes">${uniqueNotes[i]}</span>`;
-      if (noteOutput !== '' && chordTones[i] !== undefined) {
-        let chordOutput = document.getElementById('chord-output').innerHTML += noteOutput;
-      } else {
-        let chordOutput = document.getElementById('chord-output').innerHTML = '';
-      }
-      */
-  
-    }
-    console.log(uniqueNotes);
-
-    // 3. Create a 12-note array for each chord tone
-    // 4. Determine intervals for each note compared to the other notes
-    for (let i = 0; i < uniqueNotes.length; i++) {
-
-      let position = chromaticSharps.indexOf(uniqueNotes[i]);
-      let noteAsRoot = chromaticSharps.slice(position, position + 12);
-      let noteIndices = [];
-      
-      // console.log(noteAsRoot);
-      uniqueNotes.forEach(note => noteIndices.push(noteAsRoot.indexOf(note)));
-      console.log(noteIndices);
-
-      // 5. Add chord tones onto the page
-      let noteOutput = `<span class="notes">${uniqueNotes[i]}</span>`;
-      let chordOutput = document.getElementById('chord-output').innerHTML += noteOutput;
-
-      // 6. Calculate chord name and add to page
-
-      // 7. Add the chord notes to the page in "proper" order
-
-      // 8. Add the chord intervals to the page in "proper" order
-
-      // 9. Output name(s) of "equal" chords
-
-      // 10. Output scale(s) & scale degrees that build the chord
-
-    }
   }
 
-  notesForm.addEventListener('click', function() {
-    chordOutput = document.getElementById('chord-output').innerHTML = '';
-  })
+  // 3. In case of duplicate notes, get only unique notes
+  let uniqueNotes = [];
+  for (let i = 0; i < chordTones.length; i++) {
+
+    if (!uniqueNotes.includes(chordTones[i]) && chordTones[i] !== undefined) {
+      uniqueNotes.push(chordTones[i]);
+    }
+  }
+  // console.log(uniqueNotes);
+    
+  let noteSteps = [];
+  for (let i = 0; i < uniqueNotes.length; i++) {
+
+    // 4. Create a 12-note array for each chord tone
+    let position = chromaticSharps.indexOf(uniqueNotes[i]);
+    let noteAsRoot = chromaticSharps.slice(position, position + 12);
+    // console.log(noteAsRoot);
+
+    // 5. Determine intervals for each note compared to the other notes
+    noteSteps = [];
+    uniqueNotes.forEach(note => noteSteps.push(noteAsRoot.indexOf(note)));
+
+    console.log(uniqueNotes[i]);
+    console.log(noteSteps);
+ 
+    // 6. Calculate chord name and add to page
+    // 6a. create object with uniqueNotes as keys and noteIntervals as values - better to have each note = to an array of noteIntervals
+
+    if(uniqueNotes.length != noteSteps.length || uniqueNotes.length == 0 || noteSteps.length == 0){
+      return null;
+    };
+
+    let noteIntervals = {};
+    // let noteIntervals = [];
+    
+    // How do I turn noteInterval into an array
+    uniqueNotes.forEach((n, s) => {noteIntervals[n] = noteSteps[s]})
+    console.log(noteIntervals);
+
+    // 6b. 
+
+    // 7. Add the chord notes to the page
+    // let noteOutput = `<span class="notes">${uniqueNotes[i]}</span>`;
+    let noteOutput = document.getElementById('note-output').innerHTML += `<span class="notes">${uniqueNotes[i]}</span>`;
+
+    // 8. Add the chord intervals to the page
+    // let intervals = `<span class="intervals">${noteSteps}</span>`;
+    let intervalOutput = document.getElementById('interval-output').innerHTML += `<span class="intervals">${uniqueNotes[i]}: ${noteSteps} | </span>`;
+
+    // 9. Output name(s) of "equal" chords
+
+    // 10. Output scale(s) & scale degrees that build the chord
+
+    // 11. Clear the page on next Submit
+
+  }
+  // console.log(uniqueNotes);
 }
+
 
 // function clearNotes() {
 //   notesForm.addEventListener('click', function() {
-//     let noteOutput = '';
-//     let chordOutput = document.getElementById('chord-output').innerHTML = '';
+//     let noteOutput = document.getElementById('note-output').innerHTML = '';
 //   })
 // }
 
-
-// get local json file
+// Get local json file: I need to tie this to intervalOutput and then pull in EVERYTHING once the correct chord has been found
 function getJson() {
   fetch('./js/chord-intervals.json')
     .then(res => res.json())
     .then(data =>  {
       let output = '';
       data.forEach(function(chord) {
-        output += `<li>Chord name: ${chord.chord}, Chord intervals: ${chord.steps}</li>`;
-        // output += `<li>${interval.distance}</li>`;
-        // output += `<li>${interval.symbol[0]}</li>`;
+        output += `<li>Chord name: ${chord.chord}, Chord intervals: ${chord.steps}, ${chord.EqualChords[0].name}</li>`;
+        console.log(chord);
       });
       document.getElementById('output').innerHTML = output;
     })
     .catch(err => console.log(err));
 }
-/*
-// get local json file
-function getJson() {
-  fetch('./js/interval-distance.json')
-    .then(res => res.json())
-    .then(data =>  {
-      let output = '';
-      data.forEach(function(interval) {
-        output += `<li>${interval.distance}</li>`;
-        // output += `<li>${interval.distance}</li>`;
-        // output += `<li>${interval.symbol[0]}</li>`;
-      });
-      document.getElementById('output').innerHTML = output;
-    })
-    .catch(err => console.log(err));
-}
-*/
 
-/* NOT USING THE NEXT 3 VARIABLES AT THIS TIME */
-// Only Standard tuning open string note values for now
-const standardTuning = ["E", "A", "D", "G", "B", "E"];
-
-// Triads and 7ths: triads to check for chord quality, then if it is a 7th chord
-const triads = {"maj": ["1", "3", "5"], "min": ["1", "♭3", "5"], "aug": ["1", "3", "♯5"], "dim": ["1", "♭3", "♭5"], "sus2": ["1", "2", "♭5"], "sus": ["1", "4", "♭5"], "maj♭5": ["1", "3", "♭5"]};
-
-const sevenths = {diminished7: "♭♭7", minor7: "♭7", major7: "7"};
-
-// If I want to use the notes to build an SVG chord shape, then I will need to return chordTones
