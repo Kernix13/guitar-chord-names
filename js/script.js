@@ -32,7 +32,7 @@ notesForm.addEventListener("submit", function(e) {
   getNotes();
   // chordCalcs();
   // clearNotes();
-  getJson();
+  // getJson();
 
   e.preventDefault();
 });
@@ -52,7 +52,7 @@ chordCalcs:
 6. Calculate chord name and add to page (need JSON files here)
 7. Output the chord notes in "proper" order
 8. Output the chord intervals in "proper" order
-9. Output name(s) of "equal" chords & Chord Substitutes (later)
+9. Output name(s) of "equal" chords, & Chord Substitutes (later)
 10. Output scale(s) & scale degrees that build the chord
 11. Clear everything on next Submit (keyddown?) 
 */
@@ -67,7 +67,7 @@ function getNotes() {
     // 2. ...convert fret #'s into chromatic notes. This will have to move down the list because I need to get the chord name 1st in the event there are #'s or b's
     chordTones.push(stringLoE[userFrets[0]], stringA[userFrets[1]], stringD[userFrets[2]], stringG[userFrets[3]], stringB[userFrets[4]], stringHiE[userFrets[5]]);
   }
-
+  
   // 3. In case of duplicate notes, get only unique notes
   let uniqueNotes = [];
   for (let i = 0; i < chordTones.length; i++) {
@@ -76,7 +76,6 @@ function getNotes() {
       uniqueNotes.push(chordTones[i]);
     }
   }
-  // console.log(uniqueNotes);
     
   let noteSteps = [];
   for (let i = 0; i < uniqueNotes.length; i++) {
@@ -84,18 +83,19 @@ function getNotes() {
     // 4. Create a 12-note array for each chord tone
     let position = chromaticSharps.indexOf(uniqueNotes[i]);
     let noteAsRoot = chromaticSharps.slice(position, position + 12);
-    // console.log(noteAsRoot);
 
     // 5. Determine intervals for each note compared to the other notes
     noteSteps = [];
     uniqueNotes.forEach(note => noteSteps.push(noteAsRoot.indexOf(note)));
 
+    let noteStepsSort = noteSteps.sort();
     console.log(uniqueNotes[i]);
     console.log(noteSteps);
  
     // 6. Calculate chord name and add to page
-    // 6a. create object with uniqueNotes as keys and noteIntervals as values - better to have each note = to an array of noteIntervals
+    // 6a. create object with uniqueNotes as keys and noteIntervals as values - better to have each note = to an array of noteIntervals (maybe)
 
+    // Why did I put this here? Of course they are equal AND not empty!
     if(uniqueNotes.length != noteSteps.length || uniqueNotes.length == 0 || noteSteps.length == 0){
       return null;
     };
@@ -103,18 +103,43 @@ function getNotes() {
     let noteIntervals = {};
     // let noteIntervals = [];
     
-    // How do I turn noteInterval into an array
+    // How do I turn noteInterval into an array - this sets each unique note as a key and the step as its value. I don't think I need this
     uniqueNotes.forEach((n, s) => {noteIntervals[n] = noteSteps[s]})
     console.log(noteIntervals);
+
+    // Check all JSON chord steps that equal user chord steps/intervals from chord-intervals.json
+    // This gets the json, only gets equal length steps and arrys and sorts those array. 
+    function getJson() {
+    fetch('./js/chord-intervals.json')
+      .then(res => res.json())
+      .then(data =>  {
+        let output = '';
+        data.forEach(function(chord) {
+
+          output += `<li>${Object.keys(chord)[0]}: ${chord.Chord} | Chord steps: ${chord.steps} | ${chord["Equal Chords"][0].name} | ${chord.scales["Major Scale"]}</li>`;
+
+          let stepsSort = chord.steps.sort();
+
+          if (stepsSort.length == noteSteps.length) {
+            // Nothing I try returns the ONLY chord with the exact same steps. WHY? How do you check for equality among arrays of equal length and  equal data type?
+            // console.log(stepsSort);
+          }
+
+          console.log(chord);
+          return chord;
+        });
+        document.getElementById('output').innerHTML = output;
+      })
+      .catch(err => console.log(err));
+    }
+    getJson();
 
     // 6b. 
 
     // 7. Add the chord notes to the page
-    // let noteOutput = `<span class="notes">${uniqueNotes[i]}</span>`;
     let noteOutput = document.getElementById('note-output').innerHTML += `<span class="notes">${uniqueNotes[i]}</span>`;
 
-    // 8. Add the chord intervals to the page
-    // let intervals = `<span class="intervals">${noteSteps}</span>`;
+    // 8. Add the chord steps to the page
     let intervalOutput = document.getElementById('interval-output').innerHTML += `<span class="intervals">${uniqueNotes[i]}: ${noteSteps} | </span>`;
 
     // 9. Output name(s) of "equal" chords
@@ -133,19 +158,3 @@ function getNotes() {
 //     let noteOutput = document.getElementById('note-output').innerHTML = '';
 //   })
 // }
-
-// Get local json file: I need to tie this to intervalOutput and then pull in EVERYTHING once the correct chord has been found
-function getJson() {
-  fetch('./js/chord-intervals.json')
-    .then(res => res.json())
-    .then(data =>  {
-      let output = '';
-      data.forEach(function(chord) {
-        output += `<li>Chord name: ${chord.chord}, Chord intervals: ${chord.steps}, ${chord.EqualChords[0].name}</li>`;
-        console.log(chord);
-      });
-      document.getElementById('output').innerHTML = output;
-    })
-    .catch(err => console.log(err));
-}
-
