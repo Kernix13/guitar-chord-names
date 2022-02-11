@@ -88,7 +88,7 @@ function getNotes() {
     noteSteps = [];
     uniqueNotes.forEach(note => noteSteps.push(noteAsRoot.indexOf(note)));
 
-    let noteStepsSort = noteSteps.sort();
+    // let noteStepsSort = noteSteps.sort();
     console.log(uniqueNotes[i]);
     console.log(noteSteps);
  
@@ -96,9 +96,9 @@ function getNotes() {
     // 6a. create object with uniqueNotes as keys and noteIntervals as values - better to have each note = to an array of noteIntervals (maybe)
 
     // Why did I put this here? Of course they are equal AND not empty!
-    if(uniqueNotes.length != noteSteps.length || uniqueNotes.length == 0 || noteSteps.length == 0){
-      return null;
-    };
+    // if(uniqueNotes.length != noteSteps.length || uniqueNotes.length == 0 || noteSteps.length == 0){
+    //   return null;
+    // };
 
     let noteIntervals = {};
     // let noteIntervals = [];
@@ -109,23 +109,30 @@ function getNotes() {
 
     // Check all JSON chord steps that equal user chord steps/intervals from chord-intervals.json
     // This gets the json, only gets equal length steps and arrys and sorts those array. 
+    // Getting remote JSON data with the fetch API: https://codepen.io/tule/pen/awQgmY
     function getJson() {
     fetch('./js/chord-intervals.json')
       .then(res => res.json())
       .then(data =>  {
         let output = '';
+
+        let allArr = [];
+        let keyArray = {"arrOfSteps": noteSteps};
+        allArr.push(keyArray);
+        
+        console.log(keyArray);
+        // console.log(data[5].Chord);
+
         data.forEach(function(chord) {
 
           output += `<li>${Object.keys(chord)[0]}: ${chord.Chord} | Chord steps: ${chord.steps} | ${chord["Equal Chords"][0].name} | ${chord.scales["Major Scale"]}</li>`;
 
-          let stepsSort = chord.steps.sort();
+          // if (chord.steps.length == noteSteps.length) {
+          //   // returning 275 = 5 * 55
+          //   console.log(chord.steps);
+          // }
 
-          if (stepsSort.length == noteSteps.length) {
-            // Nothing I try returns the ONLY chord with the exact same steps. WHY? How do you check for equality among arrays of equal length and  equal data type?
-            // console.log(stepsSort);
-          }
-
-          console.log(chord);
+          // console.log(chord);
           return chord;
         });
         document.getElementById('output').innerHTML = output;

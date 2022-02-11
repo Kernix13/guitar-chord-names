@@ -1599,7 +1599,7 @@
     "Chord": "m11",
     "Intevals": ["1", "♭3", "5", "♭7", "11"],
     "steps": [0, 3, 7, 10, 5],
-		"Equal Chords": [{"key": "2", "name": "9sus"}, {"key": 3, "name": "6 add9"}],
+		"Equal Chords": [ {"key": 3, "name": "6 add9"}, {"key": 10, "name": "9sus"}],
     "Chord Substitutes": [{"key": "", "name": ""}],
 		"scales": {
 			"Major Scale": ["2nd", "3rd", "6th"],
