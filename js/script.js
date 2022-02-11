@@ -30,7 +30,9 @@ let chordTones = [];
 
 notesForm.addEventListener("submit", function(e) {
   getNotes();
+  // getJson();
   // clearNotes();
+
 
   e.preventDefault();
 });
@@ -83,8 +85,9 @@ function getNotes() {
     noteSteps = [];
     uniqueNotes.forEach(note => noteSteps.push(noteAsRoot.indexOf(note)));
 
+    noteStepsSort = noteSteps.sort();
     console.log(uniqueNotes[i]);
-    console.log(noteSteps);
+    console.log(noteStepsSort);
  
     // 6. Find JSON steps array(s) that matches #5
 
@@ -101,9 +104,23 @@ function getNotes() {
       .then(data =>  {
         let output = '';
 
-        let keyArray = {"arr": noteSteps};
-        
-        console.log(keyArray);
+        function compareArrays(arr1, arr2) {
+          if (arr1.length !== arr2.length) return false
+
+          for (let index in arr1) {
+            if (arr1[index] !== arr2[index]) return false
+          }
+          return true
+        }
+
+        // const arrOfObjects = data (I don't need this variable since I have data)
+        const arrWeLookFor = noteStepsSort;
+
+        const result = data.find(({steps})=>{
+          // return compareArrays(arr, arrWeLookFor) (arr should be data, right?)
+          return compareArrays(data, noteStepsSort)
+        })
+        console.log(result) 
 
         // May not need this now
         data.forEach(function(chord) {

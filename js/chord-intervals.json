@@ -97,7 +97,7 @@
   {
     "Chord": "6 add9",
     "Intevals": ["1", "3", "5", "6", "9"],
-    "steps": [0, 4, 7, 9, 2],
+    "steps": [0, 2, 4, 7, 9],
 		"Equal Chords": [{"key": 2, "name": "9sus"}, {"key": 9, "name": "m11"}],
     "Chord Substitutes": [{"key": "", "name": ""}],
     "scales": {
@@ -1598,7 +1598,7 @@
   {
     "Chord": "m11",
     "Intevals": ["1", "♭3", "5", "♭7", "11"],
-    "steps": [0, 3, 7, 10, 5],
+    "steps": [0, 10, 3, 5, 7],
 		"Equal Chords": [ {"key": 3, "name": "6 add9"}, {"key": 10, "name": "9sus"}],
     "Chord Substitutes": [{"key": "", "name": ""}],
 		"scales": {
@@ -1845,7 +1845,7 @@
   {
     "Chord": "9sus",
     "Intevals": ["1", "4", "5", "♭7", "9"],
-    "steps": [0, 5, 7, 10, 2],
+    "steps": [0, 10, 2, 5, 7],
 		"Equal Chords": [{"key": 7, "name": "m11"}, {"key": 10, "name": "6 add9"}],
 		"Chord Substitutes": [{"key": "", "name": ""}],
 		"scales": {
