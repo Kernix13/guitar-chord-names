@@ -21,10 +21,10 @@ App related:
 - [x] 2. Convert the fret #'s into chromatic notes
 - [x] 3. In case of duplicate notes, get only unique notes
 - [x] 4. Create a 12-note array for each chromatic note 
-- [x] 5. Determine intervals for each note compared to the other notes
-- [ ] 6. Calculate chord name and add to page (dependent on #5 & JSON)
-- [ ] 7. Output the chord notes in "proper" order
-- [ ] 8. Output the chord intervals in "proper" order (dependent on #5)
+- [x] 5. Determine intervals/steps for each note compared to the other notes
+- [ ] 6. Find JSON steps array(s) that matches for #5 (dependent on JSON file)
+- [ ] 7. Output Chord name for matching data.steps (dependent on #6)
+- [ ] 8. Output the chord notes and chord intervals in "proper" order (dependent on #6)
 - [ ] 9. Output name(s) of other chord names with the same notes (dependent on #6 or #5) & Chord Substitutes (later)
 - [ ] 10. Output scale(s) & scale degrees that build the chord (dependent on #6 or #5)
 - [ ] 11. Clear everything on next Submit (On keydddown?, Different event listener?) 
