@@ -1,3 +1,4 @@
+"use strict";
 // User entered fret numbers by string
 const firstNote = document.getElementById('note1');
 const secondNote = document.getElementById('note2') ;
@@ -55,6 +56,7 @@ chordCalcs (doing all this in getNotes):
 */
 
 function getNotes() {
+  "use strict";
   // 1. Get the fret #'s...
   let userFrets = [firstNote.value, secondNote.value, thirdNote.value, fourthNote.value, fifthNote.value, sixthNote.value];
 
@@ -67,12 +69,8 @@ function getNotes() {
   
   // 3. In case of duplicate notes, get only unique notes
   let uniqueNotes = [];
-  for (let i = 0; i < chordTones.length; i++) {
 
-    if (!uniqueNotes.includes(chordTones[i]) && chordTones[i] !== undefined) {
-      uniqueNotes.push(chordTones[i]);
-    }
-  }
+  uniqueNotes = chordTones.filter(tone => !uniqueNotes.includes(tone) && tone !== undefined ? uniqueNotes.push(tone) : null);
     
   let noteSteps = [];
   for (let i = 0; i < uniqueNotes.length; i++) {
@@ -81,62 +79,57 @@ function getNotes() {
     let position = chromaticSharps.indexOf(uniqueNotes[i]);
     let noteAsRoot = chromaticSharps.slice(position, position + 12);
 
-    // 5. Determine intervals for each note compared to the other notes
+    // 5. Determine intervals for each note compared to the other notes (DONE)
     noteSteps = [];
     uniqueNotes.forEach(note => noteSteps.push(noteAsRoot.indexOf(note)));
 
-    noteStepsSort = noteSteps.sort();
-    console.log(uniqueNotes[i]);
-    console.log(noteStepsSort);
+    let noteStepsSort = noteSteps.sort();
+
+    // console.log(uniqueNotes[i]);
+    // console.log(noteStepsSort);
+    console.log(noteAsRoot);
  
-    // 6. Find JSON steps array(s) that matches #5
-
-    let noteIntervals = {};
-    // let noteIntervals = [];
+    // 6. Get data from chord-intervals.js that matches #5
     
-    // How do I turn noteInterval into an array - this sets each unique note as a key and the step as its value. I don't think I need this
-    uniqueNotes.forEach((n, s) => {noteIntervals[n] = noteSteps[s]})
-    console.log(noteIntervals);
-
-    function getJson() {
-    fetch('./js/chord-intervals.json')
-      .then(res => res.json())
-      .then(data =>  {
-        let output = '';
-
-        function compareArrays(arr1, arr2) {
-          if (arr1.length !== arr2.length) return false
-
-          for (let index in arr1) {
-            if (arr1[index] !== arr2[index]) return false
-          }
-          return true
-        }
-
-        // const arrOfObjects = data (I don't need this variable since I have data)
-        const arrWeLookFor = noteStepsSort;
-
-        const result = data.find(({steps})=>{
-          // return compareArrays(arr, arrWeLookFor) (arr should be data, right?)
-          return compareArrays(data, noteStepsSort)
-        })
-        console.log(result) 
-
-        // May not need this now
-        data.forEach(function(chord) {
-
-          output += `<li>${Object.keys(chord)[0]}: ${chord.Chord} | Chord steps: ${chord.steps} | ${chord["Equal Chords"][0].name} | ${chord.scales["Major Scale"]}</li>`;
-
-          // console.log(chord);
-          return chord;
-        });
-        document.getElementById('output').innerHTML = output;
-      })
-      .catch(err => console.log(err));
+    function compareArrays(arr1, arr2) {
+      if (arr1.length !== arr2.length) return false
+      
+      for (let index in arr1) {
+        if (arr1[index] !== arr2[index]) return false
+      }
+      
+      return true
     }
-    getJson();
 
-    // 6b. 
+    const arrOfObjects = chordIntervals;
+    // const arrWeLookFor = noteStepsSort; 
+
+    const result = arrOfObjects.find(({steps})=>{
+      return compareArrays(steps, noteStepsSort)
+    })
+    
+    if (result !== undefined) {
+      let output = "";
+      // for loop for the max number of equal chords
+
+      output += `<li>` + 
+        `${Object.keys(result)[0]}: ` + uniqueNotes[i] + result.Chord + " | " + 
+        `${Object.keys(result)[1]}: ` + result.Intervals + " | " + 
+        `${Object.keys(result)[3]}: ` + 
+        result["Equal Chords"][0].name + ", " + result["Equal Chords"][1].name + ", " +  result["Equal Chords"][2].name
+        + `</li>`;
+
+      document.getElementById('output').innerHTML = output;
+
+      console.log(
+        `${Object.keys(result)[0]}: ` + uniqueNotes[i] + result.Chord, 
+        `${Object.keys(result)[1]}: ` + result.Intervals, 
+        // `${Object.keys(result)[3]}: ` 
+        // + result["Equal Chords"][0].name + ", " + result["Equal Chords"][1].name + ", " +  result["Equal Chords"][2].name
+      ) 
+    } else {
+      console.log("No matching steps array for " + uniqueNotes[i]);
+    }
 
     // 7. Output Chord name for matching data.steps
     let noteOutput = document.getElementById('note-output').innerHTML += `<span class="notes">${uniqueNotes[i]}</span>`;

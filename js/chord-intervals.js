@@ -1,4 +1,4 @@
-[
+const chordIntervals = [
   {
     "Chord": "maj",
     "Intervals": ["1", "3", "5"],
