@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>Guitar Chord Namer</title>
+</head>
+
+<body>
+  <header class="pb-5">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 fixed-top border-bottom border-secondary">
+      <div class="container">
+        <a href="#" class="navbar-brand"><img
+            src="https://everyguitarchord.com/wp-content/uploads/2019/05/cropped-every-guitar-chord-logo182.png"
+            alt="Every Guitar Chord logo" class="w-75"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"
+          aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
+            <li class="nav-item text-white">
+              <a href="https://everyguitarchord.com/" class="nav-link" target="_blank">EGC Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://everyguitarchord.com/contact/" class="nav-link" target="_blank">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a href="#notes" class="nav-link">Notes</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+  <main>
+    <div class="container my-5 mx-auto row justify-content-center">
+      <!-- <h1 class="text-center mt-2 pb-2 border-bottom border-secondary">GUITAR CHORD NAMER APP</h1> -->
+      <h1 class="text-center mt-2 pb-2 border-bottom border-secondary">WHAT'S THIS CHORD CALLED?</h1>
+      <h2 class="text-center text-secondary">Guitar chord namer app</h2>
+      <h3 class="mb-1 mt-3 text-center"> &#119070; Enter fret numbers</h3>
+      <form id="notes-form" class="col-sm-6 row g-3">
+        <div class="col-sm-2">
+          <label for="fret" class="form-label"><span class="h3">E</span></label>
+          <input type="number" class="form-control note" id="note1" min="0" step="1" max="16">
+        </div>
+        <div class="col-sm-2">
+          <label for="fret" class="form-label"><span class="h3">A</span></label>
+          <input type="number" class="form-control note" id="note2" min="0" step="1" max="16">
+        </div>
+        <div class="col-sm-2">
+          <label for="fret" class="form-label"><span class="h3">D</span></label>
+          <input type="number" class="form-control note" id="note3" min="0" step="1" max="16">
+        </div>
+        <div class="col-sm-2">
+          <label for="fret" class="form-label"><span class="h3">G</span></label>
+          <input type="number" class="form-control note" id="note4" min="0" step="1" max="16">
+        </div>
+        <div class="col-sm-2">
+          <label for="fret" class="form-label"><span class="h3">B</span></label>
+          <input type="number" class="form-control note" id="note5" min="0" step="1" max="16">
+        </div>
+        <div class="col-sm-2">
+          <label for="fret" class="form-label"><span class="h3">e</span></label>
+          <input type="number" class="form-control note" id="note6" min="0" step="1" max="16">
+        </div>
+        <div class="col-12">
+          <button id="user-chord" class="btn btn-dark" type="submit">
+            SUBMIT
+          </button>
+          <button id="user-clear" class="btn btn-dark mx-2" type="submit">
+            CLEAR
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="container">
+      <div id="note-output"></div>
+      <div id="step-output"></div>
+      <div id="output"></div>
+    </div>
+
+    <div class="container">
+
+      <!-- BOXES-->
+      <section class="p-1">
+        <div class="container">
+          <div class="row text-center g-3">
+            <div class="col-md">
+              <div class="card bg-dark text-light">
+                <div class="h1 mb-3 lg">
+                  <div class="card-header fs-1 py-2">&#119093;</div>
+                </div>
+                <div class="card-body text-center">
+                  <h3 class="card-title mb- text-light">Chord name:</h3>
+                  <p class="card-text fs-4"><span id="chord-name"></span></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card bg-dark text-light">
+                <div class="h1 mb-3 lg-rev">
+                  <div class="card-header fs-1 py-2">&#9835;</div>
+                </div>
+                <div class="card-body text-center">
+                  <h3 class="card-title mb-3 text-light">Chord notes:</h3>
+                  <p class="card-text fs-4"><span id="chord-notes"></span></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card bg-dark text-light">
+                <div class="h1 mb-3 lg">
+                  <div class="card-header fs-1 py-2">&#119137;</div>
+                </div>
+                <div class="card-body text-center">
+                  <h3 class="card-title mb-3 text-light">Chord intervals:</h3>
+                  <p class="card-text fs-4"><span id="intervals"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- </div> -->
+      </section>
+      <!-- BOXES-->
+      <section class="p-1 my-3">
+        <div class="container">
+          <div class="row text-center g-3">
+            <div class="col-md">
+              <div class="card bg-dark text-light">
+                <div class="h1 mb-3 lg">
+                  <div class="card-header fs-1 py-2">&#119074;</div>
+                </div>
+                <div class="card-body text-center">
+                  <h3 class="card-title mb-3 text-light">Chord tendency:</h3>
+                  <p class="card-text fs-4"><span id="tendency"></span></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card bg-dark text-light">
+                <div class="h1 mb-3 lg-rev">
+                  <div class="card-header fs-1 py-2">&#119083;</div>
+                </div>
+                <div class="card-body text-center">
+                  <h3 class="card-title mb-3 text-light">Equal chords:</h3>
+                  <p class="card-text fs-4"><span id="equal-chords"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOXES-->
+      <section class="p-1 my-3">
+        <div class="container">
+          <div class="row g-3 text-center">
+            <div class="col-md">
+              <div class="card bg-dark text-light">
+                <div class="h1 mb-3 lg">
+                  <div class="card-header fs-1 py-2">&#9834;</div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title mb-3 text-light">Scale degrees that build <span id="chord-name2"></span>:</h3>
+                  <ul class="list-group list-group-flush fs-5" id="scale-degrees">
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="container m-5 pb-5">
+      <section id="notes">
+        <div class="row mx-auto">
+          <div class="col-md mx-auto">
+            <h2 class="display-4 text-center bg-light border-bottom border-secondary">NOTES</h2>
+            <h3 class="mt-5">Scales used</h3>
+            <p class="lead">I only include chords that are built from the following scales: </p>
+            <div class="container">
+              <ol>
+                <li class="lead">Major scale and modes</li>
+                <li class="lead">Minor pentatonic scale and modes</li>
+                <li class="lead">Blues scale and modes</li>
+                <li class="lead">Harmonic minor scale and modes</li>
+                <li class="lead">Melodic minor scale and modes</li>
+                <li class="lead">Augmented scale</li>
+                <li class="lead">Whole Tone scale</li>
+                <li class="lead">Diminished scale</li>
+                <li class="lead">Major Bebop scale and modes</li>
+                <li class="lead">Minor Bebop scale and modes</li>
+              </ol>
+            </div>
+            <p class="lead">If you are a Country or Bluegrass player, you must be wondering why I did not include the
+              Major Pentatonic or Country Blues scales. They are both modes of the Minor Pentatonic and Blues scales
+              respectively. Or vice versa: the Minor Pentaonic and Blues scales are modes of the Major Pentatonic and
+              Country Blues scales.</p>
+            <div class="container my-3 p-3 bg-light">
+              <h5>Country Blues scale</h5>
+              <p class="lead">I have not found a definitative name for the Major Pentatonic scale with the addition of
+                the ♭3 note. I decide to go with the name <strong><em>Country Blues scale</em></strong> since it seems
+                the
+                the best name for those notes.</p>
+            </div>
+            <h3 class="mt-5">Equal chords vs. Unique chords</h3>
+            <p class="lead">I used the term <strong><em>equal chords</em></strong> to describe a chord that has the same
+              notes as a
+              chord with a
+              different name. For example, C6 has the notes C-E-G-A, while the chord Am7 has the notes A-C-E-G. Both
+              contain
+              the same notes and so they are <strong>equal</strong>.</p>
+            <p class="lead">The opposite of equal chords are <strong><em>unique chords</em></strong> which refer to
+              chords that do not
+              equal any other chord regardless of the chord inversion.</p>
+            <h3 class="mt-5">Chord tendency</h3>
+            <h4>How do I use these chords?</h4>
+            <p class="lead">The <strong>tendency</strong> of a chord refers to where it wants to resolve to - where it
+              comes to rest. The easiest way to understand the tendency of a chord is to look at the V7 chord from the
+              major scale. If you strum a G7 it naturally wants to resolve to C major, or some C major chord (C6, Cmaj7,
+              etc.) Since C is the perfect 4th in relation to G, a G7 chord has the tendnecy of IV. </p>
+            <h3 class="mt-5">Scale degrees</h3>
+            <p class="lead">The major scale has 7 scale degrees, the minor pentatonic has 5, and the blues sale has 6.
+              If you enter a chord like <em>C add 9</em>, then you will get the 1st, 4th, and 5th scale degrees for the
+              major scale. That means that the 1st, 4th and 5th notes in C major build a C add9 chord, (C add9, F add9,
+              and G add9).</p>
+            <p class="lead">Or you can think of it as bulding a C add9 chord on the 1st scale degree of C major, the 4th
+              scale degree in G major, and the 5th scale degree in F major. </p>
+            <h3 class="mt-5">NR, N3, N5, NR/N5</h3>
+            <p class="lead">You may see some chord names followed by either <em>NR</em>, <em>N3</em>, <em>N5</em>, or
+              <em>NR/N5</em>. That is my abbreviation for omitted chord tones:
+            </p>
+            <div class="container">
+              <ul>
+                <li class="lead">NR = omitted chord root, e.g. G13♯9 NR is missing the root note G.</li>
+                <li class="lead">N3 = omitted major 3rd root, e.g. G7 N3 is missing the major 3rd B. I do not recommend
+                  voicing a chord without the major or minor 3rd unless it is a suspended chord. The one exception is 7
+                  N3
+                  which has an interesting <em>hollow</em> sound. You will not see <em>N3</em> for suspended chords.
+                </li>
+                <li class="lead">N5 = omitted perfect 5th, e.g. G7 N5 is missing the perfect 5th note D. The perfect 5th
+                  (P5) is the most commonly omitted chord tone.</li>
+                <li class="lead">NR/N5 = omitted chord root and perfect 5th, e.g. G13♭9 NR/N5 is missing the root note G
+                  and the perfect
+                  5th note D. There are only 2 chords that can have both the root and 5th ommitted: 13♭9 NR/N5 and 13♯9
+                  NR/N5.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- <div class="container">
+      <h2 class="text-center my-5">Related Scales</h2>
+      <div class="table-responsive-md">
+        <table class="table table-bordered table-hover table-striped w-75 mx-auto mb-5 fs-5 text">
+          <thead>
+            <tr>
+              <th scope="col">Scale</th>
+              <th scope="col">1</th>
+              <th scope="col">2</th>
+              <th scope="col">3</th>
+              <th scope="col">4</th>
+              <th scope="col">5</th>
+              <th scope="col">6</th>
+              <th scope="col">7</th>
+              <th scope="col">8</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>E Natural Minor</th>
+              <td><strong>E</strong></td>
+              <td>F#</td>
+              <td><strong>G</strong></td>
+              <td><strong>A</strong></td>
+              <td><strong>B</strong></td>
+              <td>C</td>
+              <td><strong>D</strong></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th>E Minor Pentatonic</th>
+              <td>E</td>
+              <td>G</td>
+              <td>A</td>
+              <td>B</td>
+              <td>D</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th>E Blues Scale</th>
+              <td>E</td>
+              <td>G</td>
+              <td>A</td>
+              <td>B♭</td>
+              <td>B</td>
+              <td>D</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th>G Country Blues</th>
+              <td>G</td>
+              <td>A</td>
+              <td>B♭</td>
+              <td>B</td>
+              <td>D</td>
+              <td>E</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th>G Major</th>
+              <td>G</td>
+              <td>A</td>
+              <td>B</td>
+              <td>C</td>
+              <td>D</td>
+              <td>E</td>
+              <td>F#</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th>A Dorian Pentatonic</th>
+              <td>A</td>
+              <td>B</td>
+              <td>D</td>
+              <td>E</td>
+              <td>G</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> -->
+
+    <footer class="bg-dark py-4">
+      <div class="container text-center lead">
+        <a href="https://everyguitarchord.com/category/guitar/" class="footer-link">Every Guitar
+          Chord
+          Blog</a>
+      </div>
+    </footer>
+
+    <script src="./js/chord-intervals.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"></script>
+
+</body>
+
+</html>

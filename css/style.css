@@ -13,42 +13,52 @@ section {
   width: 80%;
   max-width: 1100px;
   margin: 0 auto;
-  text-align: center;
 }
 
-// form {
-//   text-align: center;
-//   margin: 0 auto;
-// }
+.list-group {
+  list-style: none;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-link:hover {
+  color: #ad8129;
+}
+
+.lg {
+  // background-image: linear-gradient(to bottom left, rgb(173, 129, 41), rgb(0, 0, 0));
+  background-image: linear-gradient(to bottom left, rgb(62, 62, 153), rgb(42, 148, 42));
+}
+
+.lg-rev {
+  // background-image: linear-gradient(to bottom left, rgb(173, 129, 41), rgb(0, 0, 0));
+  background-image: linear-gradient(to bottom left, rgb(42, 148, 42), rgb(62, 62, 153));
+}
 
 fieldset {
   display: inline-block;
   width: max-content;
 }
 
-// label + label {
-//   margin-left: 2.5em;
-// }
-
 input[type='number'] {
   font-size: 1.125rem;
-  width: 2.5em;
+  width: 3.5em;
   height: 1.25em;
   padding: 0.25em 0.5em;
   // margin-left: 0.5rem;
   color: red;
 }
 
-.notes, .intervals {
-  display: inline-block;
-  padding: 1em 0.5em;
+.note,
+.form-control {
+  // display: inline-block;
+  border: 1px solid rgb(1, 1, 133);
+  height: 1rem;
+  width: 5rem;
 }
-
-// .chord-info {
-//   margin: 0 auto;
-//   text-align: center;
-// }
-
 
 .chord-details {
   // margin: 0 auto;
@@ -77,7 +87,7 @@ ul {
   margin: 0;
 }
 
-ul > ul {
+ul>ul {
   margin-left: 1.5em;
 }
 
@@ -86,6 +96,7 @@ ul > ul {
   display: inline-block;
   padding: 0 0.25em;
 }
+
 .deg {
   background-color: #ccc;
   display: inline-block;
