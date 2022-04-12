@@ -1,6 +1,6 @@
 const chordIntervals = [
 	{
-		"Chord": "maj",
+		"Chord": " maj",
 		"Intervals": ["1", "3", "5"],
 		"steps": [0, 4, 7],
 		"Tendency": ["I", "IV"],

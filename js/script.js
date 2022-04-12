@@ -7,22 +7,18 @@ const fourthNote = document.getElementById('note4');
 const fifthNote = document.getElementById('note5');
 const sixthNote = document.getElementById('note6');
 
-// All number input fields
-const fretInputs = document.querySelectorAll('.note');
-// Submit and Clear buttons
-const userChord = document.getElementById('user-chord'); // not being used
-const userClear = document.getElementById('user-clear');
-userClear.addEventListener("click", function (e) {
-  // location.reload();
-  // window.location.reload();
-  // window.location.reload(true);
-  window.location.replace('http://127.0.0.1:5500/guitar-chord-name.html');
-  // location.assign('http://127.0.0.1:5500/guitar-chord-name.html');
-
-  e.preventDefault();
-})
 // THE FORM
 const notesForm = document.getElementById('notes-form');
+
+// All number input fields
+const fretInputs = document.querySelectorAll('.note');
+
+// Submit button
+const userChord = document.getElementById('user-chord'); // not being used
+
+// Reset button & event listener
+const userReset = document.getElementById('user-reset');
+
 
 // The chromatic scale by string, 15 frets (Sharps only)
 const sharpLoE = ["E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G"];
@@ -31,6 +27,7 @@ const sharpD = ["D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "C
 const sharpG = ["G", "G♯", "A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯"];
 const sharpB = ["B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "C", "C♯", "D"];
 const sharpHiE = ["E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G"];
+
 // The chromatic scale by string, 15 frets (Flats only)
 const flatLoE = ["E", "F", "G♭", "G", "A♭", "A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭", "G"];
 const flatA = ["A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "G♯", "A", "B♭", "B", "C"];
@@ -39,14 +36,36 @@ const flatG = ["G", "G♯", "A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F"
 const flatB = ["B", "C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "G♯", "A", "B♭", "B", "C", "D♭", "D"];
 const flatHiE = ["E", "F", "G♭", "G", "G♯", "A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭", "G"];
 
-// The chromatic scale using sharps then flats (just using sharps right now)
+// The chromatic scale using sharps, flats, and mixed
 const chromaticSharps = ["A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G"];
 const chromaticFlats = ["A", "B♭", "B", "C", "D♭", "D", "D♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭", "G"];
 const chromaticMixed = ["A", ["A♯", "B♭"], "B", "C", ["C♯", "D♭"], "D", ["D♯", "E♭"], "E", "F", ["F♯", "G♭"], "G", ["G♯", "A♭"], "A", ["A♯", "B♭"], "B", "C", ["C♯", "D♭"], "D", ["D♯", "E♭"], "E", "F", ["F♯", "G♭"], "G"];
 
+// Enharmonic equivalents
+// const enharmonics = { 3: ["♯", "♭"], 6: ["♯", "♭"], 8: ["♯", "♭"]}
+// const enharmonics = ["♯", "♭"]
+const enharmonics = [["A♯", "B♭"], ["C♯", "D♭"], ["D♯", "E♭"], ["F♯", "G♭"], ["G♯", "A♭"]]
+
+const flat9 = ["A", "D", "G", "C", "F"]
+const flat3 = ["G", "C", "F"]
+const flat5 = ["E", "A", "D", "G", "C"]
+const flat13 = ["D", "G", "C", "F", "B♭"]
+
 let userFrets = [];
 let chordTones = [];
 
+// Reset button event listener
+userReset.addEventListener("click", function (e) {
+  // location.reload();
+  // window.location.reload();
+  // window.location.reload(true);
+  window.location.replace('http://127.0.0.1:5500/guitar-chord-name.html');
+  // location.assign('http://127.0.0.1:5500/guitar-chord-name.html');
+
+  e.preventDefault();
+})
+
+// Form event listener
 notesForm.addEventListener("submit", function (e) {
   getNotes();
   // getJson();
@@ -64,8 +83,8 @@ getNotes:
 5. Determine intervals/steps for each note compared to the other notes (DONE)
 
 chordCalcs (doing all this in getNotes):
-6. Find JSON 'steps' array(s) that match #5 (need JSON files here)
-7. Output Chord name for matching data.steps
+6. Find 'steps' array(s) that match #5 (DONE)
+7. Output Chord name for matching chordIntervals.steps 
 8. Output the chord notes and chord intervals in "proper" order
 9. Output name(s) of "equal" chords, & Chord Substitutes (later) 
 10. Output scale(s) & scale degrees that build the chord
@@ -82,15 +101,17 @@ function getNotes() {
 
   // 3. In case of duplicate notes, get only unique notes
   let uniqueNotes = [];
-
   uniqueNotes = chordTones.filter(tone => !uniqueNotes.includes(tone) && tone !== undefined ? uniqueNotes.push(tone) : null);
+  console.log("Unique Notes: " + uniqueNotes)
 
   // 4. Create a 12-note array for each chord tone
+  const flatKeys = ["C", "F", "B♭", "E♭", "A♭", "D♭", "G♭"]
   let noteSteps = [];
   let result;
   let matches = []
   for (let i = 0; i < uniqueNotes.length; i++) {
-    matches = []
+    // matches = []
+
     let position = chromaticSharps.indexOf(uniqueNotes[i]);
     let noteAsRoot = chromaticSharps.slice(position, position + 12);
 
@@ -98,17 +119,11 @@ function getNotes() {
     noteSteps = [];
     uniqueNotes.forEach(note => noteSteps.push(noteAsRoot.indexOf(note)));
 
-    let noteStepsSort = [...noteSteps].sort();
+    // Create an object using the intervals in noteSteps and the notes in uniqueNotes - used to attach the key to the chord name and equal chords
     let obj = {}
     noteSteps.forEach((key, i) => {
       obj[key] = uniqueNotes[i];
     })
-    console.log(obj)
-    // console.log(obj[result[0]["Equal Chords"][0]["key"]])
-    // console.log(uniqueNotes[i]);
-    // // console.log(noteSteps, noteStepsSort);
-    // console.log(noteSteps);
-    // console.log(noteAsRoot);    
 
     // 6. Get data from chord-intervals.js that matches #5
     function checkIndices() {
@@ -123,31 +138,79 @@ function getNotes() {
       return matches
     }
     result = checkIndices()
-    console.log(matches)
 
     if (result.length > 0) {
-      let chord_name, chord_name2, chord_notes, intervals, tendency, equalChords, scaleDegrees = "";
+      let output, chord_name, chord_name2, chord_notes, intervals, tendency, equalChords, scaleDegrees = "";
 
-      // console.log(
-      //   uniqueNotes[i] + result[0].Chord + " | " +
-      //   result[0].Intervals + " | " +
-      //   result[0].Tendency + " | " +
-      //   obj[result[0]["Equal Chords"][0]["key"]] + result[0]["Equal Chords"][0].name + ", " +
-      //   obj[result[0]["Equal Chords"][1]["key"]] + result[0]["Equal Chords"][1].name + ", " +
-      //   obj[result[0]["Equal Chords"][2]["key"]] + result[0]["Equal Chords"][2].name + " | Scale degrees: " +
-      //   Object.keys(result[0].scales[0]) + ": " + Object.values(result[0].scales[0]) + ", " +
-      //   Object.keys(result[0].scales[1]) + ": " + Object.values(result[0].scales[1]) + ", " +
-      //   Object.keys(result[0].scales[2]) + ": " + Object.values(result[0].scales[2]) + ", " +
-      //   Object.keys(result[0].scales[3]) + ": " + Object.values(result[0].scales[3]) + ", " +
-      //   Object.keys(result[0].scales[4]) + ": " + Object.values(result[0].scales[4]) + ", " +
-      //   Object.keys(result[0].scales[5]) + ": " + Object.values(result[0].scales[5]))
-
-      // gets the key of the equal chord to get the note value in obj 
+      // gets the key of the equal chord to get the note value in obj
       // obj[result[0]["Equal Chords"][0]["key"]]
 
-      console.log(Object.values(result[0].scales))
-      let test = Object.values(result[0].scales);
-      // Uncaught TypeError: Cannot read properties of undefined (reading '#<Object>')
+      let flat = "♭"
+      let sharp = "♯"
+      console.log(noteAsRoot)
+
+      // Fix flat 9's
+      if (obj.hasOwnProperty(1) && obj[1].length === 2) {
+        noteAsRoot.splice(1, 1, noteAsRoot[2] + flat)
+        obj[1] = noteAsRoot[1]
+      }
+
+      // Fix sharp 9's / flat 3's
+      if (obj.hasOwnProperty(3) && !obj.hasOwnProperty(4) && obj[3].length === 2) {
+        noteAsRoot.splice(3, 1, noteAsRoot[4] + flat)
+        obj[3] = noteAsRoot[3]
+      }
+
+      // Fix sharp 11's / flat 5's
+      if (obj.hasOwnProperty(6) && !obj.hasOwnProperty(7) && obj[6].length === 2) {
+        noteAsRoot.splice(6, 1, noteAsRoot[7] + flat)
+        obj[6] = noteAsRoot[6]
+      }
+
+      // Fix sharp 5's / flat 13's
+      if (obj.hasOwnProperty(7) && obj.hasOwnProperty(8) && obj[8].length === 2) {
+        noteAsRoot.splice(8, 1, noteAsRoot[9] + flat)
+        obj[8] = noteAsRoot[8]
+      }
+
+      // Fix flat 7's
+
+      console.log(obj)
+      console.log(noteAsRoot)
+      console.log(uniqueNotes[i])
+
+      // Change chord notes
+      // the chord notes
+      let note_chords = []
+
+      for (let i = 0; i < result[0].steps.length; i++) {
+        note_chords.push(obj[result[0].steps[i]])
+      }
+      console.log(note_chords)
+
+      // Fix b9, #9, #11/b5, and #5/b13
+      let r = note_chords[0]
+
+
+      if (flat9.includes(r) && noteSteps.includes("1")) {
+        obj[noteSteps[1]] = noteAsRoot[2] + flat;
+      }
+      chord_notes = note_chords.join("-")
+
+      // User notes 
+      output = uniqueNotes.join("-")
+
+      // 7. Output Chord name for matching noteSteps array
+      if (noteSteps[0] !== 0) {
+        chord_name = uniqueNotes[i] + result[0].Chord + "/" + obj[noteSteps[0]]
+      } else {
+        chord_name = uniqueNotes[i] + result[0].Chord
+      }
+      chord_name2 = uniqueNotes[i] + result[0].Chord
+
+
+
+
 
       // 9. Output name(s) of "equal" chords
       let eqCh = []
@@ -159,28 +222,24 @@ function getNotes() {
         eqCh.push(["Unique", " no matching chord."])
       }
 
-      // SOMETHING IS WRONG, TRY FMAJ7#11: 1-3-3-2-0-0
+      // Get scale degrees for the chord
       let scaleDeg = []
-      console.log("length: " + result[0].scales.length)
-      let degrees = Object.values(result[0].scales[i])
-      for (let i = 0; i < result[0].scales.length; i++) {
-        scaleDeg.push(`<li>` + Object.keys(result[0].scales[i]) + ": " + degrees + `</li>`)
+      for (let i = 0; i < result[0]["scales"].length; i++) {
+        scaleDeg.push(`<li>` + Object.keys(result[0].scales[i]) + ": " + Object.values(result[0].scales[i]) + `</li>`)
       }
-      console.log("scaleDeg: " + scaleDeg)
-      // 7. Output Chord name for matching noteSteps array
-      chord_name = uniqueNotes[i] + result[0].Chord
-      chord_name2 = uniqueNotes[i] + result[0].Chord
 
-      // 8. Output the chord notes (WRONG), tendency, and chord intervals in "proper" order
-      chord_notes = uniqueNotes.join(", ")
-      // chord_notes = obj[result[0].steps]
+      // 8. Output tendency and chord intervals in "proper" order
       intervals = result[0].Intervals.join("-")
       tendency = result[0].Tendency.join(", ").split(" ").join(" ")
       equalChords = eqCh.join(", ")
 
-      // 10. Output scale(s) & scale degrees that build the chord
-      scaleDegrees = scaleDeg
 
+
+      // 10. Output scale(s) & scale degrees that build the chord
+      scaleDegrees = scaleDeg.join("")
+
+      // Write ALL of that to the DOM
+      document.getElementById('output').innerHTML = output;
       document.getElementById('chord-name').textContent = chord_name;
       document.getElementById('chord-name2').textContent = chord_name2;
       document.getElementById('chord-notes').textContent = chord_notes;
@@ -189,15 +248,24 @@ function getNotes() {
       document.getElementById('equal-chords').textContent = equalChords;
       document.getElementById('scale-degrees').innerHTML = scaleDegrees;
 
-      console.log(Object.values(result[0].scales[0]))
-      // console.log(result)
-
       break;
+
+      // Error messages for less than 3 notes
+    } else if (noteSteps.length < 3) {
+      let output = "";
+      output = uniqueNotes.join("-")
+      const errorOutput = document.getElementById('error-output')
+      let errorMsg = "That is not a chord. Enter at least 3 unique chord tones."
+      errorOutput.innerHTML = `<p>` + errorMsg + `</p>`;
+      document.getElementById('output').innerHTML = output;
     }
-
-
-    // 11. Clear the page on next Submit
-
   }
-  // console.log(uniqueNotes);
+  // Output msg if 3 or more unique notes do not equal one of my chords
+  if (noteSteps.length >= 3 && matches.length === 0) {
+    const errorOutput = document.getElementById('error-output')
+    let errorMsg = "That is not a valid chord or that chord is not in our database."
+    errorOutput.innerHTML = `<p>` + errorMsg + `</p>`;
+    document.getElementById('output').innerHTML = uniqueNotes.join("-");
+  }
+  console.log(result)
 }

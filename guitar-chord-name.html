@@ -44,9 +44,9 @@
   <main>
     <div class="container my-5 mx-auto row justify-content-center">
       <!-- <h1 class="text-center mt-2 pb-2 border-bottom border-secondary">GUITAR CHORD NAMER APP</h1> -->
-      <h1 class="text-center mt-2 pb-2 border-bottom border-secondary">WHAT'S THIS CHORD CALLED?</h1>
+      <h1 class="text-center mt-2 pb-2 border-bottom border-secondary">WHAT CHORD IS THIS?</h1>
       <h2 class="text-center text-secondary">Guitar chord namer app</h2>
-      <h3 class="mb-1 mt-3 text-center"> &#119070; Enter fret numbers</h3>
+      <h3 class="mb-1 mt-3 text-center"> &#119070; Enter your fret numbers</h3>
       <form id="notes-form" class="col-sm-6 row g-3">
         <div class="col-sm-2">
           <label for="fret" class="form-label"><span class="h3">E</span></label>
@@ -72,20 +72,39 @@
           <label for="fret" class="form-label"><span class="h3">e</span></label>
           <input type="number" class="form-control note" id="note6" min="0" step="1" max="16">
         </div>
+        <div class="col-sm-2">
+
+        </div>
         <div class="col-12">
           <button id="user-chord" class="btn btn-dark" type="submit">
             SUBMIT
           </button>
-          <button id="user-clear" class="btn btn-dark mx-2" type="submit">
-            CLEAR
+          <button id="user-reset" class="btn btn-dark mx-2" type="submit">
+            RESET
           </button>
+          <div class="form-check form-check-inline my-3 border-bottom border-dark">
+            <input class="form-check-input" type="radio" name="sharps-flats" id="sharps" value="sharp" checked>
+            <label class="form-check-label" for="sharps">Sharp keys</label>
+          </div>
+          <div class="form-check form-check-inline my-3 border-bottom border-dark">
+            <input class="form-check-input" type="radio" name="sharps-flats" id="flats" value="flat">
+            <label class="form-check-label" for="flats">Flat keys (beta)</label>
+          </div>
         </div>
       </form>
     </div>
+    </div>
     <div class="container">
-      <div id="note-output"></div>
-      <div id="step-output"></div>
-      <div id="output"></div>
+      <div id="error-output" class="mx-auto text-center fs-4 text-danger"></div>
+      <!-- <div id="step-output"></div> -->
+      <div class="row">
+        <div class="col-md">
+          <p class="mx-auto text-center display-5 mb-3 mt-0">Your Notes: <span class="text-primary" id="output"></span>
+          </p>
+
+          <!-- <div class="mx-auto text-center display-4" id="output"></div> -->
+        </div>
+      </div>
     </div>
 
     <div class="container">
@@ -99,6 +118,9 @@
                 <div class="h1 mb-3 lg">
                   <div class="card-header fs-1 py-2">&#119093;</div>
                 </div>
+                <!-- <div>
+                  <p class="lead">Your notes: <span class="output"></span></p>
+                </div> -->
                 <div class="card-body text-center">
                   <h3 class="card-title mb- text-light">Chord name:</h3>
                   <p class="card-text fs-4"><span id="chord-name"></span></p>
@@ -171,7 +193,7 @@
                 </div>
                 <div class="card-body">
                   <h3 class="card-title mb-3 text-light">Scale degrees that build <span id="chord-name2"></span>:</h3>
-                  <ul class="list-group list-group-flush fs-5" id="scale-degrees">
+                  <ul class="fs-4" id="scale-degrees">
                   </ul>
                 </div>
               </div>
@@ -185,7 +207,7 @@
       <section id="notes">
         <div class="row mx-auto">
           <div class="col-md mx-auto">
-            <h2 class="display-4 text-center bg-light border-bottom border-secondary">NOTES</h2>
+            <h2 class="display-4 text-center bg-light border-bottom border-secondary mt-5 pt-5">NOTES</h2>
             <h3 class="mt-5">Scales used</h3>
             <p class="lead">I only include chords that are built from the following scales: </p>
             <div class="container">
@@ -213,6 +235,10 @@
                 the
                 the best name for those notes.</p>
             </div>
+            <p class="lead">Also, the 2nd mode of the Major Bebop scale is the <strong><em>Dorian Blues
+                  scale</em></strong>, while the
+              5th
+              mode of the Minor Bebop scale is the <strong><em>Dominant Bebop scale</em></strong>.</p>
             <h3 class="mt-5">Equal chords vs. Unique chords</h3>
             <p class="lead">I used the term <strong><em>equal chords</em></strong> to describe a chord that has the same
               notes as a
@@ -232,7 +258,7 @@
             <h3 class="mt-5">Scale degrees</h3>
             <p class="lead">The major scale has 7 scale degrees, the minor pentatonic has 5, and the blues sale has 6.
               If you enter a chord like <em>C add 9</em>, then you will get the 1st, 4th, and 5th scale degrees for the
-              major scale. That means that the 1st, 4th and 5th notes in C major build a C add9 chord, (C add9, F add9,
+              major scale. That means that the 1st, 4th and 5th notes in C major build an add9 chord, (C add9, F add9,
               and G add9).</p>
             <p class="lead">Or you can think of it as bulding a C add9 chord on the 1st scale degree of C major, the 4th
               scale degree in G major, and the 5th scale degree in F major. </p>
@@ -242,11 +268,12 @@
             </p>
             <div class="container">
               <ul>
-                <li class="lead">NR = omitted chord root, e.g. G13♯9 NR is missing the root note G.</li>
+                <li class="lead">NR = omitted chord root, e.g. G7♯9 NR is missing the root note G.</li>
                 <li class="lead">N3 = omitted major 3rd root, e.g. G7 N3 is missing the major 3rd B. I do not recommend
                   voicing a chord without the major or minor 3rd unless it is a suspended chord. The one exception is 7
                   N3
-                  which has an interesting <em>hollow</em> sound. You will not see <em>N3</em> for suspended chords.
+                  which has an interesting <em>hollow</em> sound. You will not see <em>N3</em> for suspended chords
+                  since the 3rd is <em>suspended</em>.
                 </li>
                 <li class="lead">N5 = omitted perfect 5th, e.g. G7 N5 is missing the perfect 5th note D. The perfect 5th
                   (P5) is the most commonly omitted chord tone.</li>
@@ -257,6 +284,16 @@
                 </li>
               </ul>
             </div>
+            <h3 class="mt-5">Enharmonic equivalents, double sharps, and double flats</h3>
+            <p class="lead">I do not list double sharps or double flats. For example, the ♯9 in an E7♯9 chord is
+              techincally F♯♯, however, I list it as G. Similarly, the ♭5 in E♭7♭5 is technically B♭♭, as is the ♭9 in
+              an A7♭9 chord but I list them both as A.
+            </p>
+            <p class="lead">The ♭9, ♯9/♭3, ♯11/♭5, and ♯5/♭13 are the intervals that create a problem when it comes to
+              naming chords. I prefer to keep things simple and not confuse people with double sharps or notes like B♯
+              or F♭. The chord names are "correct" but the notes are a little off. Keep that in mind if you are
+              discussing a chord with someone who knows music theory better
+              than you do!</p>
           </div>
         </div>
       </section>
@@ -357,6 +394,7 @@
           Chord
           Blog</a>
       </div>
+      p.fs-6 <text class="text-secondary">&copy; 2022 Every Guitar Chord</text>
     </footer>
 
     <script src="./js/chord-intervals.js"></script>
