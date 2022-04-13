@@ -29,6 +29,9 @@
               <a href="https://everyguitarchord.com/" class="nav-link" target="_blank">EGC Home</a>
             </li>
             <li class="nav-item">
+              <a href="https://kernixwebdesign.com/resume-portfolio.html" class="nav-link" target="_blank">Portfolio</a>
+            </li>
+            <li class="nav-item">
               <a href="https://everyguitarchord.com/contact/" class="nav-link" target="_blank">Contact</a>
             </li>
             <li class="nav-item">
@@ -84,11 +87,11 @@
           </button>
           <div class="form-check form-check-inline my-3 border-bottom border-dark">
             <input class="form-check-input" type="radio" name="sharps-flats" id="sharps" value="sharp" checked>
-            <label class="form-check-label" for="sharps">Sharp keys</label>
+            <label class="form-check-label fs-5" for="sharps">Sharp keys</label>
           </div>
           <div class="form-check form-check-inline my-3 border-bottom border-dark">
             <input class="form-check-input" type="radio" name="sharps-flats" id="flats" value="flat">
-            <label class="form-check-label" for="flats">Flat keys (beta)</label>
+            <label class="form-check-label fs-5" for="flats">Flat keys</label>
           </div>
         </div>
       </form>
@@ -208,6 +211,23 @@
         <div class="row mx-auto">
           <div class="col-md mx-auto">
             <h2 class="display-4 text-center bg-light border-bottom border-secondary mt-5 pt-5">NOTES</h2>
+            <h3 class="mt-5">How to use the app</h3>
+            <p class="lead"></p>
+            <ol>
+              <li class="lead">Enter the fret numbers for your chord. Leave the field empty for any strings that do
+                not have a note. Use your keyboard # keys or the arrow controls to enter a number.</li>
+              <li class="lead">The fret number fields are set to a minimum of <strong>0</strong> for open strings, and a
+                maximum of <strong>16</strong>. For any chords past the 12th fret, just subtract 12 from each fret
+                number to get the chord information.</li>
+              <li class="lead">The page by default is set to sharp keys. If you are working with a chord from a flat key
+                them make sure to select the <strong>Flat keys</strong> radio button. If in doubt, leave it set to
+                <strong>Sharp keys</strong>. FYI, The flat MAJOR keys are <em>F, B♭. E♭, A♭, D♭, </em>and
+                <em>G♭</em>.
+              </li>
+              <li class="lead">Click the <strong>SUBMIT</strong> to geet the chord information, and the
+                <strong>RESET</strong> button to try another chord.
+              </li>
+            </ol>
             <h3 class="mt-5">Scales used</h3>
             <p class="lead">I only include chords that are built from the following scales: </p>
             <div class="container">
@@ -231,7 +251,7 @@
             <div class="container my-3 p-3 bg-light">
               <h5>Country Blues scale</h5>
               <p class="lead">I have not found a definitative name for the Major Pentatonic scale with the addition of
-                the ♭3 note. I decide to go with the name <strong><em>Country Blues scale</em></strong> since it seems
+                the ♭3 note. I decided to go with the name <strong><em>Country Blues scale</em></strong> since it seems
                 the
                 the best name for those notes.</p>
             </div>
@@ -294,6 +314,7 @@
               or F♭. The chord names are "correct" but the notes are a little off. Keep that in mind if you are
               discussing a chord with someone who knows music theory better
               than you do!</p>
+            <!-- <button id="button2" class="button2">JSON</button> -->
           </div>
         </div>
       </section>
@@ -399,6 +420,7 @@
 
     <script src="./js/chord-intervals.js"></script>
     <script src="./js/script.js"></script>
+    <!-- <script src="./js/fetch.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
       integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
       crossorigin="anonymous"></script>
