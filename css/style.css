@@ -30,19 +30,19 @@ section {
 }
 
 .lg {
-  // background-image: linear-gradient(to bottom left, rgb(173, 129, 41), rgb(0, 0, 0));
-  background-image: linear-gradient(to bottom left, rgb(62, 62, 153), rgb(42, 148, 42));
+  background-image: linear-gradient(to bottom left, rgb(173, 129, 41), rgb(0, 0, 0));
+  // background-image: linear-gradient(to bottom left, rgb(62, 62, 153), rgb(42, 148, 42));
 }
 
 .lg-rev {
-  // background-image: linear-gradient(to bottom left, rgb(173, 129, 41), rgb(0, 0, 0));
-  background-image: linear-gradient(to bottom left, rgb(42, 148, 42), rgb(62, 62, 153));
+  background-image: linear-gradient(to bottom left, rgb(0, 0, 0), rgb(173, 129, 41));
+  // background-image: linear-gradient(to bottom left, rgb(42, 148, 42), rgb(62, 62, 153));
 }
 
-fieldset {
-  display: inline-block;
-  width: max-content;
-}
+// fieldset {
+//   display: inline-block;
+//   width: max-content;
+// }
 
 input[type='number'] {
   font-size: 1.125rem;
@@ -86,7 +86,7 @@ ul>ul {
 }
 
 // Hide output
-#note-output {
-  opacity: 0.25;
-  visibility: hidden;
-}
+// #note-output {
+//   opacity: 0.25;
+//   visibility: hidden;
+// }
