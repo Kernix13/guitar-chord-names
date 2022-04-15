@@ -85,9 +85,10 @@ notesForm.addEventListener("submit", function (e) {
 userReset.addEventListener("click", function (e) {
 
   // location.reload();
-  window.location.reload();
+  // window.location.reload();
   // window.location.reload(true);
-  // window.location.replace('http://127.0.0.1:5500/what-chord-is-this.html');
+  window.location.replace('http://127.0.0.1:5500/what-chord-is-this.html');
+  // window.location.replace('https://everyguitarchord.com/what-chord-is-this.html');
   // location.assign('https://everyguitarchord.com/what-chord-is-this.html');
 
   // firstNote.focus();
