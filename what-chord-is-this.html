@@ -16,7 +16,7 @@
   <header class="pb-5">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 fixed-top border-bottom border-secondary">
       <div class="container">
-        <a href="#" class="navbar-brand"><img
+        <a href="https://everyguitarchord.com/" class="navbar-brand"><img
             src="https://everyguitarchord.com/wp-content/uploads/2019/05/cropped-every-guitar-chord-logo182.png"
             alt="Every Guitar Chord logo" class="w-75"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"
@@ -25,17 +25,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navmenu">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
-            <li class="nav-item text-white">
-              <a href="https://everyguitarchord.com/" class="nav-link" target="_blank">EGC Home</a>
+            <li class="nav-item">
+              <a href="#notes" class="nav-link">Notes</a>
             </li>
             <li class="nav-item">
               <a href="https://kernixwebdesign.com/resume-portfolio.html" class="nav-link" target="_blank">Portfolio</a>
             </li>
             <li class="nav-item">
               <a href="https://everyguitarchord.com/contact/" class="nav-link" target="_blank">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a href="#notes" class="nav-link">Notes</a>
             </li>
           </ul>
         </div>
@@ -49,30 +46,59 @@
       <!-- <h1 class="text-center mt-2 pb-2 border-bottom border-secondary">GUITAR CHORD NAMER APP</h1> -->
       <h1 class="text-center mt-2 pb-2 border-bottom border-secondary">WHAT CHORD IS THIS?</h1>
       <h2 class="text-center text-secondary">Guitar chord namer app</h2>
-      <h3 class="mb-1 mt-3 text-center"> &#119070; Enter your fret numbers</h3>
+      <h3 class="mb-1 mt-3 text-center"> <span aria-label="	G clef">&#119070;</span> Choose the tuning &amp; enter your
+        fret numbers</h3>
+      <form id="tunings-form" class="col-sm-6 row g-3">
+        <div class="col-md-7">
+          <select id="alt-tunings" class="form-select border border-info" aria-label="Default select example">
+            <option value="0" selected>Standard (E-A-D-G-B-E)</option>
+            <option value="1">Drop D (D-A-D-G-B-E)</option>
+            <option value="2">Double Drop D (D-A-D-G-B-D)</option>
+            <option value="3">Drop C (C-G-D-F-A-D)</option>
+            <option value="4">Open A (E-A-C♯-E-A-E)</option>
+            <option value="5">Open C (C-G-C-G-C-E)</option>
+            <option value="6">Open D (D-A-D-F♯-A-D)</option>
+            <option value="7">DADGAD (D-A-D-G-A-D)</option>
+            <option value="8">Open D Minor (D-A-D-F-A-D)</option>
+            <option value="9">Open E (E-B-E-G♯-B-E)</option>
+            <option value="10">Open F (F-A-C-F-C-F)</option>
+            <option value="11">Open G (D-G-D-G-B-D)</option>
+            <option value="12">Open G Minor (D-G-D-G-B♭-D)</option>
+          </select>
+        </div>
+        <div class="col-md-5">
+          <button id="user-tuning" class="btn btn-primary" type="submit">
+            Set Tuning
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="container my-5 mx-auto row justify-content-center">
+
       <form id="notes-form" class="col-sm-6 row g-3">
+
         <div class="col-sm-2">
-          <label for="fret" class="form-label"><span class="h3">E</span></label>
+          <label for="fret" class="form-label"><span id="sixth" class="h4 string">E</span></label>
           <input type="number" class="form-control note" id="note1" min="0" step="1" max="16">
         </div>
         <div class="col-sm-2">
-          <label for="fret" class="form-label"><span class="h3">A</span></label>
+          <label for="fret" class="form-label"><span id="fifth" class="h4 string">A</span></label>
           <input type="number" class="form-control note" id="note2" min="0" step="1" max="16">
         </div>
         <div class="col-sm-2">
-          <label for="fret" class="form-label"><span class="h3">D</span></label>
+          <label for="fret" class="form-label"><span id="fourth" class="h4 string">D</span></label>
           <input type="number" class="form-control note" id="note3" min="0" step="1" max="16">
         </div>
         <div class="col-sm-2">
-          <label for="fret" class="form-label"><span class="h3">G</span></label>
+          <label for="fret" class="form-label"><span id="third" class="h4 string">G</span></label>
           <input type="number" class="form-control note" id="note4" min="0" step="1" max="16">
         </div>
         <div class="col-sm-2">
-          <label for="fret" class="form-label"><span class="h3">B</span></label>
+          <label for="fret" class="form-label"><span id="second" class="h4 string">B</span></label>
           <input type="number" class="form-control note" id="note5" min="0" step="1" max="16">
         </div>
         <div class="col-sm-2">
-          <label for="fret" class="form-label"><span class="h3">e</span></label>
+          <label for="fret" class="form-label"><span id="first" class="h4 string">E</span></label>
           <input type="number" class="form-control note" id="note6" min="0" step="1" max="16">
         </div>
         <div class="col-sm-2">
@@ -96,13 +122,14 @@
         </div>
       </form>
     </div>
-    </div>
+    <!-- </div> -->
     <div class="container">
       <div id="error-output" class="mx-auto text-center fs-4 text-danger"></div>
       <!-- <div id="step-output"></div> -->
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-md">
-          <p class="mx-auto text-center display-5 mb-3 mt-0">Your Notes: <span class="text-primary" id="output"></span>
+          <p class="mx-auto text-center mb-3 mt-0 user-notes"> Your notes: <span class="text-primary user-notes-output"
+              id="output"></span>
           </p>
 
           <!-- <div class="mx-auto text-center display-4" id="output"></div> -->
@@ -118,42 +145,39 @@
           <div class="row text-center g-3">
             <div class="col-md">
               <div class="card bg-dark text-light">
-                <div class="h1 mb-3 lg">
-                  <div class="card-header fs-1 py-2">&#119093;</div>
+                <div class="h1 lg">
+                  <div class="card-header fs-1 py-1" aria-label="Cut time">&#119093;</div>
                 </div>
-                <!-- <div>
-                  <p class="lead">Your notes: <span class="output"></span></p>
-                </div> -->
                 <div class="card-body text-center">
-                  <h3 class="card-title mb- text-light">Chord name:</h3>
+                  <h3 class="card-title text-light">Chord name:</h3>
                   <p class="card-text fs-4"><span id="chord-name"></span></p>
                 </div>
               </div>
             </div>
             <div class="col-md">
               <div class="card bg-dark text-light">
-                <div class="h1 mb-3 lg-rev">
-                  <div class="card-header fs-1 py-2">&#9835;</div>
+                <div class="h1 lg-rev">
+                  <div class="card-header fs-1 py-1" aria-label="beamed eighth note">&#9835;</div>
                 </div>
                 <div class="card-body text-center">
-                  <h3 class="card-title mb-3 text-light">Chord notes:</h3>
+                  <h3 class="card-title text-light">Chord notes:</h3>
                   <p class="card-text fs-4"><span id="chord-notes"></span></p>
                 </div>
               </div>
             </div>
             <div class="col-md">
               <div class="card bg-dark text-light">
-                <div class="h1 mb-3 lg">
-                  <div class="card-header fs-1 py-2">&#119137;</div>
+                <div class="h1 lg">
+                  <div class="card-header fs-1 py-1" aria-label="Sixteenth note">&#119083;</div>
                 </div>
                 <div class="card-body text-center">
-                  <h3 class="card-title mb-3 text-light">Chord intervals:</h3>
+                  <h3 class="card-title text-light">Chord intervals:</h3>
                   <p class="card-text fs-4"><span id="intervals"></span></p>
                 </div>
               </div>
             </div>
           </div>
-          <!-- </div> -->
+        </div>
       </section>
       <!-- BOXES-->
       <section class="p-1 my-3">
@@ -161,22 +185,22 @@
           <div class="row text-center g-3">
             <div class="col-md">
               <div class="card bg-dark text-light">
-                <div class="h1 mb-3 lg">
-                  <div class="card-header fs-1 py-2">&#119074;</div>
+                <div class="h1 lg">
+                  <div class="card-header fs-1 py-1" aria-label="F clef">&#119074;</div>
                 </div>
                 <div class="card-body text-center">
-                  <h3 class="card-title mb-3 text-light">Chord tendency:</h3>
+                  <h3 class="card-title text-light">Chord tendency:</h3>
                   <p class="card-text fs-4"><span id="tendency"></span></p>
                 </div>
               </div>
             </div>
             <div class="col-md">
               <div class="card bg-dark text-light">
-                <div class="h1 mb-3 lg-rev">
-                  <div class="card-header fs-1 py-2">&#119083;</div>
+                <div class="h1 lg-rev">
+                  <div class="card-header fs-1 py-1" aria-label="Double flat">&#119137;</div>
                 </div>
                 <div class="card-body text-center">
-                  <h3 class="card-title mb-3 text-light">Equal chords:</h3>
+                  <h3 class="card-title text-light">Equal chords:</h3>
                   <p class="card-text fs-4"><span id="equal-chords"></span></p>
                 </div>
               </div>
@@ -191,11 +215,12 @@
           <div class="row g-3 text-center">
             <div class="col-md">
               <div class="card bg-dark text-light">
-                <div class="h1 mb-3 lg">
-                  <div class="card-header fs-1 py-2">&#9834;</div>
+                <div class="h1 lg">
+                  <div class="card-header fs-1 py-1" aria-label="eighth note">&#9834;</div>
                 </div>
                 <div class="card-body">
-                  <h3 class="card-title mb-3 text-light">Scale degrees that build <span id="chord-name2"></span>:</h3>
+                  <h3 class="card-title mb-3 text-light">Scale degrees that build <span id="chord-name2"></span>:
+                  </h3>
                   <ul class="fs-4" id="scale-degrees">
                   </ul>
                 </div>
@@ -211,15 +236,26 @@
         <div class="row mx-auto">
           <div class="col-md mx-auto">
             <h2 class="display-4 text-center bg-light border-bottom border-secondary mt-5 pt-5">NOTES</h2>
+
+            <!-- How to use... -->
             <h3 class="mt-5">How to use the app</h3>
             <p class="lead"></p>
             <ol>
+              <li class="lead">The page by default is set to Standard Tuning (E-A-D-G-B-E). I have 12 common altered
+                tunings in the select list. Select the tuning you want but make sure to click the <strong>Set
+                  Tuning</strong> button. I am working on setting the tuning to local storage so it remains when you
+                click
+                <strong>RESET</strong>, as well as a Custom tuning option.
+              </li>
               <li class="lead">Enter the fret numbers for your chord. Leave the field empty for any strings that do
-                not have a note. Use your keyboard # keys or the arrow controls to enter a number.</li>
-              <li class="lead">The fret number fields are set to a minimum of <strong>0</strong> for open strings, and a
+                not have a note. Use your keyboard # keys or the arrow controls to enter a number. If you are fine with
+                Standard Tuning, then you do not have to hit the Set Tuning button.</li>
+              <li class="lead">The fret number fields are set to a minimum of <strong>0</strong> for open strings,
+                and a
                 maximum of <strong>16</strong>. For any chords past the 12th fret, just subtract 12 from each fret
                 number to get the chord information.</li>
-              <li class="lead">The page by default is set to sharp keys. If you are working with a chord from a flat key
+              <li class="lead">The page by default is set to sharp keys. If you are working with a chord from a flat
+                key
                 them make sure to select the <strong>Flat keys</strong> radio button. If in doubt, leave it set to
                 <strong>Sharp keys</strong>. FYI, The flat MAJOR keys are <em>F, B♭. E♭, A♭, D♭, </em>and
                 <em>G♭</em>.
@@ -228,6 +264,8 @@
                 <strong>RESET</strong> button to try another chord.
               </li>
             </ol>
+
+            <!-- Scales used -->
             <h3 class="mt-5">Scales used</h3>
             <p class="lead">I only include chords that are built from the following scales: </p>
             <div class="container">
@@ -244,14 +282,18 @@
                 <li class="lead">Minor Bebop scale and modes</li>
               </ol>
             </div>
-            <p class="lead">If you are a Country or Bluegrass player, you must be wondering why I did not include the
+            <p class="lead">If you are a Country or Bluegrass player, you must be wondering why I did not include
+              the
               Major Pentatonic or Country Blues scales. They are both modes of the Minor Pentatonic and Blues scales
-              respectively. Or vice versa: the Minor Pentaonic and Blues scales are modes of the Major Pentatonic and
+              respectively. Or vice versa: the Minor Pentaonic and Blues scales are modes of the Major Pentatonic
+              and
               Country Blues scales.</p>
             <div class="container my-3 p-3 bg-light">
               <h5>Country Blues scale</h5>
-              <p class="lead">I have not found a definitative name for the Major Pentatonic scale with the addition of
-                the ♭3 note. I decided to go with the name <strong><em>Country Blues scale</em></strong> since it seems
+              <p class="lead">I have not found a definitative name for the Major Pentatonic scale with the addition
+                of
+                the ♭3 note. I decided to go with the name <strong><em>Country Blues scale</em></strong> since it
+                seems
                 the
                 the best name for those notes.</p>
             </div>
@@ -259,8 +301,41 @@
                   scale</em></strong>, while the
               5th
               mode of the Minor Bebop scale is the <strong><em>Dominant Bebop scale</em></strong>.</p>
+
+            <!-- Omitted chord tones -->
+            <h3 class="mt-5">NR, N3, N5, NR/N5</h3>
+            <p class="lead">You may see some chord names followed by either <em>NR</em>, <em>N3</em>, <em>N5</em>,
+              or
+              <em>NR/N5</em>. That is my abbreviation for omitted chord tones:
+            </p>
+            <div class="container">
+              <ul>
+                <li class="lead">NR = omitted chord root, e.g. G7♯9 NR is missing the root note G.</li>
+                <li class="lead">N3 = omitted major 3rd root, e.g. G7 N3 is missing the major 3rd B. I do not
+                  recommend
+                  voicing a chord without the major or minor 3rd unless it is a suspended chord. The one exception
+                  is 7
+                  N3
+                  which has an interesting <em>hollow</em> sound. You will not see <em>N3</em> for suspended chords
+                  since the 3rd is <em>suspended</em>.
+                </li>
+                <li class="lead">N5 = omitted perfect 5th, e.g. G7 N5 is missing the perfect 5th note D. The perfect
+                  5th
+                  (P5) is the most commonly omitted chord tone.</li>
+                <li class="lead">NR/N5 = omitted chord root and perfect 5th, e.g. G13♭9 NR/N5 is missing the root
+                  note G
+                  and the perfect
+                  5th note D. There are only 2 chords that can have both the root and 5th ommitted: 13♭9 NR/N5 and
+                  13♯9
+                  NR/N5.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Equal chords -->
             <h3 class="mt-5">Equal chords vs. Unique chords</h3>
-            <p class="lead">I used the term <strong><em>equal chords</em></strong> to describe a chord that has the same
+            <p class="lead">I used the term <strong><em>equal chords</em></strong> to describe a chord that has the
+              same
               notes as a
               chord with a
               different name. For example, C6 has the notes C-E-G-A, while the chord Am7 has the notes A-C-E-G. Both
@@ -271,47 +346,41 @@
               equal any other chord regardless of the chord inversion.</p>
             <h3 class="mt-5">Chord tendency</h3>
             <h4>How do I use these chords?</h4>
-            <p class="lead">The <strong>tendency</strong> of a chord refers to where it wants to resolve to - where it
-              comes to rest. The easiest way to understand the tendency of a chord is to look at the V7 chord from the
-              major scale. If you strum a G7 it naturally wants to resolve to C major, or some C major chord (C6, Cmaj7,
+            <p class="lead">The <strong>tendency</strong> of a chord refers to where it wants to resolve to - where
+              it
+              comes to rest. The easiest way to understand the tendency of a chord is to look at the V7 chord from
+              the
+              major scale. If you strum a G7 it naturally wants to resolve to C major, or some C major chord (C6,
+              Cmaj7,
               etc.) Since C is the perfect 4th in relation to G, a G7 chord has the tendnecy of IV. </p>
+
+            <!-- Scale degrees -->
             <h3 class="mt-5">Scale degrees</h3>
-            <p class="lead">The major scale has 7 scale degrees, the minor pentatonic has 5, and the blues sale has 6.
-              If you enter a chord like <em>C add 9</em>, then you will get the 1st, 4th, and 5th scale degrees for the
-              major scale. That means that the 1st, 4th and 5th notes in C major build an add9 chord, (C add9, F add9,
+            <p class="lead">The major scale has 7 scale degrees, the minor pentatonic has 5, and the blues sale has
+              6.
+              If you enter a chord like <em>C add 9</em>, then you will get the 1st, 4th, and 5th scale degrees for
+              the
+              major scale. That means that the 1st, 4th and 5th notes in C major build an add9 chord, (C add9, F
+              add9,
               and G add9).</p>
-            <p class="lead">Or you can think of it as bulding a C add9 chord on the 1st scale degree of C major, the 4th
+            <p class="lead">Or you can think of it as bulding a C add9 chord on the 1st scale degree of C major, the
+              4th
               scale degree in G major, and the 5th scale degree in F major. </p>
-            <h3 class="mt-5">NR, N3, N5, NR/N5</h3>
-            <p class="lead">You may see some chord names followed by either <em>NR</em>, <em>N3</em>, <em>N5</em>, or
-              <em>NR/N5</em>. That is my abbreviation for omitted chord tones:
-            </p>
-            <div class="container">
-              <ul>
-                <li class="lead">NR = omitted chord root, e.g. G7♯9 NR is missing the root note G.</li>
-                <li class="lead">N3 = omitted major 3rd root, e.g. G7 N3 is missing the major 3rd B. I do not recommend
-                  voicing a chord without the major or minor 3rd unless it is a suspended chord. The one exception is 7
-                  N3
-                  which has an interesting <em>hollow</em> sound. You will not see <em>N3</em> for suspended chords
-                  since the 3rd is <em>suspended</em>.
-                </li>
-                <li class="lead">N5 = omitted perfect 5th, e.g. G7 N5 is missing the perfect 5th note D. The perfect 5th
-                  (P5) is the most commonly omitted chord tone.</li>
-                <li class="lead">NR/N5 = omitted chord root and perfect 5th, e.g. G13♭9 NR/N5 is missing the root note G
-                  and the perfect
-                  5th note D. There are only 2 chords that can have both the root and 5th ommitted: 13♭9 NR/N5 and 13♯9
-                  NR/N5.
-                </li>
-              </ul>
-            </div>
+            <!-- Enharmonic equivalents -->
             <h3 class="mt-5">Enharmonic equivalents, double sharps, and double flats</h3>
             <p class="lead">I do not list double sharps or double flats. For example, the ♯9 in an E7♯9 chord is
-              techincally F♯♯, however, I list it as G. Similarly, the ♭5 in E♭7♭5 is technically B♭♭, as is the ♭9 in
+              techincally F♯♯, however, I list it as G. Similarly, the ♭5 in E♭7♭5 is technically B♭♭, as is the ♭9
+              in
               an A7♭9 chord but I list them both as A.
             </p>
-            <p class="lead">The ♭9, ♯9/♭3, ♯11/♭5, and ♯5/♭13 are the intervals that create a problem when it comes to
-              naming chords. I prefer to keep things simple and not confuse people with double sharps or notes like B♯
-              or F♭. The chord names are "correct" but the notes are a little off. Keep that in mind if you are
+            <p class="lead">The ♭9, ♯9/♭3, ♯11/♭5, and ♯5/♭13 are the intervals that create a problem when it comes
+              to
+              naming chords. I prefer to keep things simple and not confuse people with double sharps or notes like
+              B♯
+              or F♭.</p>
+            <p class="lead">The chord names are correct but the notes are a little <em>&ldquo;off&rdquo;</em>. Keep
+              that in
+              mind if you are
               discussing a chord with someone who knows music theory better
               than you do!</p>
             <!-- <button id="button2" class="button2">JSON</button> -->
@@ -319,95 +388,6 @@
         </div>
       </section>
     </div>
-
-    <!-- <div class="container">
-      <h2 class="text-center my-5">Related Scales</h2>
-      <div class="table-responsive-md">
-        <table class="table table-bordered table-hover table-striped w-75 mx-auto mb-5 fs-5 text">
-          <thead>
-            <tr>
-              <th scope="col">Scale</th>
-              <th scope="col">1</th>
-              <th scope="col">2</th>
-              <th scope="col">3</th>
-              <th scope="col">4</th>
-              <th scope="col">5</th>
-              <th scope="col">6</th>
-              <th scope="col">7</th>
-              <th scope="col">8</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>E Natural Minor</th>
-              <td><strong>E</strong></td>
-              <td>F#</td>
-              <td><strong>G</strong></td>
-              <td><strong>A</strong></td>
-              <td><strong>B</strong></td>
-              <td>C</td>
-              <td><strong>D</strong></td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <th>E Minor Pentatonic</th>
-              <td>E</td>
-              <td>G</td>
-              <td>A</td>
-              <td>B</td>
-              <td>D</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <th>E Blues Scale</th>
-              <td>E</td>
-              <td>G</td>
-              <td>A</td>
-              <td>B♭</td>
-              <td>B</td>
-              <td>D</td>
-              <td>-</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <th>G Country Blues</th>
-              <td>G</td>
-              <td>A</td>
-              <td>B♭</td>
-              <td>B</td>
-              <td>D</td>
-              <td>E</td>
-              <td>-</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <th>G Major</th>
-              <td>G</td>
-              <td>A</td>
-              <td>B</td>
-              <td>C</td>
-              <td>D</td>
-              <td>E</td>
-              <td>F#</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <th>A Dorian Pentatonic</th>
-              <td>A</td>
-              <td>B</td>
-              <td>D</td>
-              <td>E</td>
-              <td>G</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div> -->
 
     <footer class="bg-dark py-4">
       <div class="container text-center lead">
@@ -420,7 +400,8 @@
 
     <script src="./js/chord-intervals.js"></script>
     <script src="./js/script.js"></script>
-    <!-- <script src="./js/fetch.js"></script> -->
+    <!-- <script src="./js/script3.js"></script> -->
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
       integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
       crossorigin="anonymous"></script>

@@ -61,7 +61,11 @@ input[type='number'] {
 
 p {
   padding: 0;
-  margin: 0.5em 0;
+  margin: 1.0em 0 0.75em;
+}
+
+p::first-letter {
+  padding-left: 1.5rem;
 }
 
 ul {
@@ -73,20 +77,13 @@ ul>ul {
   margin-left: 1.5em;
 }
 
-.chord-root {
-  background-color: #ddd;
-  display: inline-block;
-  padding: 0 0.25em;
+.user-notes {
+  font-size: 2.25rem;
+  font-weight: 300;
 }
 
-.deg {
-  background-color: #ccc;
-  display: inline-block;
-  padding: 0 0.25em;
+.user-notes::selection,
+.user-notes-output::selection {
+  background-color: black;
+  color: rgb(173, 129, 41);
 }
-
-// Hide output
-// #note-output {
-//   opacity: 0.25;
-//   visibility: hidden;
-// }

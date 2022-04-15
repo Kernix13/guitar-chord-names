@@ -1071,8 +1071,6 @@ const chordIntervals = [
 		"Equal Chords": [{ "key": 3, "name": "maj13" }],
 		"scales": [
 			{ "Major Scale": ["2nd", " 6th"] },
-			{ "Minor Pentatonic": ["1st"] },
-			{ "Blues Scale": ["1st"] },
 			{ "Harmonic Minor": ["4th"] },
 			{ "Major Bebop": ["2nd", " 6th"] },
 			{ "Minor Bebop": ["1st", " 2nd", " 6th"] }
@@ -1086,8 +1084,6 @@ const chordIntervals = [
 		"Equal Chords": [{ "key": 2, "name": "7♯5♭9 N3" }],
 		"scales": [
 			{ "Major Scale": ["2nd", " 6th"] },
-			{ "Minor Pentatonic": ["1st"] },
-			{ "Blues Scale": ["1st"] },
 			{ "Harmonic Minor": ["4th"] },
 			{ "Major Bebop": ["2nd", " 6th"] },
 			{ "Minor Bebop": ["1st", " 2nd", " 6th"] }
