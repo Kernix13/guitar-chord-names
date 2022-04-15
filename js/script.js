@@ -348,19 +348,23 @@ function getNotes() {
 // clear();
 
 
-// window.onload = (e) => {
-//   if (localStorage.length === 0) {
-//     const selectUserStrings = localStorage.getItem('userStrings');
-//     // console.log(typeof selectUserStrings)
-//     sixth.textContent = selectUserStrings.split(",")[0];
-//     fifth.textContent = selectUserStrings.split(",")[1];
-//     fourth.textContent = selectUserStrings.split(",")[2];
-//     third.textContent = selectUserStrings.split(",")[3];
-//     second.textContent = selectUserStrings.split(",")[4];
-//     first.textContent = selectUserStrings.split(",")[5];
+// trying to load the tuning values from local storage (Not Working)
 
-//     let newStrings = [sixth.textContent, fifth.textContent, fourth.textContent, third.textContent, second.textContent, first.textContent];
+/*
+window.onload = (e) => {
+  if (localStorage.length === 0) {
+    const selectUserStrings = localStorage.getItem('userStrings');
+    // console.log(typeof selectUserStrings)
+    sixth.textContent = selectUserStrings.split(",")[0];
+    fifth.textContent = selectUserStrings.split(",")[1];
+    fourth.textContent = selectUserStrings.split(",")[2];
+    third.textContent = selectUserStrings.split(",")[3];
+    second.textContent = selectUserStrings.split(",")[4];
+    first.textContent = selectUserStrings.split(",")[5];
 
-//     localStorage.setItem('userStrings', newStrings);
-//   }
-// };
+    let newStrings = [sixth.textContent, fifth.textContent, fourth.textContent, third.textContent, second.textContent, first.textContent];
+
+    localStorage.setItem('userStrings', newStrings);
+  }
+};
+*/
