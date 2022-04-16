@@ -84,16 +84,16 @@ notesForm.addEventListener("submit", function (e) {
 // Reset button event listener
 userReset.addEventListener("click", function (e) {
 
-  // location.reload();
+  location.reload();
   // window.location.reload();
   // window.location.reload(true);
-  window.location.replace('http://127.0.0.1:5500/what-chord-is-this.html');
+  // window.location.replace('http://127.0.0.1:5500/what-chord-is-this.html');
   // window.location.replace('https://everyguitarchord.com/what-chord-is-this.html');
   // location.assign('https://everyguitarchord.com/what-chord-is-this.html');
 
-  // firstNote.focus();
+  // 
 
-  e.preventDefault();
+  // e.preventDefault();
 })
 
 let newStrings = [];
@@ -296,7 +296,7 @@ function getNotes() {
           eqCh.push(noteAsRoot[result[0]["Equal Chords"][i]["key"]] + result[0]["Equal Chords"][i].name);
         }
       } else {
-        eqCh.push(["Unique", " no matching chord."]);
+        eqCh.push(["Unique"]);
       }
 
       // Get scale degrees for the chord
@@ -311,6 +311,7 @@ function getNotes() {
       equalChords = eqCh.join(", ");
 
       // Write ALL of the above to the DOM
+      // <span id="chord-name"></span>
       document.getElementById('chord-name').textContent = chord_name;
       document.getElementById('chord-name2').textContent = chord_name2;
       document.getElementById('chord-notes').textContent = chord_notes;
@@ -349,12 +350,16 @@ function getNotes() {
 // clear();
 
 
-// trying to load the tuning values from local storage (Not Working)
+window.onload = function loadLocal() {
 
-/*
-window.onload = (e) => {
   if (localStorage.length === 0) {
+
+    let newStrings = [sixth.textContent, fifth.textContent, fourth.textContent, third.textContent, second.textContent, first.textContent];
+    localStorage.setItem('userStrings', newStrings);
+    firstNote.focus();
+  } else {
     const selectUserStrings = localStorage.getItem('userStrings');
+
     // console.log(typeof selectUserStrings)
     sixth.textContent = selectUserStrings.split(",")[0];
     fifth.textContent = selectUserStrings.split(",")[1];
@@ -362,10 +367,6 @@ window.onload = (e) => {
     third.textContent = selectUserStrings.split(",")[3];
     second.textContent = selectUserStrings.split(",")[4];
     first.textContent = selectUserStrings.split(",")[5];
-
-    let newStrings = [sixth.textContent, fifth.textContent, fourth.textContent, third.textContent, second.textContent, first.textContent];
-
-    localStorage.setItem('userStrings', newStrings);
+    firstNote.focus();
   }
-};
-*/
+}
