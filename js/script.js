@@ -12,7 +12,7 @@ const tuningsForm = document.getElementById('tunings-form');
 const altTunings = document.getElementById('alt-tunings');
 const allSstrings = document.querySelectorAll('.string');
 // const userTuning = document.getElementById('user-tuning'); // do i need this
-const tuningsArr = ["E-A-D-G-B-E", "D-A-D-G-B-E", "D-A-D-G-B-D", "C-G-D-F-A-D", "E-A-C♯-E-A-E", "C-G-C-G-C-E", "D-A-D-F♯-A-D", "D-A-D-G-A-D", "D-A-D-F-A-D", "E-B-E-G♯-B-E", "E-B-E-G♯-B-E", "E-B-E-G♯-B-E", "D-G-D-G-B♭-D"];
+const tuningsArr = ["E-A-D-G-B-E", "D-A-D-G-B-E", "D-A-D-G-B-D", "C-G-D-F-A-D", "E-A-C♯-E-A-E", "C-G-C-G-C-E", "D-A-D-F♯-A-D", "D-A-D-G-A-D", "D-A-D-F-A-D", "E-B-E-G♯-B-E", "F-A-C-F-C-F", "D-G-D-G-B-D", "D-G-D-G-B♭-D"];
 
 // THE NOTES FORM
 const notesForm = document.getElementById('notes-form');
@@ -56,6 +56,7 @@ tuningsForm.addEventListener("submit", function (e) {
   let value = altTunings.options[altTunings.selectedIndex].value;
   let openStrings = tuningsArr[value].split("-");
   stringNotes = openStrings;
+  console.log(value)
 
   sixth.textContent = openStrings[0];
   fifth.textContent = openStrings[1];
@@ -67,6 +68,8 @@ tuningsForm.addEventListener("submit", function (e) {
   let newStrings = [sixth.textContent, fifth.textContent, fourth.textContent, third.textContent, second.textContent, first.textContent];
 
   localStorage.setItem('userStrings', newStrings);
+  firstNote.focus();
+  resetPage()
 
   console.log(stringNotes); // correct
 
@@ -82,19 +85,17 @@ notesForm.addEventListener("submit", function (e) {
 });
 
 // Reset button event listener
-userReset.addEventListener("click", function (e) {
+userReset.addEventListener("click", resetPage)
+
+// REMEMBER TO SWITCH THE REPLACE METHODS WHEN UPLOADING FILE
+function resetPage() {
 
   location.reload();
   // window.location.reload();
-  // window.location.reload(true);
   // window.location.replace('http://127.0.0.1:5500/what-chord-is-this.html');
   // window.location.replace('https://everyguitarchord.com/what-chord-is-this.html');
   // location.assign('https://everyguitarchord.com/what-chord-is-this.html');
-
-  // 
-
-  // e.preventDefault();
-})
+}
 
 let newStrings = [];
 
@@ -106,9 +107,12 @@ function getNotes() {
 
   if (rad1.checked) {
     rad1Val = rad1.value;
+    // radioValue = rad1Val;
+    // localStorage.setItem('radioValue', radioValue);
   } else {
     rad2Val = rad2.value;
-    console.log(rad2Val);
+    // radioValue = rad2Val;
+    // localStorage.setItem('radioValue', radioValue);
   }
 
   // Get the fret #'s entered by the user
@@ -123,26 +127,22 @@ function getNotes() {
 
       if (rad1Val === "sharp") {
 
-        // old data in notes.md
         let position = chromaticSharps.indexOf(strContent[i]);
         newStrArr[i] = chromaticSharps.slice(position, position + 17);
         newStrings.push(newStrArr[i]);
-        // console.log(newStrings)
+
       } else if (rad2Val === "flat") {
 
-        // old data in notes.md
         let position = chromaticFlats.indexOf(strContent[i]);
         newStrArr[i] = chromaticFlats.slice(position, position + 17);
         newStrings.push(newStrArr[i])
 
       }
-      // old data in notes.md
     }
 
     return strContent;
   }
   openStr();
-  // console.log("Open strings = " + openStr());
 
   sharpLoE = newStrings[0];
   sharpA = newStrings[1];
@@ -156,7 +156,6 @@ function getNotes() {
   flatG = newStrings[3];
   flatB = newStrings[4];
   flatHiE = newStrings[5];
-  // console.log(flatB);
 
   // Convert fret #'s into shap or flat chromatic notes
   if (rad1Val === "sharp") {
@@ -257,7 +256,7 @@ function getNotes() {
         obj[8] = noteAsRoot[8];
       }
 
-      // Fix flat 7's for F & C
+      // Fix flat 7's for F & C if #'s radio selected
       if (obj.hasOwnProperty(10) && obj[10].length === 2 && noteAsRoot[0].length === 1) {
         noteAsRoot.splice(10, 1, noteAsRoot[11] + flat);
         obj[10] = noteAsRoot[10];
@@ -311,7 +310,6 @@ function getNotes() {
       equalChords = eqCh.join(", ");
 
       // Write ALL of the above to the DOM
-      // <span id="chord-name"></span>
       document.getElementById('chord-name').textContent = chord_name;
       document.getElementById('chord-name2').textContent = chord_name2;
       document.getElementById('chord-notes').textContent = chord_notes;
@@ -349,7 +347,6 @@ function getNotes() {
 // }
 // clear();
 
-
 window.onload = function loadLocal() {
 
   if (localStorage.length === 0) {
@@ -360,7 +357,6 @@ window.onload = function loadLocal() {
   } else {
     const selectUserStrings = localStorage.getItem('userStrings');
 
-    // console.log(typeof selectUserStrings)
     sixth.textContent = selectUserStrings.split(",")[0];
     fifth.textContent = selectUserStrings.split(",")[1];
     fourth.textContent = selectUserStrings.split(",")[2];

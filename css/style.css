@@ -87,3 +87,61 @@ ul>ul {
   background-color: black;
   color: rgb(173, 129, 41);
 }
+
+// .fade-in-down {
+//   color: red;
+// }
+
+/* The animation code */
+@keyframes fixFlash {
+  0% {
+    opacity: 0%;
+    color: rgb(242, 162, 15);
+  }
+
+  25% {
+    opacity: 25%;
+    color: rgb(226, 63, 63);
+  }
+
+  50% {
+    opacity: 67%;
+    color: rgb(133, 14, 133);
+  }
+
+  100% {
+    opacity: 100%;
+    color: #333;
+  }
+}
+
+/* The element to apply the animation to */
+.fade-in-one {
+  animation-name: fixFlash;
+  animation-duration: 750ms;
+}
+
+.fade-in-two {
+  animation-name: fixFlash;
+  animation-duration: 1125ms;
+}
+
+.fade-in-three {
+  animation-name: fixFlash;
+  animation-duration: 1500ms;
+}
+
+.fade-in-four {
+  animation-name: fixFlash;
+  animation-duration: 1875ms;
+}
+
+.fade-in-five {
+  animation-name: fixFlash;
+  animation-duration: 2250ms;
+}
+
+.fade-in-six {
+  animation-name: fixFlash;
+  animation-duration: 2625ms;
+}

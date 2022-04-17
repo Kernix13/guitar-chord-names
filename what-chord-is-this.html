@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/style1.1.css" />
   <title>Guitar Chord Namer</title>
 </head>
 
@@ -53,7 +53,7 @@
           <select id="alt-tunings" class="form-select border border-info" aria-label="Default select example">
             <option value="0" selected>Standard (E-A-D-G-B-E)</option>
             <option value="1">Drop D (D-A-D-G-B-E)</option>
-            <option value="2">Double Drop D (D-A-D-G-B-D)</option>
+            <option value="2">Dbl Drop D (D-A-D-G-B-D)</option>
             <option value="3">Drop C (C-G-D-F-A-D)</option>
             <option value="4">Open A (E-A-C♯-E-A-E)</option>
             <option value="5">Open C (C-G-C-G-C-E)</option>
@@ -78,27 +78,27 @@
       <form id="notes-form" class="col-sm-6 row g-3">
 
         <div class="col-sm-2">
-          <label for="fret" class="form-label"><span id="sixth" class="h4 string">E</span></label>
+          <label for="fret" class="form-label fade-in-one"><span id="sixth" class="h4 string">E</span></label>
           <input type="number" class="form-control note" id="note1" min="0" step="1" max="16">
         </div>
         <div class="col-sm-2">
-          <label for="fret" class="form-label"><span id="fifth" class="h4 string">A</span></label>
+          <label for="fret" class="form-label fade-in-two"><span id="fifth" class="h4 string">A</span></label>
           <input type="number" class="form-control note" id="note2" min="0" step="1" max="16">
         </div>
         <div class="col-sm-2">
-          <label for="fret" class="form-label"><span id="fourth" class="h4 string">D</span></label>
+          <label for="fret" class="form-label fade-in-three"><span id="fourth" class="h4 string">D</span></label>
           <input type="number" class="form-control note" id="note3" min="0" step="1" max="16">
         </div>
         <div class="col-sm-2">
-          <label for="fret" class="form-label"><span id="third" class="h4 string">G</span></label>
+          <label for="fret" class="form-label fade-in-four"><span id="third" class="h4 string">G</span></label>
           <input type="number" class="form-control note" id="note4" min="0" step="1" max="16">
         </div>
         <div class="col-sm-2">
-          <label for="fret" class="form-label"><span id="second" class="h4 string">B</span></label>
+          <label for="fret" class="form-label fade-in-five"><span id="second" class="h4 string">B</span></label>
           <input type="number" class="form-control note" id="note5" min="0" step="1" max="16">
         </div>
         <div class="col-sm-2">
-          <label for="fret" class="form-label"><span id="first" class="h4 string">E</span></label>
+          <label for="fret" class="form-label fade-in-six"><span id="first" class="h4 string">E</span></label>
           <input type="number" class="form-control note" id="note6" min="0" step="1" max="16">
         </div>
         <div class="col-sm-2">
@@ -393,16 +393,13 @@
 
     <footer class="bg-dark py-4">
       <div class="container text-center lead">
-        <a href="https://everyguitarchord.com/category/guitar/" class="footer-link">Every Guitar
-          Chord
-          Blog</a>
+        <a href="https://everyguitarchord.com/category/guitar/" class="footer-link">EGC Blog</a>
       </div>
       p.fs-6 <text class="text-secondary">&copy; 2022 Every Guitar Chord</text>
     </footer>
 
     <script src="./js/chord-intervals.js"></script>
-    <script src="./js/script.js"></script>
-    <!-- <script src="./js/script3.js"></script> -->
+    <script src="./js/script1.1.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
       integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
