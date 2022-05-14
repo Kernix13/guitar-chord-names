@@ -48,7 +48,7 @@ section {
 //   width: max-content;
 // }
 
-input[type='number'] {
+input[type="number"] {
   font-size: 1.125rem;
   width: 3.5em;
   height: 1.25em;
@@ -65,7 +65,7 @@ input[type='number'] {
 
 p {
   padding: 0;
-  margin: 1.0em 0 0.75em;
+  margin: 1em 0 0.75em;
 }
 
 p::first-letter {
@@ -77,12 +77,12 @@ ul {
   margin: 0;
 }
 
-ul>ul {
+ul > ul {
   margin-left: 1.5em;
 }
 
 .user-notes {
-  font-size: 2.25rem;
+  font-size: 3.25rem;
   font-weight: 300;
 }
 

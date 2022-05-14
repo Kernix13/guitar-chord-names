@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="./css/style1.1.css" />
+  <link rel="stylesheet" href="./css/style.css" />
   <title>Guitar Chord Namer</title>
 </head>
 
@@ -128,9 +128,12 @@
       <!-- <div id="step-output"></div> -->
       <div class="row justify-content-center">
         <div class="col-md">
-          <p class="mx-auto text-center mb-3 mt-0 user-notes"> Your notes: <span class="text-primary user-notes-output"
-              id="output"></span>
+          <p class="mx-auto text-center mb-3 mt-0 user-notes">Chord name: <span class="text-primary user-notes-output"
+              id="chord-name"></span>
           </p>
+          <!-- <p class="mx-auto text-center mb-3 mt-0 user-notes"> Your notes: <span class="text-primary user-notes-output"
+              id="output"></span>
+          </p> -->
 
           <!-- <div class="mx-auto text-center display-4" id="output"></div> -->
         </div>
@@ -149,8 +152,9 @@
                   <div class="card-header fs-1 py-1" aria-label="Cut time">&#119093;</div>
                 </div>
                 <div class="card-body text-center">
-                  <h3 class="card-title text-light">Chord name:</h3>
-                  <p class="card-text fs-4"><span id="chord-name"></span></p>
+                  <h3 class="card-title text-light">Your notes:</h3>
+                  <p class="card-text fs-4"><span id="output"></span></p>
+                  <!-- <p class="card-text fs-4"><span id="chord-name"></span></p> -->
                 </div>
               </div>
             </div>
@@ -240,10 +244,10 @@
 
             <!-- How to use... -->
             <h3 class="mt-5">How to use the app</h3>
-            <p class="lead"></p>
+            <p class="lead">If all you need is the chord name then you do not need to look at the rest of the page. However, I do output a lot of useful information related to your chord. Below describes how to use the app and describes all the information related to y our chord.</p>
             <ol>
-              <li class="lead">The page by default is set to Standard Tuning (E-A-D-G-B-E). I have 12 common altered
-                tunings in the select list. Select the tuning you want but make sure to click the <strong>Set
+              <li class="lead">The page by default is set to Standard Tuning (E-A-D-G-B-E). I include 12 common altered
+                tunings in the select list below standard tuning. Select the tuning you want but make sure to click the <strong>Set
                   Tuning</strong> button. I am working on setting the tuning to local storage so it remains when you
                 click
                 <strong>RESET</strong>, as well as a Custom tuning option.
@@ -373,11 +377,11 @@
             <p class="lead">I do not list double sharps or double flats. For example, the ♯9 in an E7♯9 chord is
               techincally F♯♯, however, I list it as G. Similarly, the ♭5 in E♭7♭5 is technically B♭♭, as is the ♭9
               in
-              an A7♭9 chord but I list them both as A.
+              an A♭7♭9 chord but I list them both as A.
             </p>
             <p class="lead">The ♭9, ♯9/♭3, ♯11/♭5, and ♯5/♭13 are the intervals that create a problem when it comes
               to
-              naming chords. I prefer to keep things simple and not confuse people with double sharps or notes like
+              naming chords. I prefer to keep things simple and not confuse people with double sharps and double flats, or notes like
               B♯
               or F♭.</p>
             <p class="lead">The chord names are correct but the notes are a little <em>&ldquo;off&rdquo;</em>. Keep
@@ -392,11 +396,8 @@
     </div>
 
     <footer class="bg-dark py-4">
-      <!-- <div class="container text-center lead">
-        <a href="https://github.com/Kernix13/guitar-chord-names" class="footer-link">GitHub Repo</a>
-      </div> -->
       <div class="container text-center lead">
-        <a href="https://github.com/Kernix13/guitar-chord-names" class="footer-link">GitHub Repo | </a>
+        <a href="https://github.com/Kernix13/guitar-chord-names" class="footer-link">GitHub Repo</a><span class="footer-link"> | </span>
         <a href="https://everyguitarchord.com/category/guitar/" class="footer-link">EGC Blog</a>
       </div>
       p.fs-6 <text class="text-secondary">&copy; 2022 Every Guitar Chord</text>
