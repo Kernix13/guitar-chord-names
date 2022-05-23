@@ -9,6 +9,18 @@ The [Guitar Chord Namer app](https://everyguitarchord.com/what-chord-is-this.htm
 
 Check out my website [Every Guitar Chord](https://everyguitarchord.com/ "Every Guitar Chord website") for quality blog posts and PDF files for download.
 
+## Comparison sites
+
+To see how my guitar chord namer compares to other sites, enter the notes/frets for an A7b9 or E7b5, or some other chord which have both a # and b in the chord. Here are links to the sites on page 1 of the SERPs using "Guitar Chord Namer" as the search term:
+
+1. **Good**: https://www.all-guitar-chords.com/chords/identifier
+1. https://jguitar.com/chordname
+1. https://www.scales-chords.com/chord-namer/
+1. https://www.oolimo.de/gitarrenakkorde/analysieren
+1. https://www.guitar-chord-finder.com/
+1. _Bad_: https://jamplay.com/tools/guitar-chord-finder
+1. _Bad_: http://musictheorysite.com/namethatchord/
+
 ## Contributions
 
 I would like to have some help with the project but I haven't done the contribution guidelines thing yet, coming soon...still working on getting a Jr. Dev job.
