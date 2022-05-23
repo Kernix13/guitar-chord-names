@@ -27,4 +27,4 @@ I would like to have some help with the project but I haven't done the contribut
 
 ## License
 
-Coming soon...
+Coming soon...but this is a free app so use it as you want.
