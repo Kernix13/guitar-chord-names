@@ -11,7 +11,7 @@ Check out my website [Every Guitar Chord](https://everyguitarchord.com/ "Every G
 
 ## Comparison sites
 
-To see how my guitar chord namer compares to other sites, enter the notes/frets for an A7b9 or E7b5, or some other chord which have both a # and b in the chord. Here are links to the sites on page 1 of the SERPs using "Guitar Chord Namer" as the search term:
+To see how my guitar chord namer compares to other sites, enter the notes/frets for an A7♭9 or E7♭5, or some other chord which have both a **♯** and **♭** in the chord. Here are links to the sites on page 1 of the SERPs using "Guitar Chord Namer" as the search term:
 
 1. **Good**: https://www.all-guitar-chords.com/chords/identifier
 1. https://jguitar.com/chordname
