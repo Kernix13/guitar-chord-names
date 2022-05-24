@@ -27,6 +27,6 @@ I would like to have some help with the project but I am still working on gettin
 
 ## License
 
-Copyright © 202 kernixwebdesign.com
+Copyright © 2022 kernixwebdesign.com
 
 The content of this repository is bound by the MIT license.
