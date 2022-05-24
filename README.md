@@ -23,8 +23,10 @@ To see how my guitar chord namer compares to other sites, enter the notes/frets 
 
 ## Contributions
 
-I would like to have some help with the project but I haven't done the contribution guidelines thing yet, coming soon...still working on getting a Jr. Dev job.
+I would like to have some help with the project but I am still working on getting a Jr. Front-End Developoer job. If uoui have any improvements or suggestions, then open an issue and I will reply ASAP.
 
 ## License
 
-Coming soon...but this is a free app so use it as you want.
+Copyright © 202 kernixwebdesign.com
+
+The content of this repository is bound by the MIT license.
