@@ -23,7 +23,7 @@ To see how my guitar chord namer compares to other sites, enter the notes/frets 
 
 ## Contributions
 
-I would like to have some help with the project but I am still working on getting a Jr. Front-End Developoer job. If uoui have any improvements or suggestions, then open an issue and I will reply ASAP.
+I would like to have some help with the project but I am still working on getting a Jr. Front-End Developoer job. If you have any improvements or suggestions, then open an issue and I will reply ASAP.
 
 ## License
 
