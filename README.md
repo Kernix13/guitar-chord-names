@@ -7,6 +7,8 @@ This project is one of my [portfolio](https://kernixwebdesign.com/resume-portfol
 
 ## Features in development
 
+I plan to eventually add the following features:
+
 1. The ability to enter the notes of a chord or scale to find scales that have all, or most of the notes in the scale.
 1. SVG chord shape for the chord the user enters.
 
