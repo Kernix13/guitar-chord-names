@@ -1081,6 +1081,7 @@ const chordIntervals = [
     steps: [0, 4, 6, 10, 8],
     Tendency: ["♭II", "IV", "V", "VII"],
     "Equal Chords": [
+      { key: 0, name: "7♯5♯11" },
       { key: 6, name: "9♭5" },
       { key: 8, name: "9♯5" }
     ],

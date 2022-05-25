@@ -4,8 +4,11 @@ This project is one of my [portfolio](https://kernixwebdesign.com/resume-portfol
 
 1. Enter the notes of a guitar chord to get the name for the chord, as well as the names of other chords which contain the same notes, the intervals for the chord, and more.
 1. Altered tuning select list for your chords if you are playing/writing in altered tunings.
-1. Enter the notes of a chord to find scales that have all, or most of the notes (**_in beta_**) in the scale.
-1. SVG chord shape for the chord you entered (**_in beta_**).
+
+## Features in development
+
+1. The ability to enter the notes of a chord or scale to find scales that have all, or most of the notes in the scale.
+1. SVG chord shape for the chord the user enters.
 
 Check out my website [Every Guitar Chord](https://everyguitarchord.com/ "Every Guitar Chord website") for quality blog posts and PDF files for download.
 
