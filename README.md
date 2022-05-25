@@ -16,17 +16,23 @@ Check out my website [Every Guitar Chord](https://everyguitarchord.com/ "Every G
 
 To see how my guitar chord namer compares to other sites, enter the notes/frets for an A7♭9 or E7♭5, or some other chord which have both a **♯** and **♭** in the chord. Here are links to the sites on page 1 of the SERPs using "Guitar Chord Namer" as the search term:
 
-1. **Good**: https://www.all-guitar-chords.com/chords/identifier
-1. https://jguitar.com/chordname
-1. https://www.scales-chords.com/chord-namer/
-1. https://www.oolimo.de/gitarrenakkorde/analysieren
-1. https://www.guitar-chord-finder.com/
-1. _Bad_: https://jamplay.com/tools/guitar-chord-finder
-1. _Bad_: http://musictheorysite.com/namethatchord/
+1. **all guitar chords** (**Good**): https://www.all-guitar-chords.com/chords/identifier
+1. Ok, jGuitar (Ok): https://jguitar.com/chordname
+1. Ok, SCALESCHORDS (Ok): https://www.scales-chords.com/chord-namer/
+1. Ok, Oolimo (Ok): https://www.oolimo.de/gitarrenakkorde/analysieren
+1. Ok, Guitar Chord Finder (Ok): https://www.guitar-chord-finder.com/
+1. _jam play_ (_Bad_): https://jamplay.com/tools/guitar-chord-finder
+1. _MusicTheorySite_ (_Bad_): http://musictheorysite.com/namethatchord/
 
 ## Contributions
 
-I would like to have some help with the project but I am still working on getting a Jr. Front-End Developoer job. If you have any improvements or suggestions, then open an issue and I will reply ASAP.
+I would like to have some contributors to help with the project but I am still working on getting a <ins>**Junior Front-End Developoer**</ins> job. If you have any improvements or suggestions, then open an issue and I will reply ASAP.
+
+[CONTRIBUTING.md](https://github.com/Kernix13/guitar-chord-names/blob/master/CONTRIBUTING.md) has the standard boilerplate text so take a look at that if you feel the need.
+
+## Code of Conduct
+
+Similar boilerplate text for the [CODE_OF_CONDUCT.md](https://github.com/Kernix13/guitar-chord-names/blob/master/CODE_OF_CONDUCT.md) document.
 
 ## License
 
