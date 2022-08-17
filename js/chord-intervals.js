@@ -631,7 +631,7 @@ const chordIntervals = [
     Intervals: ["1", "♭3", "5"],
     steps: [0, 3, 7],
     Tendency: ["♭VII", "♭III"],
-    scales: [{ "Major Scale": ["2nd", " 3rd", " 6th"] }, { "Minor Pentatonic": ["1st"] }, { "Blues Scale": ["1st"] }, { "Harmonic Minor": ["1st", " 4th", "6th"] }, { "Melodic Minor": ["1st", " 2nd"] }, { Augmented: ["1st", " 3rd", " 5th"] }, { "HW Diminished": ["1st", " 3rd", " 5th", " 7th"] }, { "Major Bebop": ["2nd", " 3rd", " 4th", " 7th"] }, { "Minor Bebop": ["1st", " 2nd", " 6th", " 7th"] }]
+    scales: [{ "Major Scale": ["2nd", " 3rd", " 6th"] }, { "Minor Pentatonic": ["1st"] }, { "Blues Scale": ["1st"] }, { "Harmonic Minor": ["1st", " 4th", " 6th"] }, { "Melodic Minor": ["1st", " 2nd"] }, { Augmented: ["1st", " 3rd", " 5th"] }, { "HW Diminished": ["1st", " 3rd", " 5th", " 7th"] }, { "Major Bebop": ["2nd", " 3rd", " 4th", " 7th"] }, { "Minor Bebop": ["1st", " 2nd", " 6th", " 7th"] }]
   },
   {
     Chord: "m6",

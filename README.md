@@ -5,6 +5,12 @@ This project is one of my [portfolio](https://kernixwebdesign.com/resume-portfol
 1. Enter the notes of a guitar chord to get the name for the chord, as well as the names of other chords which contain the same notes, the intervals for the chord, and more.
 1. Altered tuning select list for your chords if you are playing/writing in altered tunings.
 
+## Refactor notes
+
+REFACTOR START: 8-17-2022
+
+As of August 17th 2022, I will be refactoring this project. This note is to show the date when I started the refactoring and to provide a link to the [commit](https://github.com/Kernix13/guitar-chord-names/commit/154ade074dd4e1c696b4dacaefe96d394b1ba547) before the refactoring. This is for employers so that they can review the code before and after that commit.
+
 ## Features in development
 
 I plan to eventually add the following features:
@@ -18,7 +24,7 @@ Check out my website [Every Guitar Chord](https://everyguitarchord.com/ "Every G
 
 To see how my guitar chord namer compares to other sites, then do the following on the links below:
 
-- enter the notes/frets for an A7♭9 or E7♭5, or some other chord which have both a **♯** and **♭** in the chord.
+- Enter the notes/frets for an A7♭9 or E7♭5, or some other chord which have both a **♯** and **♭** in the chord. Compare their results to mine.
 
 Here are links to the sites on page 1 of the SERPs using "Guitar Chord Namer" as the search term:
 

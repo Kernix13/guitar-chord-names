@@ -1,3 +1,28 @@
+# Dependencies
+node_modules
+
+# Production and other folders
+/build
+/dist
+
+### VisualStudioCode ###
+.vscode/*
+
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Numerous always-ignore extensions
+*.diff
+*.env
+*.err
+*.log
+*.sass-cache
+*.tmp
+
+# Personal files
 css/fetch.css
 css/style1.1.css
 fetch.html
@@ -10,4 +35,6 @@ js/script3.js
 images
 A2-hosting.txt
 notes.md
+JS_NOTES.md
+REFACTOR.md
 .htaccess

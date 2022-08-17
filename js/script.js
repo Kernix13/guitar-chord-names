@@ -1,38 +1,49 @@
 // User entered fret numbers by string
-const firstNote = document.getElementById('note1');
-const secondNote = document.getElementById('note2');
-const thirdNote = document.getElementById('note3');
-const fourthNote = document.getElementById('note4');
-const fifthNote = document.getElementById('note5');
-const sixthNote = document.getElementById('note6');
+const firstNote = document.getElementById("note1");
+const secondNote = document.getElementById("note2");
+const thirdNote = document.getElementById("note3");
+const fourthNote = document.getElementById("note4");
+const fifthNote = document.getElementById("note5");
+const sixthNote = document.getElementById("note6");
 
 // THE TUNINGS FORM
-const tuningsForm = document.getElementById('tunings-form');
+const tuningsForm = document.getElementById("tunings-form");
 // Select list, strings, & altered tunings array
-const altTunings = document.getElementById('alt-tunings');
-const allSstrings = document.querySelectorAll('.string');
+const altTunings = document.getElementById("alt-tunings");
+const allSstrings = document.querySelectorAll(".string");
 // const userTuning = document.getElementById('user-tuning'); // do i need this
 const tuningsArr = ["E-A-D-G-B-E", "D-A-D-G-B-E", "D-A-D-G-B-D", "C-G-D-F-A-D", "E-A-C♯-E-A-E", "C-G-C-G-C-E", "D-A-D-F♯-A-D", "D-A-D-G-A-D", "D-A-D-F-A-D", "E-B-E-G♯-B-E", "F-A-C-F-C-F", "D-G-D-G-B-D", "D-G-D-G-B♭-D"];
 
 // THE NOTES FORM
-const notesForm = document.getElementById('notes-form');
+const notesForm = document.getElementById("notes-form");
 // All number input fields
-const fretInputs = document.querySelectorAll('.note'); // do i need this
+const fretInputs = document.querySelectorAll(".note"); // do i need this
 // Submit button
-const userChord = document.getElementById('user-chord'); // do i need this
+const userChord = document.getElementById("user-chord"); // do i need this
 // Reset button
-const userReset = document.getElementById('user-reset');
+const userReset = document.getElementById("user-reset");
 // Sharp radio button
-const rad1 = document.getElementById('sharps');
+const rad1 = document.getElementById("sharps");
 // Flat radio button
-const rad2 = document.getElementById('flats');
+const rad2 = document.getElementById("flats");
 
 // The chromatic scale by string, 16 frets (Sharps only), old variables in notes.md
-let sharpLoE, sharpA, sharpD, sharpG, sharpB, sharpHiE, newStrArr = [];
+let sharpLoE,
+  sharpA,
+  sharpD,
+  sharpG,
+  sharpB,
+  sharpHiE,
+  newStrArr = [];
 // let newStrArr = [];
 
 // The chromatic scale by string, 16 frets (Flats only), old variables in notes.md
-let flatLoE, flatA, flatD, flatG, flatB, flatHiE = [];
+let flatLoE,
+  flatA,
+  flatD,
+  flatG,
+  flatB,
+  flatHiE = [];
 
 // The chromatic scale using sharps & flats
 const chromaticSharps = ["A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "C"];
@@ -44,19 +55,19 @@ let chordTones = [];
 let stringNotes = [];
 
 // Get the fields that show the notes for each tuning
-const sixth = document.getElementById('sixth');
-const fifth = document.getElementById('fifth');
-const fourth = document.getElementById('fourth');
-const third = document.getElementById('third');
-const second = document.getElementById('second');
-const first = document.getElementById('first');
+const sixth = document.getElementById("sixth");
+const fifth = document.getElementById("fifth");
+const fourth = document.getElementById("fourth");
+const third = document.getElementById("third");
+const second = document.getElementById("second");
+const first = document.getElementById("first");
 
 // Tunings form event listener
 tuningsForm.addEventListener("submit", function (e) {
   let value = altTunings.options[altTunings.selectedIndex].value;
   let openStrings = tuningsArr[value].split("-");
   stringNotes = openStrings;
-  console.log(value)
+  console.log(value);
 
   sixth.textContent = openStrings[0];
   fifth.textContent = openStrings[1];
@@ -67,9 +78,9 @@ tuningsForm.addEventListener("submit", function (e) {
 
   let newStrings = [sixth.textContent, fifth.textContent, fourth.textContent, third.textContent, second.textContent, first.textContent];
 
-  localStorage.setItem('userStrings', newStrings);
+  localStorage.setItem("userStrings", newStrings);
   firstNote.focus();
-  resetPage()
+  resetPage();
 
   console.log(stringNotes); // correct
 
@@ -85,22 +96,16 @@ notesForm.addEventListener("submit", function (e) {
 });
 
 // Reset button event listener
-userReset.addEventListener("click", resetPage)
+userReset.addEventListener("click", resetPage);
 
 // REMEMBER TO SWITCH THE REPLACE METHODS WHEN UPLOADING FILE
 function resetPage() {
-
   location.reload();
-  // window.location.reload();
-  // window.location.replace('http://127.0.0.1:5500/what-chord-is-this.html');
-  // window.location.replace('https://everyguitarchord.com/what-chord-is-this.html');
-  // location.assign('https://everyguitarchord.com/what-chord-is-this.html');
 }
 
 let newStrings = [];
 
 function getNotes() {
-
   // See if user switched to Flat keys
   let rad1Val = "";
   let rad2Val = "";
@@ -122,21 +127,16 @@ function getNotes() {
   function openStr() {
     allSstrings.forEach(string => {
       strContent.push(string.textContent);
-    })
+    });
     for (let i = 0; i < strContent.length; i++) {
-
       if (rad1Val === "sharp") {
-
         let position = chromaticSharps.indexOf(strContent[i]);
         newStrArr[i] = chromaticSharps.slice(position, position + 17);
         newStrings.push(newStrArr[i]);
-
       } else if (rad2Val === "flat") {
-
         let position = chromaticFlats.indexOf(strContent[i]);
         newStrArr[i] = chromaticFlats.slice(position, position + 17);
-        newStrings.push(newStrArr[i])
-
+        newStrings.push(newStrArr[i]);
       }
     }
 
@@ -168,7 +168,7 @@ function getNotes() {
 
   // In case of duplicate notes, get only unique notes
   let uniqueNotes = [];
-  uniqueNotes = chordTones.filter(tone => !uniqueNotes.includes(tone) && tone !== undefined ? uniqueNotes.push(tone) : null);
+  uniqueNotes = chordTones.filter(tone => (!uniqueNotes.includes(tone) && tone !== undefined ? uniqueNotes.push(tone) : null));
   console.log("Unique Notes: " + uniqueNotes);
 
   let noteSteps = [];
@@ -178,7 +178,6 @@ function getNotes() {
 
   // Create a 12-note array for each chord tone, convert to half-steps, find matching records in chord-intervals.js, then output everything to the DOM
   for (let i = 0; i < uniqueNotes.length; i++) {
-
     // Sharp vs flat 12-note array
     if (rad1Val === "sharp") {
       let position = chromaticSharps.indexOf(uniqueNotes[i]);
@@ -193,18 +192,16 @@ function getNotes() {
     uniqueNotes.forEach(note => noteSteps.push(noteAsRoot.indexOf(note)));
 
     // Create an object using the intervals in noteSteps and the notes in uniqueNotes: used to attach the key to the chord name and equal chords
-    let obj = {}
+    let obj = {};
     noteSteps.forEach((key, i) => {
       obj[key] = uniqueNotes[i];
-    })
+    });
 
     // Get objects from chord-intervals.js that matches noteSteps
     function checkIndices() {
-
       // CONSIDER ADDING getJson() HERE
 
       for (let i = 0; i < chordIntervals.length; i++) {
-
         let equalArray = noteSteps.every(item => chordIntervals[i].steps.includes(item));
 
         if (noteSteps.length === chordIntervals[i].steps.length && equalArray) {
@@ -216,7 +213,13 @@ function getNotes() {
     result = checkIndices();
 
     if (result.length > 0) {
-      let output, chord_name, chord_name2, chord_notes, intervals, tendency, equalChords = "";
+      let output,
+        chord_name,
+        chord_name2,
+        chord_notes,
+        intervals,
+        tendency,
+        equalChords = "";
 
       console.log(noteAsRoot);
 
@@ -310,14 +313,14 @@ function getNotes() {
       equalChords = eqCh.join(", ");
 
       // Write ALL of the above to the DOM
-      document.getElementById('chord-name').textContent = chord_name;
-      document.getElementById('chord-name2').textContent = chord_name2;
-      document.getElementById('chord-notes').textContent = chord_notes;
-      document.getElementById('intervals').textContent = intervals;
-      document.getElementById('tendency').textContent = tendency;
-      document.getElementById('equal-chords').textContent = equalChords;
-      document.getElementById('scale-degrees').innerHTML = scaleDeg.join("");
-      document.getElementById('output').innerHTML = output;
+      document.getElementById("chord-name").textContent = chord_name;
+      document.getElementById("chord-name2").textContent = chord_name2;
+      document.getElementById("chord-notes").textContent = chord_notes;
+      document.getElementById("intervals").textContent = intervals;
+      document.getElementById("tendency").textContent = tendency;
+      document.getElementById("equal-chords").textContent = equalChords;
+      document.getElementById("scale-degrees").innerHTML = scaleDeg.join("");
+      document.getElementById("output").innerHTML = output;
 
       break;
 
@@ -325,18 +328,18 @@ function getNotes() {
     } else if (noteSteps.length < 3) {
       let output = "";
       output = uniqueNotes.join("-");
-      const errorOutput = document.getElementById('error-output');
-      let errorMsg = "That is not a chord. Enter at least 3 unique chord tones."
+      const errorOutput = document.getElementById("error-output");
+      let errorMsg = "That is not a chord. Enter at least 3 unique chord tones.";
       errorOutput.innerHTML = `<p>` + errorMsg + `</p>`;
-      document.getElementById('output').innerHTML = output;
+      document.getElementById("output").innerHTML = output;
     }
   }
   // Error msg if 3 or more unique notes do not equal one of my chords
   if (noteSteps.length >= 3 && matches.length === 0) {
-    const errorOutput = document.getElementById('error-output');
-    let errorMsg = "That is not a valid chord or that chord is not in our database."
+    const errorOutput = document.getElementById("error-output");
+    let errorMsg = "That is not a valid chord or that chord is not in our database.";
     errorOutput.innerHTML = `<p>` + errorMsg + `</p>`;
-    document.getElementById('output').innerHTML = uniqueNotes.join("-");
+    document.getElementById("output").innerHTML = uniqueNotes.join("-");
   }
   // Log the final matching object
   console.log(result);
@@ -348,14 +351,12 @@ function getNotes() {
 // clear();
 
 window.onload = function loadLocal() {
-
   if (localStorage.length === 0) {
-
     let newStrings = [sixth.textContent, fifth.textContent, fourth.textContent, third.textContent, second.textContent, first.textContent];
-    localStorage.setItem('userStrings', newStrings);
+    localStorage.setItem("userStrings", newStrings);
     firstNote.focus();
   } else {
-    const selectUserStrings = localStorage.getItem('userStrings');
+    const selectUserStrings = localStorage.getItem("userStrings");
 
     sixth.textContent = selectUserStrings.split(",")[0];
     fifth.textContent = selectUserStrings.split(",")[1];
@@ -365,4 +366,4 @@ window.onload = function loadLocal() {
     first.textContent = selectUserStrings.split(",")[5];
     firstNote.focus();
   }
-}
+};
