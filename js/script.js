@@ -6,38 +6,27 @@ const fourthNote = document.getElementById("note4");
 const fifthNote = document.getElementById("note5");
 const sixthNote = document.getElementById("note6");
 
-// THE TUNINGS FORM
+// Tunings form, select list, strings, & altered tunings array
 const tuningsForm = document.getElementById("tunings-form");
-// Select list, strings, & altered tunings array
 const altTunings = document.getElementById("alt-tunings");
 const allSstrings = document.querySelectorAll(".string");
-// const userTuning = document.getElementById('user-tuning'); // do i need this
 const tuningsArr = ["E-A-D-G-B-E", "D-A-D-G-B-E", "D-A-D-G-B-D", "C-G-D-F-A-D", "E-A-C♯-E-A-E", "C-G-C-G-C-E", "D-A-D-F♯-A-D", "D-A-D-G-A-D", "D-A-D-F-A-D", "E-B-E-G♯-B-E", "F-A-C-F-C-F", "D-G-D-G-B-D", "D-G-D-G-B♭-D"];
 
-// THE NOTES FORM
+// The Notes form, input fields and Radio buttons
 const notesForm = document.getElementById("notes-form");
-// All number input fields
-const fretInputs = document.querySelectorAll(".note"); // do i need this
-// Submit button
-const userChord = document.getElementById("user-chord"); // do i need this
-// Reset button
 const userReset = document.getElementById("user-reset");
-// Sharp radio button
 const rad1 = document.getElementById("sharps");
-// Flat radio button
 const rad2 = document.getElementById("flats");
 
-// The chromatic scale by string, 16 frets (Sharps only), old variables in notes.md
+// Chromatic scale by string, 16 frets (Sharps only, old vars in notes.md)
 let sharpLoE,
   sharpA,
   sharpD,
   sharpG,
   sharpB,
-  sharpHiE,
-  newStrArr = [];
-// let newStrArr = [];
+  sharpHiE = [];
 
-// The chromatic scale by string, 16 frets (Flats only), old variables in notes.md
+// Chromatic scale variables by string, 16 frets (Flats only)
 let flatLoE,
   flatA,
   flatD,
@@ -49,10 +38,11 @@ let flatLoE,
 const chromaticSharps = ["A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B", "C"];
 const chromaticFlats = ["A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B", "C"];
 
-// Global variables
+// Main variables
 let userFrets = [];
 let chordTones = [];
 let stringNotes = [];
+let newStrArr = [];
 
 // Get the fields that show the notes for each tuning
 const sixth = document.getElementById("sixth");
@@ -63,11 +53,10 @@ const second = document.getElementById("second");
 const first = document.getElementById("first");
 
 // Tunings form event listener
-tuningsForm.addEventListener("submit", function (e) {
-  let value = altTunings.options[altTunings.selectedIndex].value;
-  let openStrings = tuningsArr[value].split("-");
+function setTuning(e) {
+  const value = altTunings.options[altTunings.selectedIndex].value;
+  const openStrings = tuningsArr[value].split("-");
   stringNotes = openStrings;
-  console.log(value);
 
   sixth.textContent = openStrings[0];
   fifth.textContent = openStrings[1];
@@ -76,16 +65,16 @@ tuningsForm.addEventListener("submit", function (e) {
   second.textContent = openStrings[4];
   first.textContent = openStrings[5];
 
-  let newStrings = [sixth.textContent, fifth.textContent, fourth.textContent, third.textContent, second.textContent, first.textContent];
+  const newStrings = [sixth.textContent, fifth.textContent, fourth.textContent, third.textContent, second.textContent, first.textContent];
 
   localStorage.setItem("userStrings", newStrings);
+
   firstNote.focus();
   resetPage();
 
-  console.log(stringNotes); // correct
-
   e.preventDefault();
-});
+}
+tuningsForm.addEventListener("submit", setTuning);
 
 // Form event listener
 notesForm.addEventListener("submit", function (e) {
@@ -98,85 +87,78 @@ notesForm.addEventListener("submit", function (e) {
 // Reset button event listener
 userReset.addEventListener("click", resetPage);
 
-// REMEMBER TO SWITCH THE REPLACE METHODS WHEN UPLOADING FILE
+// REMEMBER TO SWITCH THE REPLACE METHODS WHEN UPLOADING FILE (to what?)
 function resetPage() {
   location.reload();
+  // window.location.replace("http://127.0.0.1:5500/what-chord-is-this.html");
+  // window.location.replace('https://everyguitarchord.com/what-chord-is-this.html');
 }
 
+// All the calculations
 let newStrings = [];
-
 function getNotes() {
-  // See if user switched to Flat keys
+  // Sharp/Flat Radio button check
   let rad1Val = "";
   let rad2Val = "";
 
   if (rad1.checked) {
     rad1Val = rad1.value;
-    // radioValue = rad1Val;
-    // localStorage.setItem('radioValue', radioValue);
-  } else {
+    rad1.checked = true;
+  } else if (rad2.checked) {
     rad2Val = rad2.value;
-    // radioValue = rad2Val;
-    // localStorage.setItem('radioValue', radioValue);
+    rad2.checked = true;
   }
+
+  // Build the sharp or flat versions of the strings
+  let strContent = [];
+
+  function openStr(arr) {
+    arr.forEach(string => {
+      // push the selected tuning HTML values for the strings
+      strContent.push(string.textContent);
+    });
+
+    // Create the sharp and flat versions of the strings
+    strContent.map(string => {
+      if (rad1Val === "sharp") {
+        let position = chromaticSharps.indexOf(string);
+        newStrArr[string] = chromaticSharps.slice(position, position + 17);
+        newStrings.push(newStrArr[string]);
+      } else if (rad2Val === "flat") {
+        let position = chromaticFlats.indexOf(string);
+        newStrArr[string] = chromaticFlats.slice(position, position + 17);
+        newStrings.push(newStrArr[string]);
+      }
+    });
+    // return strContent;
+    // return newStrings;
+  }
+  openStr(allSstrings);
 
   // Get the fret #'s entered by the user
   userFrets = [firstNote.value, secondNote.value, thirdNote.value, fourthNote.value, fifthNote.value, sixthNote.value];
 
-  let strContent = [];
-  function openStr() {
-    allSstrings.forEach(string => {
-      strContent.push(string.textContent);
-    });
-    for (let i = 0; i < strContent.length; i++) {
-      if (rad1Val === "sharp") {
-        let position = chromaticSharps.indexOf(strContent[i]);
-        newStrArr[i] = chromaticSharps.slice(position, position + 17);
-        newStrings.push(newStrArr[i]);
-      } else if (rad2Val === "flat") {
-        let position = chromaticFlats.indexOf(strContent[i]);
-        newStrArr[i] = chromaticFlats.slice(position, position + 17);
-        newStrings.push(newStrArr[i]);
-      }
-    }
-
-    return strContent;
-  }
-  openStr();
-
-  sharpLoE = newStrings[0];
-  sharpA = newStrings[1];
-  sharpD = newStrings[2];
-  sharpG = newStrings[3];
-  sharpB = newStrings[4];
-  sharpHiE = newStrings[5];
-  flatLoE = newStrings[0];
-  flatA = newStrings[1];
-  flatD = newStrings[2];
-  flatG = newStrings[3];
-  flatB = newStrings[4];
-  flatHiE = newStrings[5];
-
   // Convert fret #'s into shap or flat chromatic notes
   if (rad1Val === "sharp") {
+    [sharpLoE, sharpA, sharpD, sharpG, sharpB, sharpHiE] = [...newStrings];
+
     chordTones.push(sharpLoE[userFrets[0]], sharpA[userFrets[1]], sharpD[userFrets[2]], sharpG[userFrets[3]], sharpB[userFrets[4]], sharpHiE[userFrets[5]]);
-    console.log("chordTones: " + chordTones);
   } else if (rad2Val === "flat") {
+    [flatLoE, flatA, flatD, flatG, flatB, flatHiE] = [...newStrings];
+
     chordTones.push(flatLoE[userFrets[0]], flatA[userFrets[1]], flatD[userFrets[2]], flatG[userFrets[3]], flatB[userFrets[4]], flatHiE[userFrets[5]]);
-    console.log("chordTones: " + chordTones);
   }
 
   // In case of duplicate notes, get only unique notes
   let uniqueNotes = [];
   uniqueNotes = chordTones.filter(tone => (!uniqueNotes.includes(tone) && tone !== undefined ? uniqueNotes.push(tone) : null));
-  console.log("Unique Notes: " + uniqueNotes);
 
+  // Create a 12-note array for each chord tone, convert to half-steps, find matching records in chord-intervals.js, then output everything to the DOM
   let noteSteps = [];
   let noteAsRoot = [];
   let result;
   let matches = [];
 
-  // Create a 12-note array for each chord tone, convert to half-steps, find matching records in chord-intervals.js, then output everything to the DOM
   for (let i = 0; i < uniqueNotes.length; i++) {
     // Sharp vs flat 12-note array
     if (rad1Val === "sharp") {
@@ -191,38 +173,30 @@ function getNotes() {
     noteSteps = [];
     uniqueNotes.forEach(note => noteSteps.push(noteAsRoot.indexOf(note)));
 
-    // Create an object using the intervals in noteSteps and the notes in uniqueNotes: used to attach the key to the chord name and equal chords
+    // Create an object using the indices in noteSteps and the notes in uniqueNotes: used to attach the key to the chord name and equal chords
     let obj = {};
     noteSteps.forEach((key, i) => {
       obj[key] = uniqueNotes[i];
     });
+    console.log(obj);
 
-    // Get objects from chord-intervals.js that matches noteSteps
+    // Get objects from chord-intervals.js that matches noteSteps, add getJson() as first code block in checkIndices?
     function checkIndices() {
-      // CONSIDER ADDING getJson() HERE
+      chordIntervals.map(chord => {
+        const equalArray = noteSteps.every(item => chord.steps.includes(item));
 
-      for (let i = 0; i < chordIntervals.length; i++) {
-        let equalArray = noteSteps.every(item => chordIntervals[i].steps.includes(item));
-
-        if (noteSteps.length === chordIntervals[i].steps.length && equalArray) {
-          matches.push(chordIntervals[i]);
+        // Get chord-intervals.js objects if they have the same # of notes
+        if (noteSteps.length === chord.steps.length && equalArray) {
+          matches.push(chord);
         }
-      }
+      });
+
       return matches;
     }
     result = checkIndices();
 
+    // Huge if block - what is tha min point?
     if (result.length > 0) {
-      let output,
-        chord_name,
-        chord_name2,
-        chord_notes,
-        intervals,
-        tendency,
-        equalChords = "";
-
-      console.log(noteAsRoot);
-
       // "FIX" enharmonic equivalents
       let flat = "♭";
       let sharp = "♯";
@@ -265,49 +239,54 @@ function getNotes() {
         obj[10] = noteAsRoot[10];
       }
 
-      console.log(obj);
-      console.log(noteAsRoot);
-
       // The chord notes in proper order
       let note_chords = [];
+      let output,
+        chord_notes = "";
 
-      for (let i = 0; i < result[0].steps.length; i++) {
-        note_chords.push(obj[result[0].steps[i]]);
-      }
+      result[0].steps.map(note => {
+        note_chords.push(obj[note]);
+      });
+
       chord_notes = note_chords.join("-");
-
-      console.log(note_chords);
 
       // User notes - need to "fix" the notes
       output = uniqueNotes.join("-");
 
       // Output Chord name for matching noteSteps array
       // Check need for 'slash' chord, skip slash for long chord names
+      let chord_name,
+        chord_name2 = "";
+
       if (noteSteps[0] !== 0 && result[0].Chord.length < 7) {
         chord_name = uniqueNotes[i] + result[0].Chord + "/" + obj[noteSteps[0]];
       } else {
         chord_name = uniqueNotes[i] + result[0].Chord;
       }
-      // Chord name for scale degrees card
+      // Chord name for scale degrees card in the event it is a slash chord
       chord_name2 = uniqueNotes[i] + result[0].Chord;
 
       // Output name(s) of "equal" chords
       let eqCh = [];
       if (result[0].hasOwnProperty("Equal Chords")) {
-        for (let i = 0; i < result[0]["Equal Chords"].length; i++) {
-          eqCh.push(noteAsRoot[result[0]["Equal Chords"][i]["key"]] + result[0]["Equal Chords"][i].name);
-        }
+        result[0]["Equal Chords"].map(equal => {
+          eqCh.push(noteAsRoot[equal["key"]] + equal.name);
+        });
       } else {
         eqCh.push(["Unique"]);
       }
 
       // Get scale degrees for the chord
       let scaleDeg = [];
-      for (let i = 0; i < result[0]["scales"].length; i++) {
-        scaleDeg.push(`<li>` + Object.keys(result[0].scales[i]) + ": " + Object.values(result[0].scales[i]) + `</li>`);
-      }
+      result[0]["scales"].map(degree => {
+        scaleDeg.push(`<li>` + Object.keys(degree) + ": " + Object.values(degree) + `</li>`);
+      });
 
       // Get chord tendency and chord intervals
+      let intervals,
+        tendency,
+        equalChords = "";
+
       intervals = result[0].Intervals.join("-");
       tendency = result[0].Tendency.join(", ").split(" ").join(" ");
       equalChords = eqCh.join(", ");
@@ -329,30 +308,25 @@ function getNotes() {
       let output = "";
       output = uniqueNotes.join("-");
       const errorOutput = document.getElementById("error-output");
-      let errorMsg = "That is not a chord. Enter at least 3 unique chord tones.";
+      const errorMsg = "That is not a chord. Enter at least 3 unique chord tones.";
       errorOutput.innerHTML = `<p>` + errorMsg + `</p>`;
       document.getElementById("output").innerHTML = output;
     }
   }
+
   // Error msg if 3 or more unique notes do not equal one of my chords
   if (noteSteps.length >= 3 && matches.length === 0) {
     const errorOutput = document.getElementById("error-output");
-    let errorMsg = "That is not a valid chord or that chord is not in our database.";
+    const errorMsg = "That is not a valid chord or it is not in our database. Check the tuning or sharp/flat key buttons.";
     errorOutput.innerHTML = `<p>` + errorMsg + `</p>`;
     document.getElementById("output").innerHTML = uniqueNotes.join("-");
   }
-  // Log the final matching object
-  console.log(result);
 }
 
-// function clear() {
-//   localStorage.clear();
-// }
-// clear();
-
+// Check local storage and load values if available
 window.onload = function loadLocal() {
   if (localStorage.length === 0) {
-    let newStrings = [sixth.textContent, fifth.textContent, fourth.textContent, third.textContent, second.textContent, first.textContent];
+    const newStrings = [sixth.textContent, fifth.textContent, fourth.textContent, third.textContent, second.textContent, first.textContent];
     localStorage.setItem("userStrings", newStrings);
     firstNote.focus();
   } else {
@@ -364,6 +338,7 @@ window.onload = function loadLocal() {
     third.textContent = selectUserStrings.split(",")[3];
     second.textContent = selectUserStrings.split(",")[4];
     first.textContent = selectUserStrings.split(",")[5];
+
     firstNote.focus();
   }
 };
