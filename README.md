@@ -5,7 +5,6 @@
 ![GitHub top language](https://img.shields.io/github/directory-file-count/Kernix13/guitar-chord-names?style=flat-square)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/Kernix13/guitar-chord-names?style=flat-square)
 ![GitHub contributors](https://img.shields.io/github/contributors/Kernix13/guitar-chord-names?style=flat-square)
-![GitHub followers](https://img.shields.io/github/followers/Kernix13/guitar-chord-names?style=flat-square)
 ![GitHub forks](https://img.shields.io/github/forks/Kernix13/guitar-chord-names?style=flat-square)
 
 This project is one of my [portfolio](https://kernixwebdesign.com/resume-portfolio.html) items. The actual [Guitar Chord Namer app](https://everyguitarchord.com/what-chord-is-this.html) is on my guitar chords website.
