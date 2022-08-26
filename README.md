@@ -1,5 +1,11 @@
 # Guitar Chord Names
 
+![GitHub language count](https://img.shields.io/github/languages/count/Kernix13/guitar-chord-names?style=flat-square)
+![GitHub top language](https://img.shields.io/github/languages/top/Kernix13/guitar-chord-names?style=flat-square)
+![GitHub top language](https://img.shields.io/github/directory-file-count/Kernix13/guitar-chord-names?style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/Kernix13/guitar-chord-names?style=flat-square)
+![GitHub contributors](https://img.shields.io/github/contributors/Kernix13/guitar-chord-names?style=flat-square)
+
 This project is one of my [portfolio](https://kernixwebdesign.com/resume-portfolio.html) items. The actual [Guitar Chord Namer app](https://everyguitarchord.com/what-chord-is-this.html) is on my guitar chords website.
 
 1. Enter the notes of a guitar chord to get the name for the chord, as well as the names of other chords which contain the same notes, the intervals for the chord, and more.
