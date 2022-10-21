@@ -12,6 +12,8 @@ This project is one of my [portfolio](https://kernixwebdesign.com/resume-portfol
 1. Enter the notes of a guitar chord to get the name for the chord, as well as the names of other chords which contain the same notes, the intervals for the chord, and more.
 1. Altered tuning select list for your chords if you are playing/writing in altered tunings.
 
+> Looks like I changed the actual JavaScript file to `script1.1.js` because of caching issues but I forgot to upload it. I'll remove it from the gitignore file and straighten out the file differences later.
+
 ## Refactor notes
 
 REFACTOR START: 8-17-2022
