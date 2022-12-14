@@ -26,7 +26,7 @@ Not every function has a `return` statement.
 
 - Changed 3 `let` keywords to `const`
 - removed `console.log()`
-- Problem with select value in `localStorage` not displaying but resetting to standard tuning
+- Problem with select value in `localStorage` not displaying but resetting to standard tuning - need `JSON.stringify(newStrings)` and `JSON.parse(localStorage.getItem(newStrings))`
 
 3. Form event listener:
 
