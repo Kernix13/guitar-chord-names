@@ -12,12 +12,12 @@ const rad2 = document.getElementById("flats");
 
 // User entered fret numbers by string
 // SHOULD I USE querySelectorAll AND WORK WITH A NODE LIST?
-const firstNote = document.getElementById("note1");
-const secondNote = document.getElementById("note2");
-const thirdNote = document.getElementById("note3");
-const fourthNote = document.getElementById("note4");
-const fifthNote = document.getElementById("note5");
-const sixthNote = document.getElementById("note6");
+const firstNote = document.getElementById("str1");
+const secondNote = document.getElementById("str2");
+const thirdNote = document.getElementById("str3");
+const fourthNote = document.getElementById("str4");
+const fifthNote = document.getElementById("str5");
+const sixthNote = document.getElementById("str6");
 
 // Chromatic scale by string, 16 frets (Sharps only, old vars in notes.md)
 let sharpLoE,
@@ -138,6 +138,7 @@ function getNotes() {
 
   // Get the fret #'s entered by the user
   userFrets = [firstNote.value, secondNote.value, thirdNote.value, fourthNote.value, fifthNote.value, sixthNote.value];
+  console.log(userFrets)
 
   // Convert fret #'s into shap or flat chromatic notes
   if (rad1Val === "sharp") {
