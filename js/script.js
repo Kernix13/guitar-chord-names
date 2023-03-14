@@ -63,12 +63,22 @@ notesForm.addEventListener("submit", function (e) {
   // Once I figure out the CORS problem, I need to create getJson() which uses chord-intervals.json rather than chord-intervals.js
 });
 
+// Submit button event listener
+userSubmit.addEventListener('click', function() {
+  userReset.scrollIntoView({ 
+  behavior: 'smooth' 
+});
+})
+
 // Reset button event listener
 userReset.addEventListener("click", resetPage);
 
 // Do I need to change to window.location.replace('https://everyguitarchord.com/what-chord-is-this.html');
 function resetPage() {
   location.reload();
+  document.querySelector('h1').scrollIntoView({ 
+  behavior: 'smooth' 
+});
 }
 
 function getNotes() {

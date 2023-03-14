@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <header class="pb-5">
+  <header class="pb-4">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 fixed-top border-bottom border-secondary">
       <div class="container">
         <a href="https://everyguitarchord.com/" class="navbar-brand"><img
@@ -39,12 +39,11 @@
         </div>
       </div>
     </nav>
-
   </header>
 
   <main>
-    <div class="container my-5 mx-auto row justify-content-center">
-      <h1 class="text-center mt-2 pb-2 border-bottom border-secondary">WHAT CHORD IS THIS?</h1>
+    <div class="container mt-5 mx-auto row justify-content-center">
+      <h1 class="mt-5 text-center mt-2 pb-2 border-bottom border-secondary">WHAT CHORD IS THIS?</h1>
       <h2 class="text-center text-secondary">Guitar chord namer app</h2>
       <h3 class="mb-1 mt-3 text-center"> <span aria-label="	G clef">&#119070;</span> Choose the tuning &amp; enter your
         fret numbers</h3>
@@ -73,37 +72,33 @@
         </div>
       </form>
     </div>
-    <div class="container my-5 mx-auto row justify-content-center">
-
+    <div class="container mb-5 mx-auto row justify-content-center">
       <form id="notes-form" class="col-sm-6 row g-3">
-
-        <div class="col-sm-2">
+        <div class="col-sm-2 custom">
           <label for="str1" class="form-label fade-in-one"><span id="sixth" class="h4 string">E</span></label>
           <input type="number" class="form-control note" id="str1" min="0" step="1" max="16">
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2 custom">
           <label for="str2" class="form-label fade-in-two"><span id="fifth" class="h4 string">A</span></label>
           <input type="number" class="form-control note" id="str2" min="0" step="1" max="16">
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2 custom">
           <label for="str3" class="form-label fade-in-three"><span id="fourth" class="h4 string">D</span></label>
           <input type="number" class="form-control note" id="str3" min="0" step="1" max="16">
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2 custom">
           <label for="str4" class="form-label fade-in-four"><span id="third" class="h4 string">G</span></label>
           <input type="number" class="form-control note" id="str4" min="0" step="1" max="16">
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2 custom">
           <label for="str5" class="form-label fade-in-five"><span id="second" class="h4 string">B</span></label>
           <input type="number" class="form-control note" id="str5" min="0" step="1" max="16">
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2 custom">
           <label for="str6" class="form-label fade-in-six"><span id="first" class="h4 string">E</span></label>
           <input type="number" class="form-control note" id="str6" min="0" step="1" max="16">
         </div>
-        <div class="col-sm-2">
 
-        </div>
         <div class="col-12">
           <button id="user-chord" class="btn btn-dark" type="submit">
             SUBMIT
