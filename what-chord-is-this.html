@@ -44,7 +44,6 @@
 
   <main>
     <div class="container my-5 mx-auto row justify-content-center">
-      <!-- <h1 class="text-center mt-2 pb-2 border-bottom border-secondary">GUITAR CHORD NAMER APP</h1> -->
       <h1 class="text-center mt-2 pb-2 border-bottom border-secondary">WHAT CHORD IS THIS?</h1>
       <h2 class="text-center text-secondary">Guitar chord namer app</h2>
       <h3 class="mb-1 mt-3 text-center"> <span aria-label="	G clef">&#119070;</span> Choose the tuning &amp; enter your
@@ -113,29 +112,22 @@
             RESET
           </button>
           <div class="form-check form-check-inline ms-3 my-3 border-bottom border-dark">
-            <input class="form-check-input" type="radio" name="sharps-flats" id="sharps" value="sharp" checked>
+            <input class="form-check-input" type="radio" name="sharps-flats" id="sharp-key" value="sharp" checked>
             <label class="form-check-label fs-5" for="sharps">Sharp keys</label>
           </div>
           <div class="form-check form-check-inline my-3 border-bottom border-dark">
-            <input class="form-check-input" type="radio" name="sharps-flats" id="flats" value="flat">
+            <input class="form-check-input" type="radio" name="sharps-flats" id="flat-key" value="flat">
             <label class="form-check-label fs-5" for="flats">Flat keys</label>
           </div>
         </div>
       </form>
     </div>
-    <!-- </div> -->
     <div class="container">
       <div id="error-output" class="mx-auto text-center fs-4 text-danger"></div>
-      <!-- <div id="step-output"></div> -->
       <div class="row justify-content-center">
         <div class="col-md">
           <h3 class="mx-auto text-center mb-3 mt-0 user-notes">Chord name: <span class="text-primary user-notes-output" id="chord-name"></span>
           </h3>
-          <!-- <p class="mx-auto text-center mb-3 mt-0 user-notes"> Your notes: <span class="text-primary user-notes-output"
-              id="output"></span>
-          </p> -->
-
-          <!-- <div class="mx-auto text-center display-4" id="output"></div> -->
         </div>
       </div>
     </div>
@@ -153,7 +145,7 @@
                 </div>
                 <div class="card-body text-center">
                   <h3 class="card-title text-light">Your notes:</h3>
-                  <p class="card-text fs-4"><span id="output"></span></p>
+                  <p class="card-text fs-4"><span id="user-notes"></span></p>
                   <!-- <p class="card-text fs-4"><span id="chord-name"></span></p> -->
                 </div>
               </div>
@@ -226,8 +218,7 @@
                   <h3 class="card-title mb-3 text-light">Scale degrees that build <span id="chord-name2"
                       data-output="output"></span>:
                   </h3>
-                  <ul class="fs-4" id="scale-degrees">
-                  </ul>
+                  <ul class="fs-4" id="scale-degrees"></ul>
                 </div>
               </div>
             </div>
