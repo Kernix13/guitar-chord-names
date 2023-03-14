@@ -4,9 +4,10 @@
   box-sizing: border-box;
 }
 
-html {
+html, html:focus-within {
   scroll-behavior: smooth;
 }
+
 
 body {
   padding: 0;
