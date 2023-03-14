@@ -63,6 +63,12 @@ input[type="number"] {
   width: 5rem;
 }
 
+/* Stop Bootstrap from going full-width */
+.custom {
+  flex: 0 0 auto;
+  width: 16.66%;
+}
+
 p {
   padding: 0;
   margin: 1em 0 0.75em;
