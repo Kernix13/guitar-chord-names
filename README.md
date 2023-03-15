@@ -14,7 +14,6 @@ This project is one of my [portfolio](https://courageous-cuchufli-816711.netlify
 
 <img width="668" alt="image" align="center" src="https://user-images.githubusercontent.com/66497948/225341209-5a47248e-cc5b-456f-9df3-ccc2401b29b3.png">
 
-
 ## Code Clarification
 
 The main function to output the results to the DOM is in `getNotes()`. Here is a list of the over all flow with the steps #'s in `script.js`':
