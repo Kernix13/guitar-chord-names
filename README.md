@@ -12,6 +12,9 @@ This project is one of my [portfolio](https://courageous-cuchufli-816711.netlify
 1. Enter the fret numbers of a guitar chord to get the name for the chord, as well as the names of other chords which contain the same notes, the intervals for the chord, and more.
 1. There is an altered tuning select list for your chords if you are playing/writing in altered tunings.
 
+<img width="668" alt="image" src="https://user-images.githubusercontent.com/66497948/225341209-5a47248e-cc5b-456f-9df3-ccc2401b29b3.png">
+
+
 ## Code Clarification
 
 The main function to output the results to the DOM is in `getNotes()`. Here is a list of the over all flow with the steps #'s in `script.js`':
