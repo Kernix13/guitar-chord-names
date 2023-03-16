@@ -75,7 +75,14 @@ userReset.addEventListener("click", resetPage);
 
 // Do I need to change to window.location.replace('https://everyguitarchord.com/what-chord-is-this.html');
 function resetPage() {
+
+  // Firefox not clearing input fields
+  userNums.forEach(item => {
+    item.value = '';
+  })
+
   location.reload();
+  
   document.querySelector('h1').scrollIntoView({ 
   behavior: 'smooth' 
 });

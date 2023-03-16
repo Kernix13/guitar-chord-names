@@ -58,6 +58,17 @@ REFACTOR START: 8-17-2022
 
 As of August 17th 2022, I will be refactoring this project. This note is to show the date when I started the refactoring and to provide a link to the [commit](https://github.com/Kernix13/guitar-chord-names/commit/154ade074dd4e1c696b4dacaefe96d394b1ba547) before the refactoring. This is for employers so that they can review the code before and after that commit.
 
+## Current issues
+
+My mobile menu does not close when I click the Notes anchor link.
+
+I had to made a custom CSS class and I copied Bootstrap's styles for larger screens. The issue was the 6 guitar string number inputs were switching to `flex-direction: column` at `576px`. It looked fine but now I have horizontal scrolling.
+
+> 2 QUESTIONS
+>
+> > 1.  Why doesn't my menu close on a link click? I did not see anything in Bootstrap docs.
+> > 2.  Why do I have horizontal scrolling? From `.custom`?
+
 ## Features in development
 
 I plan to eventually add the following features:
