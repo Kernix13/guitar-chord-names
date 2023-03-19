@@ -48,7 +48,6 @@ function setTuning(e) {
   const localStrings = [sixth.innerText, fifth.innerText, fourth.innerText, third.innerText, second.innerText, first.innerText];
 
   localStorage.setItem("userStrings", localStrings);
-  // console.log(localStrings)
 
   userNums[0].focus();
   resetPage();
@@ -60,10 +59,11 @@ tuningsForm.addEventListener("submit", setTuning);
 notesForm.addEventListener("submit", function (e) {
   e.preventDefault();
   getNotes();
+
   // Once I figure out the CORS problem, I need to create getJson() which uses chord-intervals.json rather than chord-intervals.js
 });
 
-// Submit button event listener
+// Submit button event listener to scroll to rresults
 userSubmit.addEventListener('click', function() {
   userReset.scrollIntoView({ 
   behavior: 'smooth' 
@@ -80,37 +80,52 @@ function resetPage() {
   userNums.forEach(item => {
     item.value = '';
   })
-
   location.reload();
   
   document.querySelector('h1').scrollIntoView({ 
-  behavior: 'smooth' 
-});
+    behavior: 'smooth' 
+  });
 }
 
-function getNotes() {
+// 1. sharp and flat string versions
+function openStr(arr) {
   // This is grabbing the current tuning values. I need to just grab the values in loacalStorage and then I can get rid of strContent and arr.forEach
   let strContent = [];
 
-  // 1. sharp and flat string versions
-  function openStr(arr) {
-    arr.forEach(string => {
-      strContent.push(string.innerText);
-    });
-    console.log(strContent)
-    strContent.map(string => {
-      if (sharpKey.checked) {
-        const position = SHARPS.indexOf(string);
-        newStrArr[string] = SHARPS.slice(position, position + 17);
-        newStrings.push(newStrArr[string]);
-      } else if (flatKey.checked) {
-        const position = FLATS.indexOf(string);
-        newStrArr[string] = FLATS.slice(position, position + 17);
-        newStrings.push(newStrArr[string]);
-      }
-    });
+  arr.forEach(string => {
+    strContent.push(string.innerText);
+  });
 
-  }
+  strContent.map(string => {
+    if (sharpKey.checked) {
+      const position = SHARPS.indexOf(string);
+      newStrArr[string] = SHARPS.slice(position, position + 17);
+      newStrings.push(newStrArr[string]);
+    } else if (flatKey.checked) {
+      const position = FLATS.indexOf(string);
+      newStrArr[string] = FLATS.slice(position, position + 17);
+      newStrings.push(newStrArr[string]);
+    }
+  });
+
+}
+
+// 7. Get objects from chord-intervals.js
+const matches = [];
+function checkIndices(arr) {
+  // Add getJson() as first code block in here when CORS issue solved?
+  chordIntervals.map(chord => {
+    const equalArray = arr.every(item => chord.steps.includes(item));
+
+    if (arr.length === chord.steps.length && equalArray) {
+      matches.push(chord);
+    }
+  });
+  return matches;
+}
+
+function getNotes() {
+
   openStr(allSstrings);
 
   // 2. Get user fret #'s
@@ -135,21 +150,20 @@ function getNotes() {
 
   let noteAsRoot = [];
   let noteSteps = [];
-  const matches = [];
 
-  // 5. Sharp and flat 12-note arrays
+  /* The rest of the logic is in this for loop */
   for (let i = 0; i < uniqueNotes.length; i++) {
+    // 5. Sharp and flat 12-note arrays
     if (sharpKey.checked) {
       const position = SHARPS.indexOf(uniqueNotes[i]);
       noteAsRoot = SHARPS.slice(position, position + 12);
-      console.log(noteAsRoot)
     } else if (flatKey.checked) {
       const position = FLATS.indexOf(uniqueNotes[i]);
       noteAsRoot = FLATS.slice(position, position + 12);
     }
 
     // 6a. Convert notes to intervals
-    noteSteps = [];
+    noteSteps = []; // without this 2-note chords print out???
     uniqueNotes.forEach(note => noteSteps.push(noteAsRoot.indexOf(note)));
 
     // 6b. Create an object using the indices in noteSteps and the notes in uniqueNotes (used to attach the key to the chord name and equal chords)
@@ -162,20 +176,8 @@ function getNotes() {
     // 6c. Join user notes as entered:
     const user_notes = uniqueNotes.join("-");
 
-    // 7. Get objects from chord-intervals.js that matches noteSteps. 
-    // Add getJson() as first code block in checkIndices?
-    function checkIndices() {
-      chordIntervals.map(chord => {
-        const equalArray = noteSteps.every(item => chord.steps.includes(item));
-
-        if (noteSteps.length === chord.steps.length && equalArray) {
-          matches.push(chord);
-        }
-      });
-      console.log(matches)
-      return matches;
-    }
-    checkIndices();
+    // 7. Get chord objects that matche noteSteps
+    checkIndices(noteSteps);
 
     // 8. If block to check for a result and then perform all other steps 
     if (matches.length > 0) {
@@ -271,7 +273,7 @@ function getNotes() {
       const varIds = ['chord-name', 'user-notes', 'chord-notes', 'chord-name2', 'intervals', 'tendency', 'equal-chords'];
       const varValues = [chord_name, user_notes, chord_notes, chord_name2, intervals, tendency, equalChords]
 
-      // Add it to the DOM!
+      // Add all but scale degrees to the DOM. Does this make sense?
       function outputToDom() {
         varNames.forEach((name, i) => {
           name = document.getElementById(varIds[i]);
@@ -307,9 +309,11 @@ function getNotes() {
 
 // Check local storage and load tuning values
 window.onload = function loadLocal() {
-  if (localStorage.length === 0) {
+
+  if (localStorage.length < 2) {
     const localStrings = [sixth.innerText, fifth.innerText, fourth.innerText, third.innerText, second.innerText, first.innerText];
     localStorage.setItem("userStrings", localStrings);
+
     userNums[0].focus();
   } else {
     const selectUserStrings = localStorage.getItem("userStrings");
