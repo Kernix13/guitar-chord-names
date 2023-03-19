@@ -34,6 +34,7 @@ const newStrings = [];
 // Tunings form event listener to store selected tuning in local storage
 function setTuning(e) {
   e.preventDefault();
+
   const value = altTunings.options[altTunings.selectedIndex].value;
   const openStrings = TUNINGS[value].split("-");
 
@@ -308,12 +309,11 @@ function getNotes() {
 }
 
 // Check local storage and load tuning values
-window.onload = function loadLocal() {
-
-  if (localStorage.length < 2) {
+function loadLocalTuning() {
+  if (localStorage.getItem('userStrings') === null) {
     const localStrings = [sixth.innerText, fifth.innerText, fourth.innerText, third.innerText, second.innerText, first.innerText];
     localStorage.setItem("userStrings", localStrings);
-
+    
     userNums[0].focus();
   } else {
     const selectUserStrings = localStorage.getItem("userStrings");
@@ -328,3 +328,8 @@ window.onload = function loadLocal() {
     userNums[0].focus();
   }
 };
+document.addEventListener('DOMContentLoaded', loadLocalTuning);
+
+/* 
+
+*/

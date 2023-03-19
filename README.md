@@ -73,6 +73,7 @@ I had to made a custom CSS class and I copied Bootstrap's styles for larger scre
 
 I plan to eventually add the following features:
 
+1. Figure out how to show the last selected tuning
 1. Find scales that have most of the notes in the chord for more choices for soloing.
 1. SVG chord shape for the chord the user enters.
 1. The names of chords for non-chord tone slash chords. For example, `C\D♭` equals `D♭m-maj7♭5`. Right now, entering frets #'s for C-E-G-D♭ would return `D♭m-maj7♭5`.
