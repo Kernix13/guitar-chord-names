@@ -331,5 +331,5 @@ function loadLocalTuning() {
 document.addEventListener('DOMContentLoaded', loadLocalTuning);
 
 /* 
-
+  notes & code for setting and keeping the sharp/flat radio btns selection here
 */
