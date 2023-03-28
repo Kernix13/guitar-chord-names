@@ -333,3 +333,17 @@ document.addEventListener('DOMContentLoaded', loadLocalTuning);
 /* 
   notes & code for setting and keeping the sharp/flat radio btns selection here
 */
+// async function chords() {
+//   try {
+//     const response = await fetch('https://everyguitarchord.com/chord-intervals.json');
+//     if (response.ok) {
+//       const data = await response.json()
+//       console.log(data)
+//     } else {
+//       console.log('Not successful');
+//     }
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
+// chords();
