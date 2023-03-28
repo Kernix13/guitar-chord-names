@@ -2,15 +2,13 @@
 
 ![License](https://img.shields.io/github/license/Kernix13/guitar-chord-names?style=flat-square)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/Kernix13/guitar-chord-names?style=flat-square)
-
-<!-- ![GitHub Forks](https://img.shields.io/github/forks/Kernix13/guitar-chord-names?style=flat-square) -->
-
 ![GitHub Forks](https://img.shields.io/github/forks/Kernix13/guitar-chord-names?style=social)
 ![GitHub Stars](https://img.shields.io/github/stars/Kernix13/guitar-chord-names?style=social)
 ![GitHub Watchers](https://img.shields.io/github/watchers/Kernix13/guitar-chord-names?style=social)
 ![Search](https://img.shields.io/github/search/Kernix13/guitar-chord-names/guitar?style=flat-square)
 ![GitHub Issues](https://img.shields.io/github/issues/Kernix13/guitar-chord-names?style=flat-square)
 
+<!-- ![GitHub Forks](https://img.shields.io/github/forks/Kernix13/guitar-chord-names?style=flat-square) -->
 <!-- ![GitHub language count](https://img.shields.io/github/languages/count/Kernix13/guitar-chord-names?style=flat-square) -->
 <!-- ![GitHub top language](https://img.shields.io/github/languages/top/Kernix13/guitar-chord-names?style=flat-square) -->
 <!-- ![GitHub contributors](https://img.shields.io/github/contributors/Kernix13/guitar-chord-names?style=flat-square) -->
