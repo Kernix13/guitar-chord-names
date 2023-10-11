@@ -9,17 +9,20 @@
   <!-- Primary Meta Tags -->
   <title>Guitar Chord Namer</title>
   <meta name="title" content="Guitar Chord Namer | Every Guitar Chord">
-  <meta name="description" content="The best Guitar Chord namer app that you will find. It provides the chord name, scales that build the chord, the chord tone intervals, and more...">
+  <meta name="description"
+    content="The best Guitar Chord namer app that you will find. It provides the chord name, scales that build the chord, the chord tone intervals, and more...">
 
   <!-- Open Graph, need og:image -->
   <meta property="og:site_name" content="Guitar Chord Namer">
   <meta property="og:title" content="Guitar Chord Namer | Every Guitar Chord">
-  <meta property="og:description" content="The best Guitar Chord namer app that you will find. It provides the chord name, scales that build the chord, the chord tone intervals, and more...">
+  <meta property="og:description"
+    content="The best Guitar Chord namer app that you will find. It provides the chord name, scales that build the chord, the chord tone intervals, and more...">
   <meta property="og:url" content="https://everyguitarchord.com/what-chord-is-this.html">
-  
+
   <!-- Twitter, need twitter:card & twitter:image -->
   <meta name="twitter:title" content="Portfolio | James Kernicky">
-  <meta name="twitter:description" content="The best Guitar Chord namer app that you will find. It provides the chord name, scales that build the chord, the chord tone intervals, and more...">
+  <meta name="twitter:description"
+    content="The best Guitar Chord namer app that you will find. It provides the chord name, scales that build the chord, the chord tone intervals, and more...">
   <meta name="twitter:domain" content="https://everyguitarchord.com/what-chord-is-this.html">
 
   <!-- Bootstrap and Styles -->
@@ -116,10 +119,10 @@
         </div>
 
         <div class="col-12">
-          <button id="user-chord" class="btn btn-dark" type="submit">
+          <button id="form-submit" class="btn btn-dark" type="submit">
             SUBMIT
           </button>
-          <button id="user-reset" class="btn btn-dark mx-2" type="submit">
+          <button id="page-reset" class="btn btn-dark mx-2" type="submit">
             RESET
           </button>
           <div class="form-check form-check-inline ms-3 my-3 border-bottom border-dark">
@@ -137,7 +140,8 @@
       <div id="error-output" class="mx-auto text-center fs-4 text-danger"></div>
       <div class="row justify-content-center">
         <div class="col-md">
-          <h2 class="mx-auto text-center mb-3 mt-0 user-notes">Chord name: <span class="text-primary user-notes-output" id="chord-name"></span>
+          <h2 class="mx-auto text-center mb-3 mt-0 user-notes">Chord name: <span class="text-primary user-notes-output"
+              id="slash-chord-name"></span>
           </h2>
         </div>
       </div>
@@ -157,7 +161,6 @@
                 <div class="card-body text-center">
                   <h3 class="card-title text-light">Your notes:</h3>
                   <p class="card-text fs-4"><span id="user-notes"></span></p>
-                  <!-- <p class="card-text fs-4"><span id="chord-name"></span></p> -->
                 </div>
               </div>
             </div>
@@ -179,7 +182,7 @@
                 </div>
                 <div class="card-body text-center">
                   <h3 class="card-title text-light">Chord intervals:</h3>
-                  <p class="card-text fs-4"><span id="intervals"></span></p>
+                  <p class="card-text fs-4"><span id="chord-intervals"></span></p>
                 </div>
               </div>
             </div>
@@ -197,7 +200,7 @@
                 </div>
                 <div class="card-body text-center">
                   <h3 class="card-title text-light">Chord tendency:</h3>
-                  <p class="card-text fs-4"><span id="tendency"></span></p>
+                  <p class="card-text fs-4"><span id="chord-tendency"></span></p>
                 </div>
               </div>
             </div>
@@ -226,7 +229,7 @@
                   <div class="card-header fs-1 py-1" aria-label="eighth note">&#9834;</div>
                 </div>
                 <div class="card-body">
-                  <h3 class="card-title mb-3 text-light">Scale degrees that build <span id="chord-name2"
+                  <h3 class="card-title mb-3 text-light">Scale degrees that build <span id="chord-name"
                       data-output="output"></span>:
                   </h3>
                   <ul class="fs-4" id="scale-degrees"></ul>
@@ -246,10 +249,13 @@
 
             <!-- How to use... -->
             <h3 class="mt-5">How to use the app</h3>
-            <p class="lead">If all you need is the chord name then you do not need to look at the rest of the page. However, I do output a lot of useful information related to your chord. Below describes how to use the app and describes all the information related to y our chord.</p>
+            <p class="lead">If all you need is the chord name then you do not need to look at the rest of the page.
+              However, I do output a lot of useful information related to your chord. Below describes how to use the app
+              and describes all the information related to y our chord.</p>
             <ol>
               <li class="lead">The page by default is set to Standard Tuning (E-A-D-G-B-E). I include 12 common altered
-                tunings in the select list below standard tuning. Select the tuning you want but make sure to click the <strong>Set
+                tunings in the select list below standard tuning. Select the tuning you want but make sure to click the
+                <strong>Set
                   Tuning</strong> button. I am working on setting the tuning to local storage so it remains when you
                 click
                 <strong>RESET</strong>, as well as a Custom tuning option.
@@ -383,7 +389,8 @@
             </p>
             <p class="lead">The ♭9, ♯9/♭3, ♯11/♭5, and ♯5/♭13 are the intervals that create a problem when it comes
               to
-              naming chords. I prefer to keep things simple and not confuse people with double sharps and double flats, or notes like
+              naming chords. I prefer to keep things simple and not confuse people with double sharps and double flats,
+              or notes like
               B♯
               or F♭.</p>
             <p class="lead">The chord names are correct but the notes are a little <em>&ldquo;off&rdquo;</em>. Keep
@@ -400,14 +407,15 @@
     <footer class="bg-dark py-4 text-center text-white mx-auto">
       <div class="container">
         <div class="fs-5 text lead">
-          <a href="https://github.com/Kernix13/guitar-chord-names" class="footer-link">GitHub Repo</a> | <a href="https://everyguitarchord.com/category/guitar/" class="footer-link">EGC Blog</a>
+          <a href="https://github.com/Kernix13/guitar-chord-names" class="footer-link">GitHub Repo</a> | <a
+            href="https://everyguitarchord.com/category/guitar/" class="footer-link">EGC Blog</a>
         </div>
         <p class="fs-6 text">&copy; 2022 Every Guitar Chord</p>
       </div>
     </footer>
 
     <script src="./js/chord-intervals.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" type="module"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
       integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
