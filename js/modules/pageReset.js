@@ -1,3 +1,7 @@
+/**
+ * location.reload() is being used to clear the DOM which is not the 
+ * correct approach. This is a priority refactor.
+ */
 export default function pageReset() {
 
   const numberInputElements = document.querySelectorAll('.note');
