@@ -41,7 +41,6 @@ function getChordName() {
     if (sharpRadioBtn.checked) {
       const position = SHARPS.indexOf(uniqueUserNotes[i]);
       uniqueUserNotesAsRoot = SHARPS.slice(position, position + 12);
-      console.log(uniqueUserNotesAsRoot)
     } else if (flatRadioBtn.checked) {
       const position = FLATS.indexOf(uniqueUserNotes[i]);
       uniqueUserNotesAsRoot = FLATS.slice(position, position + 12);

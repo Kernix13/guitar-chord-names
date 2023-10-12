@@ -1,4 +1,4 @@
-const chordIntervals = [
+export const chordInfo = [
   {
     Chord: "",
     Intervals: ["1", "3", "5"],
