@@ -3,7 +3,7 @@ import { sharp, flat } from "../data/constants.js";
 
 /**
  * 8. Handle edge cases/exceptions: enharmonic equivalents
- * 
+ * checkIndices uses uniqueNoteIntervals and pshes to chordsFound
  * 
  * @param {object} noteTones 
  * @param {array} octave 
