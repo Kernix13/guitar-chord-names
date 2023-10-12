@@ -5,6 +5,13 @@ const sharpRadioBtn = document.querySelector("#sharp-key");
 const flatRadioBtn = document.querySelector("#flat-key");
 const userFretNumbers = [];
 
+/**
+ * Pushes onto userChordNotes[] the chromatic note name that corresponds
+ * to the fret numbers entered by the user, or pushes undefined for any
+ * string where the user did not add a fret number.
+ * 
+ * @param {array} arr 
+ */
 export default function getUserNotes(arr) {
 
   numberInputElements.forEach(item => {
