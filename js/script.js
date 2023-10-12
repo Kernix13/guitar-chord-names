@@ -147,7 +147,9 @@ function getChordName() {
   }
 
   // Error msg if no matching chord in chord-intervals.js
-  noMatchError(uniqueNoteIntervals, chordsFound, uniqueUserNotes);
+  if (uniqueNoteIntervals.length >= 3 && chordsFound.length === 0) {
+    noMatchError(uniqueUserNotes);
+  }
 }
 
 /* EVENT LISTENERS */
