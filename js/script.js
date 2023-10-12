@@ -128,7 +128,7 @@ function getChordName() {
       const chordIntervals = chordsFound[0].Intervals.join("-");
       const chordTendency = chordsFound[0].Tendency.join(", ").split(" ").join(" ");
       
-      /* 15. Write ALL of the above to the DOM */
+      // 16. Write ALL of the above to the DOM
       const elementValues = [slashChordName, userNotes, chordNotes, chordName, chordIntervals, chordTendency, equalChords]
       outputToDom(elementValues);
 
