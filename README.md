@@ -5,7 +5,6 @@
 ![GitHub Forks](https://img.shields.io/github/forks/Kernix13/guitar-chord-names?style=social)
 ![GitHub Stars](https://img.shields.io/github/stars/Kernix13/guitar-chord-names?style=social)
 ![GitHub Watchers](https://img.shields.io/github/watchers/Kernix13/guitar-chord-names?style=social)
-![Search](https://img.shields.io/github/search/Kernix13/guitar-chord-names/guitar?style=flat-square)
 ![GitHub Issues](https://img.shields.io/github/issues/Kernix13/guitar-chord-names?style=flat-square)
 
 <!-- ![GitHub Forks](https://img.shields.io/github/forks/Kernix13/guitar-chord-names?style=flat-square) -->
