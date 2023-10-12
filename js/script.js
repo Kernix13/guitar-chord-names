@@ -79,7 +79,11 @@ function getChordName() {
     // 8. Handle edge cases/exceptions: enharmonic equivalents
     enharmonics(obj, uniqueUserNotesAsRoot, uniqueNoteIntervals);
 
-    // 9. Check for a matching chord and then perform all other steps 
+    /**
+     * 9. Check for a matching chord in chord-intervals.js using
+     * chordsFound from checkIndices.js then perform all other checks
+     * and setup before outputting results to the DOM
+     */
     if (chordsFound.length > 0) {
 
       // 10. Put the chord notes in "proper" order
@@ -100,10 +104,10 @@ function getChordName() {
         slashChordName = uniqueUserNotes[i] + chordsFound[0].Chord;
       }
 
-      // Basic chord name if a slash chord for the scale degrees card
+      // 12. Basic chord name if a slash chord for the scale degrees card
       const chordName = uniqueUserNotes[i] + chordsFound[0].Chord;
 
-      // 12. Get "equal" chords if chord(s) found have that property
+      // 13. Get "equal" chords if chord(s) found have that property
       let equalChordName = [];
       if (chordsFound[0].hasOwnProperty("Equal Chords")) {
         chordsFound[0]["Equal Chords"].map(equal => {
@@ -114,13 +118,13 @@ function getChordName() {
       }
       const equalChords = equalChordName.join(", ");
 
-      // 13. Get scale degrees for the chord
+      // 14. Get scale degrees for the chord
       let chordScaleDegrees = [];
       chordsFound[0]["scales"].map(degree => {
         chordScaleDegrees.push(`<li>${Object.keys(degree)}: ${Object.values(degree)}</li>`);
       });
 
-      // 14. Get chord tendency and chord intervals
+      // 15. Get chord tendency and chord intervals
       const chordIntervals = chordsFound[0].Intervals.join("-");
       const chordTendency = chordsFound[0].Tendency.join(", ").split(" ").join(" ");
       
