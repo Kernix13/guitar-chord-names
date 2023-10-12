@@ -139,7 +139,7 @@ function getChordName() {
 
     } else {
       // Error msg for less than 3 unique notes
-      notEnoughNotesError(uniqueNoteIntervals, uniqueUserNotes);
+      notEnoughNotesError(uniqueUserNotes);
     }
   }
 
