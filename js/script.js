@@ -132,7 +132,7 @@ function getChordName() {
       const elementValues = [slashChordName, userNotes, chordNotes, chordName, chordIntervals, chordTendency, equalChords]
       outputToDom(elementValues);
 
-      // Scale degrees card.
+      // 17. Scale degrees card.
       document.getElementById("scale-degrees").innerHTML = chordScaleDegrees.join("");
       
       break;
