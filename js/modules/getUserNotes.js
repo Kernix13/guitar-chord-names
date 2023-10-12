@@ -10,9 +10,9 @@ const userFretNumbers = [];
  * to the fret numbers entered by the user, or pushes undefined for any
  * string where the user did not add a fret number.
  * 
- * @param {array} arr 
+ * @param {array} notes 
  */
-export default function getUserNotes(arr) {
+export default function getUserNotes(notes) {
 
   numberInputElements.forEach(item => {
     userFretNumbers.push(item.value);
@@ -23,7 +23,7 @@ export default function getUserNotes(arr) {
     // Using standard tuning to name these variables
     const [sharpLoE, sharpA, sharpD, sharpG, sharpB, sharpHiE] = [...allUserStrings];
     
-    arr.push(
+    notes.push(
       sharpLoE[userFretNumbers[0]], 
       sharpA[userFretNumbers[1]], 
       sharpD[userFretNumbers[2]], 
@@ -34,7 +34,7 @@ export default function getUserNotes(arr) {
   } else if (flatRadioBtn.checked) {
     const [flatLoE, flatA, flatD, flatG, flatB, flatHiE] = [...allUserStrings];
 
-    arr.push(
+    notes.push(
       flatLoE[userFretNumbers[0]], 
       flatA[userFretNumbers[1]], 
       flatD[userFretNumbers[2]], 
