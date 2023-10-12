@@ -37,7 +37,13 @@ function getChordName() {
 
   for (let i = 0; i < uniqueUserNotes.length; i++) {
 
-    // 4. Build 12-note string arrays for each unique note
+    /**
+     * 4. Push onto uniqueUserNotesAsRoot[] a 12-note string array for 
+     * each unique user note. 
+     * 
+     * The arrays with each chord note as the root are used to determine
+     * the intervals.
+     */
     if (sharpRadioBtn.checked) {
       const position = SHARPS.indexOf(uniqueUserNotes[i]);
       uniqueUserNotesAsRoot = SHARPS.slice(position, position + 12);
@@ -46,11 +52,21 @@ function getChordName() {
       uniqueUserNotesAsRoot = FLATS.slice(position, position + 12);
     }
 
-    // 5. Convert unique user notes to intervals
+    /**
+     * 5. Convert unique user notes to intervals.
+     * 
+     * Using uniqueUserNotesAsRoot, push the intervals for each unique
+     * note onto uniqueNoteIntervals[].
+     */
     uniqueNoteIntervals = []; 
     uniqueUserNotes.forEach(note => uniqueNoteIntervals.push(uniqueUserNotesAsRoot.indexOf(note)));
     
-    // 6. Create an object: key = note interval, value = note
+    /**
+     * 6. Create an object: key = note interval, value = note
+     * 
+     * The object 'obj' is in the proper format to find a matching chord
+     * in chord-intervals.js based on the intervals.
+     */
     let obj = {};
     uniqueNoteIntervals.forEach((key, i) => {
       obj[key] = uniqueUserNotes[i];
