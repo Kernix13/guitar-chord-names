@@ -20,7 +20,7 @@ A vanilla JavaScript app to return the name of a guitar chord given the chord fr
 
 ## Live Version
 
-View the [Guitar Chord Namer app](https://everyguitarchord.com/what-chord-is-this.html) on my guitar chords website. You can view more details on the project on [my portfolio](https://courageous-cuchufli-816711.netlify.app/).
+View the [Guitar Chord Namer app](https://everyguitarchord.com/what-chord-is-this.html) on my guitar chords website. You can read more about the project on [my portfolio](https://courageous-cuchufli-816711.netlify.app/) site.
 
 ## Feedback and Bugs
 
@@ -57,11 +57,11 @@ Here are links to the sites on page 1 of the SERPs using "Guitar Chord Namer" as
 
 ## Contributing
 
-If you would like to contribute to the project, you may create a Pull Request containing your proposed changes and we will review it as soon as we are able! Please review our [contributing guidelines](https://github.com/Kernix13/guitar-chord-names/blob/master/CONTRIBUTING.md) first.
+If you would like to contribute to the project, then create a Pull Request with your suggested changes. Also, please read our [contributing guidelines](https://github.com/Kernix13/guitar-chord-names/blob/master/CONTRIBUTING.md) before creating your PR.
 
 ## Code of Conduct
 
-Before interacting with our community, please read our [Code of Conduct](https://github.com/Kernix13/guitar-chord-names/blob/master/CODE_OF_CONDUCT.md).
+Please read our [Code of Conduct](https://github.com/Kernix13/guitar-chord-names/blob/master/CODE_OF_CONDUCT.md) before interacting with our community.
 
 ## License
 
