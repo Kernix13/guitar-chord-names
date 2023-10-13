@@ -10,14 +10,12 @@ import pageReset from "./pageReset.js";
 export default function setTuning(e) {
   e.preventDefault();
 
-  // HTML Elements
-  const altTuningsSelectElement = document.querySelector("#alt-tunings");
+  const altTuningsElement = document.querySelector("#alt-tunings");
 
-  // Values
-  const selectOptionValue = altTuningsSelectElement.options[altTuningsSelectElement.selectedIndex].value;
-  const notesOfOpenStrings = TUNINGS[selectOptionValue].split("-");
+  const selectedOption = altTuningsElement.options[altTuningsElement.selectedIndex].value;
+  const notesOfOpenStrings = TUNINGS[selectedOption].split("-");
 
-  // set the innerText
+  // Set the innerText above inputs
   sixth.innerText = notesOfOpenStrings[0];
   fifth.innerText = notesOfOpenStrings[1];
   fourth.innerText = notesOfOpenStrings[2];
@@ -34,7 +32,7 @@ export default function setTuning(e) {
     first.innerText
   ];
   localStorage.setItem("userStrings", selectedTuningInLocalStorage);
-  localStorage.setItem("optionVal", selectOptionValue);
+  localStorage.setItem("optionVal", selectedOption);
 
   pageReset();
 }
