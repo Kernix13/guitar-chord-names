@@ -10,7 +10,9 @@ import { sharp, flat } from "../data/constants.js";
  * @param {array} intervals 
  */
 export default function enharmonics(noteTones, octave, intervals) {
+  
   checkIndices(intervals)
+
   if (chordsFound.length > 0) {
       // Fix flat 9's if the ♭9 is a sharp
       if (noteTones.hasOwnProperty(1) && noteTones[1].length === 2) {
