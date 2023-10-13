@@ -23,7 +23,7 @@ export default function setTuning(e) {
   second.innerText = notesOfOpenStrings[4];
   first.innerText = notesOfOpenStrings[5];
 
-  const selectedTuningInLocalStorage = [
+  const savedUserTuning = [
     sixth.innerText, 
     fifth.innerText, 
     fourth.innerText, 
@@ -31,7 +31,7 @@ export default function setTuning(e) {
     second.innerText, 
     first.innerText
   ];
-  localStorage.setItem("userStrings", selectedTuningInLocalStorage);
+  localStorage.setItem("userStrings", savedUserTuning);
   localStorage.setItem("optionVal", selectedOption);
 
   pageReset();

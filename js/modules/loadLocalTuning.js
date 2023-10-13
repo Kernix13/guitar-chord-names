@@ -15,8 +15,8 @@ const first = document.getElementById("first");
  */
 export default function loadLocalTuning() {
   if (localStorage.getItem('userStrings') === null) {
-    const selectedTuningInLocalStorage = [sixth.innerText, fifth.innerText, fourth.innerText, third.innerText, second.innerText, first.innerText];
-    localStorage.setItem("userStrings", selectedTuningInLocalStorage);
+    const savedUserTuning = [sixth.innerText, fifth.innerText, fourth.innerText, third.innerText, second.innerText, first.innerText];
+    localStorage.setItem("userStrings", savedUserTuning);
 
     numberInputElements[0].focus();
   } else {
