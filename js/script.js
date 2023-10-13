@@ -189,8 +189,12 @@ pageResetBtn.addEventListener("click", pageReset);
  * 
  *    TO-DO:
  * 📌 1. pageReset.js DONE but .reload() is wrong - REDO
+ *       - Can I copy and change outPutToDom?
  * 📌 2. Need to add radio buttons into localStorage
  * 📌 3. Need to have radio button & tuning selected after page reset
  * 📌 4. Why do I have setTuning & loadLocalTuning?
+ * 📌 5. In all the FX's: less .push() more returns!!!
+ * 📌 6. How are the variables not throwwing errors in 
+ *        the section "set the innerText"?
  * 
  */
