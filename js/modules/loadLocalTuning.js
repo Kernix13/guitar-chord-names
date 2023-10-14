@@ -13,9 +13,10 @@ const sharpRadioBtn = document.querySelector("#sharp-key");
 const flatRadioBtn = document.querySelector("#flat-key");
 
 /**
- * Check local storage and load tuning values. Use innerText to 
+ * Check local storage and load tuning values and key. Use innerText to 
  * initially load the tuning if not in localStorage, else use
- * the value in localStorage to set the innerText
+ * the value in localStorage to set the innerText. Set the key to sharp
+ * if not in localStorage, otherwise load the user's key.
  */
 export default function loadLocalTuning() {
   if (localStorage.getItem('userStrings') === null) {
