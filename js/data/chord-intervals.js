@@ -81,7 +81,7 @@ export const chordInfo = [
     steps: [0, 4, 7, 9, 2, 5],
     Tendency: ["I", "IV", "V"],
     "Equal Chords": [{ key: 5, name: "maj9/13" }],
-    scales: [{ "Major Scale": ["1st", " 4th", " 5th"] }, { "Minor Pentatonic": ["2nd"] }, { "Blues Scale": ["2nd"] }, { "Melodic Minor": ["4th"] }, { "Major Bebop": ["1st", " 4th", " 5th"] }, { "Minor Bebop": ["1st", " 3rd", " 5th", " 8th"] }]
+    scales: [{ "Major Scale": ["1st", " 4th", " 5th"] }, { "Minor Pentatonic": ["2nd"] }, { "Melodic Minor": ["4th"] }, { "Major Bebop": ["1st", " 4th", " 5th"] }, { "Minor Bebop": ["1st", " 3rd", " 5th", " 8th"] }]
   },
   {
     Chord: "6 add9/♯11",
