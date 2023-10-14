@@ -15,7 +15,7 @@ const userFretNumbers = [];
 export default function getUserNotes(notes) {
 
   numberInputElements.forEach(item => {
-    userFretNumbers.push(item.value);
+    userFretNumbers.push(parseInt(item.value));
   })
   
   if (sharpRadioBtn.checked) {
