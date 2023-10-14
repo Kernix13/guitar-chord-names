@@ -156,3 +156,9 @@ ul > ul {
   animation-name: fixFlash;
   animation-duration: 2625ms;
 }
+
+@media (min-width: 468px) {
+  button.user-tuning {
+    margin-top: 0!important;
+  }
+}
