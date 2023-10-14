@@ -64,11 +64,11 @@
     <div class="container mt-5 mx-auto row justify-content-center">
       <h1 class="mt-5 text-center mt-2 pb-2 border-bottom border-secondary">WHAT CHORD IS THIS?</h1>
       <h2 class="text-center text-secondary">Guitar chord namer app</h2>
-      <h3 class="mb-1 mt-3 text-center"> <span aria-label="	G clef">&#119070;</span> Choose the tuning &amp; enter your
-        fret numbers</h3>
-      <form id="tunings-form" class="col-sm-6 row g-3">
-        <div class="col-md-7">
-          <select id="alt-tunings" class="form-select border border-info" aria-label="Default select example">
+      <h3 class="mb-1 mt-3 text-center"> <span aria-label="	G clef">&#119070;</span> Choose the tuning &amp; a sharp/flat key</h3>
+
+      <form id="tunings-form" class="col-12 col-md-10 row g-3 justify-content-center">
+        <div class="col-md-5">
+          <select name="tuning" id="alt-tunings" class="form-select border border-info" aria-label="Default select example">
             <option value="0">Standard (E-A-D-G-B-E)</option>
             <option value="1">Drop D (D-A-D-G-B-E)</option>
             <option value="2">Dbl Drop D (D-A-D-G-B-D)</option>
@@ -85,13 +85,25 @@
           </select>
         </div>
         <div class="col-md-5">
-          <button id="user-tuning" class="btn btn-primary" type="submit">
-            Set Tuning
+
+          <div class="form-check form-check-inline ms-3 border-bottom border-dark">
+            <input class="form-check-input" type="radio" name="sharps-flats" id="sharp-key" value="sharp">
+            <label class="form-check-label fs-6" for="sharps">Sharp</label>
+          </div>
+          <div class="form-check form-check-inline me-3 border-bottom border-dark">
+            <input class="form-check-input" type="radio" name="sharps-flats" id="flat-key" value="flat">
+            <label class="form-check-label fs-6" for="flats">Flat</label>
+          </div>
+
+          <button id="user-tuning" class="user-tuning btn btn-primary mt-3" type="submit">
+            Set Tuning &amp; Key
           </button>
         </div>
       </form>
     </div>
-    <div class="container mb-5 mx-auto row justify-content-center">
+    <div class="container mt-3 mx-auto row justify-content-center">
+      <h3 id="notes-heading" class="mb-1 mt-3 text-center"> <span aria-label="	G clef">&#119070;</span> Enter your fret numbers
+      </h3>
       <form id="notes-form" class="col-sm-6 row g-3">
         <div class="col-sm-2 custom">
           <label for="str1" class="form-label fade-in-one"><span id="sixth" class="h4 string">E</span></label>
@@ -125,14 +137,6 @@
           <button id="page-reset" class="btn btn-dark mx-2" type="submit">
             RESET
           </button>
-          <div class="form-check form-check-inline ms-3 my-3 border-bottom border-dark">
-            <input class="form-check-input" type="radio" name="sharps-flats" id="sharp-key" value="sharp" checked>
-            <label class="form-check-label fs-5" for="sharps">Sharp keys</label>
-          </div>
-          <div class="form-check form-check-inline my-3 border-bottom border-dark">
-            <input class="form-check-input" type="radio" name="sharps-flats" id="flat-key" value="flat">
-            <label class="form-check-label fs-5" for="flats">Flat keys</label>
-          </div>
         </div>
       </form>
     </div>

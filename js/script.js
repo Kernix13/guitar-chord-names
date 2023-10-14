@@ -13,8 +13,8 @@ import outputToDom from "./modules/outputToDom.js";
 const notesFormElement = document.getElementById("notes-form");
 const notesFormSubmitBtn = notesFormElement.querySelector("#form-submit");
 const pageResetBtn = notesFormElement.querySelector("#page-reset");
-const sharpRadioBtn = notesFormElement.querySelector("#sharp-key");
-const flatRadioBtn = notesFormElement.querySelector("#flat-key");
+const sharpRadioBtn = document.querySelector("#sharp-key");
+const flatRadioBtn = document.querySelector("#flat-key");
 const altTuningsFormElement = document.getElementById("tunings-form");
 
 const userChordNotes = [];
@@ -163,6 +163,10 @@ altTuningsFormElement.addEventListener("submit", setTuning);
 notesFormElement.addEventListener("submit", function (e) {
   e.preventDefault();
   getChordName();
+
+  document.querySelector('#notes-heading').scrollIntoView({
+    behavior: 'smooth'
+  });
 });
 
 // 4. SUBMIT BUTTON: Submit button to scroll to results

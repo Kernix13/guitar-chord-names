@@ -14,6 +14,8 @@ export default function setTuning(e) {
 
   const selectedOption = altTuningsElement.options[altTuningsElement.selectedIndex].value;
   const notesOfOpenStrings = TUNINGS[selectedOption].split("-");
+  const sharpRadioBtn = document.querySelector("#sharp-key");
+  const flatRadioBtn = document.querySelector("#flat-key");
 
   // Set the innerText above inputs
   sixth.innerText = notesOfOpenStrings[0];
@@ -31,8 +33,17 @@ export default function setTuning(e) {
     second.innerText, 
     first.innerText
   ];
+
   localStorage.setItem("userStrings", savedUserTuning);
   localStorage.setItem("optionVal", selectedOption);
 
-  pageReset();
+  if (sharpRadioBtn.checked) {
+    const savedUserKey = sharpRadioBtn.value;
+    localStorage.setItem("userKey", savedUserKey);
+  } else if (flatRadioBtn.checked) {
+    const savedUserKey = flatRadioBtn.value;
+    localStorage.setItem("userKey", savedUserKey);
+  }
+
+  // pageReset();
 }
