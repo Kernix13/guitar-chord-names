@@ -181,22 +181,14 @@ pageResetBtn.addEventListener("click", pageReset);
 
 /**
  *    DONE:
- * ✅ buildUserStrings.js
- * ✅ checkIndices.js
- * ✅ enharmonics.js
- * ✅ getUserNotes.js
- * ✅ loadLocalTuning.js
- * ✅ noMatchError.js
- * ✅ notEnoughNotesError.js
- * ✅ outputToDom.js
- * ✅ setTuning.js
+ * ✅ Add tuning to localStorage
+ * ✅ Add sharp/flat key to localStorage
+ * ✅ Set tuning and sharp/flat key from localStorage
  * 
  *    TO-DO:
- * 📌 1. pageReset.js DONE but .reload() is wrong - REDO
- *       - Can I copy and change outPutToDom?
- * 📌 2. Need to add radio buttons into localStorage
- * 📌 3. Need to have radio button & tuning selected after page reset
- * 📌 4. chordsFound will either have 0 or 1 chord, so it should
- *       not be plural
+ * 📌 1. chordsFound (either 0 or 1) should be singular: chordFound
+ * 📌 2. Finish updating chord-intervals.json
+ * 📌 3. pageReset.js -> .reload() is wrong - REDO
+ *     - havine a major problem with this
  * 
  */
