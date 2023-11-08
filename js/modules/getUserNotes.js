@@ -1,16 +1,23 @@
 import { allUserStrings } from "./buildUserStrings.js";
 
+/** @type {HTMLElement} */
 const numberInputElements = document.querySelectorAll('.note');
+/** @type {HTMLElement} */
 const sharpRadioBtn = document.querySelector("#sharp-key");
+/** @type {HTMLElement} */
 const flatRadioBtn = document.querySelector("#flat-key");
+
+/** @type {array} */
 const userFretNumbers = [];
 
 /**
- * Pushes onto userChordNotes[] the chromatic note name that corresponds
- * to the fret numbers entered by the user, or pushes undefined for any
- * string where the user did not add a fret number.
+ * @description - Pushes onto userChordNotes[] the chromatic note name
+ * that corresponds to the fret numbers entered by the user, or pushes
+ * undefined for any string where the user did not add a fret number.
  * 
+ * @module getUserNotes
  * @param {array} notes 
+ * @function getUserNotes
  */
 export default function getUserNotes(notes) {
 
@@ -20,7 +27,7 @@ export default function getUserNotes(notes) {
   
   if (sharpRadioBtn.checked) {
     
-    // Using standard tuning to name these variables
+    /** @type {string[]} */
     const [sharpLoE, sharpA, sharpD, sharpG, sharpB, sharpHiE] = [...allUserStrings];
     
     notes.push(
@@ -32,6 +39,8 @@ export default function getUserNotes(notes) {
       sharpHiE[userFretNumbers[5]]
     );
   } else if (flatRadioBtn.checked) {
+
+    /** @type {string[]} */
     const [flatLoE, flatA, flatD, flatG, flatB, flatHiE] = [...allUserStrings];
 
     notes.push(

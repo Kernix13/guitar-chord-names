@@ -1,9 +1,12 @@
 /**
- * location.reload() is being used to clear the DOM which is not the 
- * correct approach. This is a priority refactor.
+ * @description - location.reload() to clear the DOM which
+ * This is not the correct approach. This is a priority refactor.
+ * 
+ * @module pageReset
  */
 export default function pageReset() {
-
+  
+  /** @type {HTMLElement} */
   const numberInputElements = document.querySelectorAll('.note');
   
   // Firefox not clearing input fields
