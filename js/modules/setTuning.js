@@ -2,19 +2,24 @@ import { TUNINGS } from "../data/constants.js";
 import pageReset from "./pageReset.js";
 
 /**
- * Set innerText above number inputs for the tuning the user selected.
+ * @description - Set innerText above number inputs for selected tuning.
  * Using pageReset to reload the page which triggers the animation.
  * 
+ * @module setTuning
  * @param {Event} e To prevent the default action of the form submit.
  */
 export default function setTuning(e) {
   e.preventDefault();
 
+  /** @type {HTMLElement} */
   const altTuningsElement = document.querySelector("#alt-tunings");
-
+  /** @type {string} */
   const selectedOption = altTuningsElement.options[altTuningsElement.selectedIndex].value;
+  /** @type {string[]} */
   const notesOfOpenStrings = TUNINGS[selectedOption].split("-");
+  /** @type {HTMLElement} */
   const sharpRadioBtn = document.querySelector("#sharp-key");
+  /** @type {HTMLElement} */
   const flatRadioBtn = document.querySelector("#flat-key");
 
   // Set the innerText above inputs
@@ -25,6 +30,7 @@ export default function setTuning(e) {
   second.innerText = notesOfOpenStrings[4];
   first.innerText = notesOfOpenStrings[5];
 
+  /** @type {string[]} */
   const savedUserTuning = [
     sixth.innerText, 
     fifth.innerText, 
@@ -38,9 +44,11 @@ export default function setTuning(e) {
   localStorage.setItem("optionVal", selectedOption);
 
   if (sharpRadioBtn.checked) {
+    /** @type {string} */
     const savedUserKey = sharpRadioBtn.value;
     localStorage.setItem("userKey", savedUserKey);
   } else if (flatRadioBtn.checked) {
+    /** @type {string} */
     const savedUserKey = flatRadioBtn.value;
     localStorage.setItem("userKey", savedUserKey);
   }

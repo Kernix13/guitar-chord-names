@@ -1,3 +1,10 @@
+/**
+ * @description - Array of objects for every chord type and 
+ * related information for each chord type
+ * 
+ * @module chordInfo
+ * @type {array}
+ */
 export const chordInfo = [
   {
     Chord: "",

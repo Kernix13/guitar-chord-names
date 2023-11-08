@@ -2,12 +2,13 @@ import { checkIndices, chordsFound } from "./checkIndices.js";
 import { sharp, flat } from "../data/constants.js";
 
 /**
- * 8. Handle edge cases/exceptions: enharmonic equivalents
- * checkIndices uses uniqueNoteIntervals and pshes to chordsFound
+ * @description - Handle edge cases/exceptions: enharmonic equivalents
  * 
+ * @module enharmonics
  * @param {object} noteTones 
  * @param {array} octave 
- * @param {array} intervals 
+ * @param {array} intervals
+ * @function enharmonics
  */
 export default function enharmonics(noteTones, octave, intervals) {
   
