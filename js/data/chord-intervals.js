@@ -14,6 +14,13 @@ export const chordInfo = [
     scales: [{ "Major Scale": ["1st", " 4th", " 5th"] }, { "Minor Pentatonic": ["2nd"] }, { "Blues Scale": ["2nd"] }, { "Harmonic Minor": ["5th", " 6th"] }, { "Melodic Minor": ["4th", " 5th"] }, { Augmented: ["1st", " 3rd", " 5th"] }, { "HW Diminished": ["1st", " 3rd", " 5th", " 7th"] }, { "Major Bebop": ["1st", " 3rd", " 4th", " 5th"] }, { "Minor Bebop": ["1st", " 3rd", " 5th", " 8th"] }]
   },
   {
+    Chord: " lyd",
+    Intervals: ["1", "♯4", "5"],
+    steps: [0, 6, 7],
+    Tendency: ["I", "II", "V"],
+    scales: [{ "Major Scale": ["4th"] }, { "Harmonic Minor": ["6th"] }, { "Melodic Minor": ["4th"] }, { "Major Bebop": ["4th"] }, { "Minor Bebop": ["3rd", " 8th"] }]
+  },
+  {
     Chord: "6",
     Intervals: ["1", "3", "5", "6"],
     steps: [0, 4, 7, 9],
@@ -639,6 +646,13 @@ export const chordInfo = [
     steps: [0, 3, 7],
     Tendency: ["♭VII", "♭III"],
     scales: [{ "Major Scale": ["2nd", " 3rd", " 6th"] }, { "Minor Pentatonic": ["1st"] }, { "Blues Scale": ["1st"] }, { "Harmonic Minor": ["1st", " 4th", " 6th"] }, { "Melodic Minor": ["1st", " 2nd"] }, { Augmented: ["1st", " 3rd", " 5th"] }, { "HW Diminished": ["1st", " 3rd", " 5th", " 7th"] }, { "Major Bebop": ["2nd", " 3rd", " 4th", " 7th"] }, { "Minor Bebop": ["1st", " 2nd", " 6th", " 7th"] }]
+  },
+  {
+    Chord: " phryg",
+    Intervals: ["1", "♭2", "5"],
+    steps: [0, 1, 7],
+    Tendency: ["♭II", "II", "VII"],
+    scales: [{ "Major Scale": ["3rd"] }, { "Blues Scale": ["3rd"] }, { "Harmonic Minor": ["5th"] }, { "Melodic Minor": ["2nd"] }, { "Major Bebop": ["3rd"] }, { "Minor Bebop": ["2nd", " 7th"] }]
   },
   {
     Chord: "m6",
