@@ -20,7 +20,7 @@ A vanilla JavaScript app to return the name of a guitar chord given the chord fr
 
 ## Live Version
 
-View the [Guitar Chord Namer app](https://everyguitarchord.com/what-chord-is-this.html) on my guitar chords website. You can read more about the project on [my portfolio](https://courageous-cuchufli-816711.netlify.app/) site.
+View the [Guitar Chord Namer app](https://everyguitarchord.com/what-chord-is-this.html) on my guitar chords website. You can read more about the project on [my portfolio](https://jameskernicky.netlify.app/) site.
 
 ## Feedback and Bugs
 
